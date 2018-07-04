@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-md navbar-light" style="background-color:#4CBB17;">
 
-    <a href="#" class="navbar-brand" style="height: 50px"><img src="/img/logo.jpg" style="max-height:140%; margin:-7px;"></a>
+    <a href="#" class="navbar-brand" style="height: 50px"><img src="img/logo.svg" style="max-height:140%; margin:-7px;"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
