@@ -1,49 +1,28 @@
-
-<nav class="navbar navbar-expand-md navbar-light" style="background-color:#4CBB17;">
-
-    <a href="#" class="navbar-brand" style="height: 50px"><img src="img/logo.svg" style="max-height:140%; margin:-7px;"></a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    About Us
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Introduction</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Faculty</a>
-                    <a class="dropdown-item" href="#">Facility</a>
-                </div>
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a href="#" class="brand-logo hide-on-med-and-down">Cincinnati Dance and Movement Center</a>
+        <a href="#" class="brand-logo brand-img"><img src="img/dancer.svg"></a>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a href="#">Link</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">News</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Classes</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dance Teams
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">The Cincinnati Dance Crew</a>
-                    <a class="dropdown-item" href="#">The Cincinnati Ballet Ensemble</a>
-                    <a class="dropdown-item" href="#">The Cincinnati Dance All-Stars</a>
-                    <a class="dropdown-item" href="#">The Cincinnati Show Choir</a>
-                </div>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
+            <li><a class="dropdown-button" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+            <li>
+                <a href="#">Link</a>
             </li>
         </ul>
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
-            </li>
-        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+        </a>
     </div>
 </nav>
