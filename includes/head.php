@@ -4,6 +4,7 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <?php if($base = getenv('CINCI_DANCE_BASE')): //include base tag only if defined in environment
 ?>
@@ -13,18 +14,16 @@
 <title>Cincinnati Dance and Movement Center</title>
 
 <style>
-    body{
-        background-color:aliceblue;
-        font-family:  serif;
-    }
-    .dropdown-item:active {
-        background-color:bisque !important;
-    }
     .nav-link{
         color: white;
     }
 
 </style>
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/carousel.css">
 
 <script>
     (function(d, s, id) {

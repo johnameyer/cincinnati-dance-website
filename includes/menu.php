@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-md navbar-light" style="background-color:#4CBB17;">
+<nav class="navbar navbar-expand-md navbar-light drop" style="background-color:#4CBB17;">
 
     <a href="#" class="navbar-brand" style="height: 50px"><img src="img/logo.svg" style="max-height:140%; margin:-7px;"></a>
 
