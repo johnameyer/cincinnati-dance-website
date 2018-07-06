@@ -4,7 +4,7 @@
   <li class="divider"></li>
   <li><a href="#!">three</a></li>
 </ul>
-<nav class="white" role="navigation">
+<nav class="green darken-1 white-text" role="navigation">
     <div class="nav-wrapper container">
         <a href="#" class="brand-logo hide-on-med-and-down">Cincinnati Dance and Movement Center</a>
         <a href="#" class="brand-logo brand-img"><img src="img/dancer.svg"></a>

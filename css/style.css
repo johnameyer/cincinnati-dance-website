@@ -1,23 +1,7 @@
 /* Custom Stylesheet */
 
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
-nav ul a,
-nav .brand-logo {
-  color: #444;
-}
-
 p {
   line-height: 2rem;
-}
-
-.sidenav-trigger {
-  color: #26a69a;
 }
 
 .parallax-container {
@@ -69,4 +53,18 @@ nav img {
   nav>.nav-wrapper a.brand-img {
     margin-left: -140px;
   }
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
 }
