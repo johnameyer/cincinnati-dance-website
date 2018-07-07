@@ -13,7 +13,7 @@
 
 	<div class="drop-up" style="width:100%; padding: 2rem">
 
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row justify-content-md-center">
 				<div class="col-md-10 col-md-offset-1">
 

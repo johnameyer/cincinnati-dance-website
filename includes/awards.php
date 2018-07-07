@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md">
         <div class="card">
             <img class="card-img-top" src="http://via.placeholder.com/200x200" alt="Card image cap">
             <div class="card-body">
@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md">
         <div class="card">
             <img class="card-img-top" src="http://via.placeholder.com/200x200" alt="Card image cap">
             <div class="card-body">
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md">
         <div class="card">
             <img class="card-img-top" src="http://via.placeholder.com/200x200" alt="Card image cap">
             <div class="card-body">

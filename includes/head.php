@@ -13,17 +13,11 @@
 
 <title>Cincinnati Dance and Movement Center</title>
 
-<style>
-    .nav-link{
-        color: white;
-    }
-
-</style>
-
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/menu.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/carousel.css">
+<link rel="stylesheet" href="css/awards.css">
 
 <script>
     (function(d, s, id) {

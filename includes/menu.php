@@ -1,16 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light drop">
 
-<nav class="navbar navbar-expand-md navbar-light drop" style="background-color:#4CBB17;">
+    <a href="#" class="navbar-brand">
+        <img src="img/logo.svg" style="height: 40px">
+        <span class="d-none d-md-inline">
+            Cincinnati Dance<span class="d-none d-lg-inline"> and Movement Center</span>
+        </span>
+    </a>
 
-    <a href="#" class="navbar-brand" style="height: 50px"><img src="img/logo.svg" style="max-height:140%; margin:-7px;"></a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav mr-auto">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                     About Us
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -27,7 +33,8 @@
                 <a class="nav-link" href="#">Classes</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                     Dance Teams
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,14 +43,18 @@
                     <a class="dropdown-item" href="#">The Cincinnati Dance All-Stars</a>
                     <a class="dropdown-item" href="#">The Cincinnati Show Choir</a>
                 </div>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gallery</a>
+                </li>
         </ul>
         <ul class="nav justify-content-end">
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact Us</a>
             </li>
         </ul>
+        <!--form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form-->
     </div>
 </nav>

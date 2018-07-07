@@ -1,7 +1,19 @@
 .carousel {
     width: 100%;
+}
+
+#gallery-header .carousel-inner {
     z-index: -1;
 }
+
+#testimonials .carousel-item > * {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+}
+
 .carousel-inner {
     background-color: #999;
 }
