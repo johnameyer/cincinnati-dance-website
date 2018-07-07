@@ -2,7 +2,7 @@
 
     <a href="#" class="navbar-brand">
         <img src="img/logo.svg" style="height: 40px">
-        <span class="d-none d-md-inline">
+        <span>
             Cincinnati Dance<span class="d-none d-lg-inline"> and Movement Center</span>
         </span>
     </a>

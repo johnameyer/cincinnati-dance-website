@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/carousel.css">
 <link rel="stylesheet" href="css/awards.css">
+<link rel="stylesheet" href="css/mobile.css">
 
 <script>
     (function(d, s, id) {
