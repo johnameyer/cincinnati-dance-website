@@ -15,12 +15,13 @@
 <style>
     body{
         background-color:aliceblue;
-        font-family:  serif;
+        font-family:  sans-serif;
     }
     .dropdown-item:active {
         background-color:bisque !important;
     }
     .nav-link{
+        font-family: “Segoe UI”, sans-serif;
         color: white;
     }
 
