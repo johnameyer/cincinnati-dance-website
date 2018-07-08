@@ -8,22 +8,29 @@
 <body>
 	<?php include_once 'includes/menu.php'; ?>
 
+	<div style="height: 475px; position: relative">
 
-	<?php include_once 'includes/gallery-header.php'; ?>
+		<?php include_once 'includes/gallery-header.php'; ?>
 
-	<div class="drop-up" style="width:100%; padding: 2rem">
+		<?php include_once 'includes/actioncalls.php'; ?>
 
-		<div class="container-fluid">
-			<div class="row justify-content-md-center">
-				<div class="col-md-10 col-md-offset-1">
+	</div>
 
-					<?php include_once 'includes/info.php'; ?>
+	<div class="drop-up">
+		<div class="container-fluid body-container">
+			<div class="body-inner">
+				<div class="row justify-content-md-center">
+					<div class="col-md-10 col-md-offset-1">
+						<br>
 
-					<?php include_once 'includes/awards.php'; ?>
+						<?php include_once 'includes/info.php'; ?>
 
-					<?php include_once 'includes/actioncalls.php'; ?>
+						<?php include_once 'includes/awards.php'; ?>
 
-					<?php include_once 'includes/calendar.php'; ?>
+						<?php include_once 'includes/calendar.php'; ?>
+
+						<br>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -6,9 +6,13 @@
     z-index: -1;
 }
 
+#gallery-header, #gallery-header * {
+    height: 100%;
+}
+
 #gallery-header .carousel-inner img {
     object-fit: cover;
-    min-height: 150px;
+    height: 100%;
 }
 
 #testimonials .carousel-item > * {
