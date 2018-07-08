@@ -1,3 +1,6 @@
+<?php
+set_include_path('../');
+?>
 <!doctype html>
 <html lang="en">
 
@@ -12,14 +15,6 @@
 <body>
 	<?php include_once 'includes/menu.php'; ?>
 
-	<div style="height: 475px; position: relative">
-
-		<?php include_once 'includes/gallery-header.php'; ?>
-
-		<?php include_once 'includes/actioncalls.php'; ?>
-
-	</div>
-
 	<div class="drop-up">
 		<div class="container-fluid body-container">
 			<div class="body-inner">
@@ -27,11 +22,7 @@
 					<div class="col-md-10 col-md-offset-1">
 						<br>
 
-						<?php include_once 'includes/info.php'; ?>
-
-						<?php include_once 'includes/awards.php'; ?>
-
-						<?php include_once 'includes/calendar.php'; ?>
+                        <p> Hello content </p>
 
 						<br>
 					</div>
@@ -39,8 +30,6 @@
 			</div>
 		</div>
 	</div>
-
-	<?php include_once 'includes/testimonials.php'; ?>
 
 	<?php include_once 'includes/footer.php'; ?>
 

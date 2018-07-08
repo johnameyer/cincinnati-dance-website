@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light drop">
 
-    <a href="#" class="navbar-brand">
+    <a href="" class="navbar-brand">
         <img src="img/logo.svg" style="height: 40px">
         <span>
-            Cincinnati Dance<span class="d-none d-lg-inline"> and Movement Center</span>
+            Cincinnati Dance
+            <span class="d-none d-lg-inline"> and Movement Center</span>
         </span>
     </a>
 
@@ -20,17 +21,13 @@
                     About Us
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Introduction</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Faculty</a>
-                    <a class="dropdown-item" href="#">Facility</a>
+                    <a class="dropdown-item" href="about/story">Our Story</a>
+                    <a class="dropdown-item" href="about/crew">Our Crew</a>
+                    <a class="dropdown-item" href="about/studio">Our Studio</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">News</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Classes</a>
+                <a class="nav-link" href="events/">News and Events</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -38,18 +35,19 @@
                     Dance Teams
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">The Cincinnati Dance Crew</a>
-                    <a class="dropdown-item" href="#">The Cincinnati Ballet Ensemble</a>
-                    <a class="dropdown-item" href="#">The Cincinnati Dance All-Stars</a>
-                    <a class="dropdown-item" href="#">The Cincinnati Show Choir</a>
+                    <a class="dropdown-item" href="team/ballet">Ballet Program</a>
+                    <a class="dropdown-item" href="team/open">Open Division</a>
+                    <a class="dropdown-item" href="team/performance">Performance Teams</a>
                 </div>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Gallery</a>
-                </li>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="gallery">Gallery</a>
+            </li>
         </ul>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="contact">Contact Us</a>
             </li>
         </ul>
         <!--form class="form-inline my-2 my-lg-0">
