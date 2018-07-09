@@ -32,7 +32,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    Dance Teams
+                    Programs
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="team/ballet">Ballet Program</a>
@@ -40,14 +40,16 @@
                     <a class="dropdown-item" href="team/performance">Performance Teams</a>
                 </div>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="dancers">For Dancers</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="gallery">Gallery</a>
             </li>
         </ul>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link" href="contact">Contact Us</a>
+                <a class="btn btn-primary" href="contact">Contact Us</a>
             </li>
         </ul>
         <!--form class="form-inline my-2 my-lg-0">
