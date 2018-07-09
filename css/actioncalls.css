@@ -4,4 +4,7 @@
     height: 80%;
     position: absolute;
     top: 10%;
+    
+    display: flex !important;
+    align-items: center;
 }

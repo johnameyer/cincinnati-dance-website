@@ -4,7 +4,7 @@
         <img src="img/logo.svg" style="height: 40px">
         <span>
             Cincinnati Dance
-            <span class="d-none d-lg-inline"> and Movement Center</span>
+            <span class="d-none d-lg-inline"> &amp; Movement Center</span>
         </span>
     </a>
 
@@ -56,3 +56,6 @@
         </form-->
     </div>
 </nav>
+<div id="spacer">
+
+</div>
