@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light drop">
+<nav class="navbar navbar-expand-md navbar-light sticky-top bg-light drop">
 
     <a href="" class="navbar-brand">
         <img src="img/logo.svg" style="height: 40px">
