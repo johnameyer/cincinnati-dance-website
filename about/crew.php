@@ -47,11 +47,15 @@ set_include_path('../');
 
                             <h1>Our Crew</h1>
 
-                            <?php include 'includes/left-card.php' ?>
-                            <?php include 'includes/right-card.php' ?>
-                            <?php include 'includes/left-card.php' ?>
-
-
+                            <?php
+                                $LEFT = false;
+                                $file = file_get_contents('../data/staff.json');
+                                $json = json_decode($file);
+                                foreach($json as $OBJ):
+                            ?>
+                                <?php $LEFT = !$LEFT; ?>
+                                <?php include 'includes/components/staff-card.php' ?>
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </div>
