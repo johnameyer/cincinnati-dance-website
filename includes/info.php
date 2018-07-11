@@ -1,4 +1,8 @@
-<p class="lead" style="margin-left:5px; margin-right:5px">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie porta eros vel congue. Nam placerat ut risus nec faucibus. Quisque nec lectus vitae erat interdum semper. In hac habitasse platea dictumst. Donec in lacus ut enim faucibus aliquet at non velit. Pellentesque interdum a est quis euismod. Nunc interdum leo diam, porta varius diam volutpat at. Mauris urna nisl, facilisis et facilisis non, mollis ut nibh. Nulla facilisi. Nulla sit amet malesuada dui. Maecenas at mi non nisl vestibulum elementum sit amet sit amet augue. Fusce iaculis hendrerit sem eget auctor. Aliquam consequat ullamcorper erat id porta.
+<p class="lead" style="margin-left:5px; margin-right:5px; text-align: center;">
+    At CDMC, dancers of all ages and ability levels can express themselves through the art of dance. With our caring, expert faculty and our state-of-the-art facility, we offer a wide range of classes to meet the needs of a diverse student body, from children experiencing their first dance class to professionals wanting to brush up on their technique. 
+    <br>
+    We provide classes for ages two through adults, beginning through advanced, as well as youth performance teams for students who wish to gain performance experience without the stress and expense of entering dance competitions. 
+    <br>
+    At the Cincinnati Dance and Movement Center, everyone is welcomed.  Come dance with us!
 </p>
 <hr>

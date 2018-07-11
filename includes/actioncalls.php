@@ -1,13 +1,4 @@
-<div class="jumbotron d-lg-none">
-    <div>
-        <h1 class="display-4">Come Dance With Us!</h1>
-        <p class="lead">We're currently filling spots in our classes for this fall.</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-    </div>
-</div>
-<div class="jumbotron d-none d-lg-block">
+<div class="jumbotron d-lg-none" style="opacity:1">
     <div>
         <h1 class="display-4">Come Dance With Us!</h1>
         <p class="lead">We're currently filling spots in our classes for this fall.</p>
