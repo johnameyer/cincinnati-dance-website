@@ -21,7 +21,7 @@ set_include_path('../');
             {
                 $name = $namer;
                 $img = "https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400";
-                $description = "Lorem Ipsum etc";    
+                $description = "Lorem Ipsum etc";
             }
         }
 
