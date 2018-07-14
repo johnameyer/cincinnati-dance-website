@@ -46,9 +46,9 @@
                     Class Schedule 2018-2019
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="team/ballet">All</a>
+                    <a class="dropdown-item" href="classes/">All</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="classes/pre-school">Pre-School (ages 2 to 6)</a>
+                    <a class="dropdown-item" href="classes/preschool">Preschool (ages 2 to 6)</a>
                     <a class="dropdown-item" href="classes/ballet">Ballet Program (6 to adult)</a>
                     <a class="dropdown-item" href="classes/tap-jazz-hip-hop">Tap, Jazz, &amp; Hip-Hop (5 to adult)</a>
                     <a class="dropdown-item" href="classes/contemporary-acro-dance">Contemporary &amp; Acro-Dance (10 to adult)</a>

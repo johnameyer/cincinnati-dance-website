@@ -21,9 +21,9 @@ set_include_path('../');
 		<div class="container-fluid body-container">
 			<div class="body-inner">
 				<div class="justify-content-md-center">
-                        <h1>Pre-school classes</h1>
+                        <h1>Preschool classes</h1>
 
-                        <p> Our pre-school classes are designed to introduce basic dance technique, with a focus on developing gross motor skills, musicality, and dance fundamentals in a fun and encouraging environment.  Dress code is dancewear (leotard and tights for girls, shorts and a close-fitting T-shirt for boys) and ballet shoes (pink for girls, black for boys.)  Hair secured back from face and no dangling jewelry please. </p>
+                        <p> Our preschool classes are designed to introduce basic dance technique, with a focus on developing gross motor skills, musicality, and dance fundamentals in a fun and encouraging environment.  Dress code is dancewear (leotard and tights for girls, shorts and a close-fitting T-shirt for boys) and ballet shoes (pink for girls, black for boys.)  Hair secured back from face and no dangling jewelry please. </p>
 
                         <br>
                         
@@ -40,7 +40,7 @@ set_include_path('../');
                             </thead>
                             <tbody>
                             <?php
-                                $file = file_get_contents('../data/pre-school-data.json');
+                                $file = file_get_contents('../data/preschool-data.json');
 								$json = json_decode($file);
 								$i = 0;
                                 foreach($json as $OBJ):
