@@ -10,29 +10,13 @@ set_include_path('../');
         <link rel="stylesheet" href="css/carousel.css">
         <link rel="stylesheet" href="css/awards.css">
         <link rel="stylesheet" href="css/actioncalls.css">
-        <?php
-
-        class staff {
-            public $name;
-            protected $img;
-            protected $description;
-
-            public function __construct($namer)
-            {
-                $name = $namer;
-                $img = "https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400";
-                $description = "Lorem Ipsum etc";
+        <style>
+            .card .row {
+                display: flex;
+                align-items: center;
+                padding: 20px;
             }
-        }
-
-
-        $crew = array(new staff('heck'), new staff('heck'), new staff('heck'));
-
-        for ($x = 0; $x <= count($crew) - 1; $x++) {
-            echo $crew[$x]->name;
-
-        }
-        ?>
+        </style>
     </head>
 
     <body>

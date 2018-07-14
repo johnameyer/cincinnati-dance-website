@@ -40,6 +40,22 @@
                     <a class="dropdown-item" href="team/performance">Performance Teams</a>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Class Schedule 2018-2019
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="team/ballet">All</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="classes/pre-school">Pre-School (ages 2 to 6)</a>
+                    <a class="dropdown-item" href="classes/ballet">Ballet Program (6 to adult)</a>
+                    <a class="dropdown-item" href="classes/tap-jazz-hip-hop">Tap, Jazz, &amp; Hip-Hop (5 to adult)</a>
+                    <a class="dropdown-item" href="classes/contemporary-acro-dance">Contemporary &amp; Acro-Dance (10 to adult)</a>
+                    <a class="dropdown-item" href="classes/performance-teams">Performance Teams (8 to adult)</a>
+                    <a class="dropdown-item" href="classes/drop-in">Drop-In Classes (6 to adult)</a>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="dancers">For Dancers</a>
             </li>
