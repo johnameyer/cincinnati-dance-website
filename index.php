@@ -23,19 +23,13 @@
         <div class="drop-up">
             <div class="container-fluid body-container">
                 <div class="body-inner">
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-10 col-md-offset-1">
-                            <br>
-
+                    <div class="justify-content-md-center">
                             <?php include_once 'includes/info.php'; ?>
 
                             <?php include_once 'includes/awards.php'; ?>
 
                             <?php include_once 'includes/calendar.php'; ?>
-
-                            <br>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

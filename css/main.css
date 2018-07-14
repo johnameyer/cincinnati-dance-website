@@ -16,6 +16,7 @@
 .body-inner {
     background-color: white;
     margin: 0 5%;
+    padding: 20px 5%;
 }
 
 .green {
@@ -32,4 +33,9 @@
 
 .green-dark-3 {
     background-color: #024B2F;
+}
+
+#header-image {
+    object-fit: cover;
+    height: 200px;
 }

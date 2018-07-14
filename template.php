@@ -13,13 +13,16 @@ set_include_path('../');
 </head>
 
 <body>
-	<?php include_once 'includes/menu.php'; ?>
+    <?php include_once 'includes/menu.php'; ?>
+    
+    <?php include_once 'includes/header-image.php'; ?>
 
 	<div class="drop-up">
 		<div class="container-fluid body-container">
 			<div class="body-inner">
 				<div class="justify-content-md-center">
-                    <p> Hello content </p>
+                    <h1>Title</h1>
+                    <p>Hello there!</p>
 				</div>
 			</div>
 		</div>
