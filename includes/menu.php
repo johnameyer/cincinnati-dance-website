@@ -43,7 +43,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    Class Schedule 2018-2019
+                    Class Schedule
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="classes/">All</a>
