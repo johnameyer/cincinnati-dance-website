@@ -24,66 +24,73 @@ set_include_path('../');
 
                         <?php include_once 'includes/class-nav.php'; ?>
                         <script>document.getElementById("navpre").className = "nav-link active"</script>
-                        <h2>Preschool classes</h2>
-
-                        <p> Our preschool classes are designed to introduce basic dance technique, with a focus on developing gross motor skills, musicality, and dance fundamentals in a fun and encouraging environment.  Dress code is dancewear (leotard and tights for girls, shorts and a close-fitting T-shirt for boys) and ballet shoes (pink for girls, black for boys.)  Hair secured back from face and no dangling jewelry please. </p>
-
+                        <h2>Preschool Classes</h2>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="card" style="width:50%;margin:auto;">
+                                    <img src="img/classes/preschool.jpg" class="card-img" alt="preschool picture">
+                                </div>
+                            </div>
+                        </div>
                         <br>
+                                <p> Our preschool classes are designed to introduce basic dance technique, with a focus on developing gross motor skills, musicality, and dance fundamentals in a fun and encouraging environment.  Dress code is dancewear (leotard and tights for girls, shorts and a close-fitting T-shirt for boys) and ballet shoes (pink for girls, black for boys.)  Hair secured back from face and no dangling jewelry please. </p>
 
-                        <table class="table table-responsive">
-                            <thead>
-                                <th scope="col">Class</th>
-                                <th scope="col">Days</th>
-                                <th scope="col">Times</th>
-                                <th scope="col">Ages</th>
-                                <th scope="col">Class Starts</th>
-                                <th scope="col">Class Ends</th>
-                                <th scope="col">Tuition</th>
-                                <th scope="col">Notes</th> 
-                            </thead>
-                            <tbody>
-                                <?php
-                                $file = file_get_contents('../data/preschool-data.json');
-                                $json = json_decode($file);
-                                $i = 0;
-                                foreach($json as $OBJ):
-                                ?>
-                                <tr>
-                                    <td>
-                                        <?php echo $OBJ->title; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $OBJ->daysOfWeek; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $OBJ->time; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $OBJ->ages; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $OBJ->startDate; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $OBJ->endDate; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $OBJ->tuition; ?>
-                                    </td><td>
-                                    <?php echo $OBJ->notes; ?>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                <br>
+
+                                <table class="table table-responsive">
+                                    <thead>
+                                        <th scope="col">Class</th>
+                                        <th scope="col">Days</th>
+                                        <th scope="col">Times</th>
+                                        <th scope="col">Ages</th>
+                                        <th scope="col">Class Starts</th>
+                                        <th scope="col">Class Ends</th>
+                                        <th scope="col">Tuition</th>
+                                        <th scope="col">Notes</th> 
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $file = file_get_contents('../data/preschool-data.json');
+                                        $json = json_decode($file);
+                                        $i = 0;
+                                        foreach($json as $OBJ):
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $OBJ->title; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $OBJ->daysOfWeek; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $OBJ->time; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $OBJ->ages; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $OBJ->startDate; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $OBJ->endDate; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $OBJ->tuition; ?>
+                                            </td><td>
+                                            <?php echo $OBJ->notes; ?>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <?php include_once 'includes/footer.php'; ?>
+                <?php include_once 'includes/footer.php'; ?>
 
-        <?php include_once 'includes/javascript.php'; ?>
-    </body>
+                <?php include_once 'includes/javascript.php'; ?>
+                </body>
 
-</html>
+            </html>
