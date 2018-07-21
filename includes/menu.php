@@ -50,7 +50,8 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="classes/preschool">Preschool (ages 2 to 6)</a>
                     <a class="dropdown-item" href="classes/ballet">Ballet Program (6 to adult)</a>
-                    <a class="dropdown-item" href="classes/tap-jazz-hip-hop">Tap, Jazz, &amp; Hip-Hop (5 to adult)</a>
+                    <a class="dropdown-item" href="classes/tap">Tap (6 to adult)</a>
+                    <a class="dropdown-item" href="classes/jazz-hip-hop">Jazz &amp; Hip-Hop (5 to adult)</a>
                     <a class="dropdown-item" href="classes/contemporary-acro-dance">Contemporary &amp; Acro-Dance (10 to adult)</a>
                     <a class="dropdown-item" href="classes/performance-teams">Performance Teams (8 to adult)</a>
                     <a class="dropdown-item" href="classes/drop-in">Drop-In Classes (6 to adult)</a>

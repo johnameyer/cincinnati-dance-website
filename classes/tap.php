@@ -23,29 +23,27 @@ set_include_path('../');
                     <div class="justify-content-md-center">
 
                         <?php include_once 'includes/class-nav.php'; ?>
-                        <script>document.getElementById("navbal").className = "nav-link active"</script>
+                        <script>document.getElementById("navtap").className = "nav-link active"</script>
 
-                        <h2>Ballet Classes</h2>
+                        <h2>Tap Classes</h2>
 
                         <div class="row">
                             <div class="col-md-8">
-                                <p>Our Ballet Program is a leveled classical ballet program (beginners through pre-professional) under the direction of Ms. Mary Anne Schaeper (BA
-                                    and MA in Dance, UC College-Conservatory of Music) with a strong focus on correct technique while experiencing “la joie de danse” (the joy of
-                                    dance). Dress code is black leotard and pink tights (for girls) and black tights/leggings and close-fitting white t-shirt (for boys.) Pink split-sole
-                                    ballet shoes for girls and black split-sole ballet shoes for boys. Hair in a bun and no jewelry. All students are welcomed in our ballet program,
-                                    but for upper levels, an informal audition is usually required (such as participating in a class to determine correct level placement.) Please
-                                    contact us with any questions.</p>
-                                <p>
-                                    Please note that many of our upper-level ballet students take multiple ballet classes (and/or other classes we offer) per week, and are therefore
-                                    eligible for our multiple class discounts, which are as follows: 2nd class 10% discount, 3rd class 20% discount, 4th class 30% discount, 5th class 40%
-                                    discount, 6th class or more 50% discount. (calculated starting with longest class first, and going down to shortest class) Tuition listed is full price,
-                                    not including multi-class discounts.</p>
+                                <p>Our Tap program is a comprehensive program (beginners through advanced) that covers the range of tap styles, from vintage Broadway-style
+                                    tap to the newest trends in rhythm tap, under the direction of award-winning tap master Ms. Tina Marie Prentosito. Beginning tappers learn
+                                    correct tap technique and terminology under the tutelage of Ms. Imani (who trained for over a decade with Ms. Tina), and intermediate and
+                                    advanced students take class with Ms. Tina. Dress code is dancewear of any type for girls (leotard and tights, unitard, leggings and dance top,
+                                    etc.) and dancewear or exercise wear for boys (shorts/warm-ups and T-shirt, etc.) No pants that cover the shoes, no hair in face, no dangling
+                                    jewelry. Any style tap shoes are permitted for class. For performances, shoe requirements vary, so please see notes.</p>
+                                <p>Students taking more than one class per week are eligible for our multiple class discounts, which are as follows: 2nd class 10% discount, 3rd class
+                                    20% discount, 4th class 30% discount, 5th class 40% discount, 6th or more 50% discount. (calculated starting with longest class first, and going
+                                    down to shortest class) Tuition listed is full price, not including multi-class discounts.</p>
 
                                 <br>
                             </div>
                             <div class="col-md-4">
                                 <div class="card">
-                                    <img src="img/classes/ballet.jpg" class="card-img-top" alt="ballet picture">
+                                    <img src="img/classes/tap.jpg" class="card-img-top" alt="tap picture">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +63,7 @@ set_include_path('../');
                             </thead>
                             <tbody>
                                 <?php
-                                $file = file_get_contents('../data/ballet-data.json');
+                                $file = file_get_contents('../data/tap-data.json');
                                 $json = json_decode($file);
                                 $i = 0;
                                 foreach($json as $OBJ):

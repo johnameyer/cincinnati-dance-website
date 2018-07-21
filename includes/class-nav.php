@@ -8,7 +8,10 @@
         <a class="nav-link" id=navbal href="classes/ballet">Ballet</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id=navtap href="classes/tap-jazz-hip-hop">Tap, Jazz, & Hip-Hop</a>
+        <a class="nav-link" id=navtap href="classes/tap">Tap</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id=navhip href="classes/jazz-hip-hop">Jazz & Hip-Hop</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="classes/contemporary-acro-dance">Contemporary & Acro-Dance</a>
