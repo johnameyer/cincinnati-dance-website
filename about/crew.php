@@ -30,23 +30,24 @@ set_include_path('../');
                             <br>
 
                             <h1>Our Crew</h1>
-
-                            <?php
+                            <div class="row ">
+                                <?php
                                 $LEFT = false;
                                 $file = file_get_contents('../data/staff.json');
                                 $json = json_decode($file);
                                 foreach($json as $OBJ):
-                            ?>
+                                ?>
                                 <?php $LEFT = !$LEFT; ?>
                                 <?php include 'includes/components/staff-card.php' ?>
-                            <?php endforeach ?>
+                                <?php endforeach ?>
+                            </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <?php include_once 'includes/footer.php'; ?>
+                    <?php include_once 'includes/footer.php'; ?>
 
-                <?php include_once 'includes/javascript.php'; ?>
-                </body>
+                    <?php include_once 'includes/javascript.php'; ?>
+                    </body>
 
-            </html>
+                </html>

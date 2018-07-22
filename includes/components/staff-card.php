@@ -1,3 +1,4 @@
+        <div class="col-md-6">
 <div class="card" style="margin-top:30px; margin-bottom:30px">
     <div class="row ">
         <?php if($LEFT): ?>
@@ -21,4 +22,5 @@
         </div>
         <?php endif; ?>
     </div>
+</div>
 </div>
