@@ -23,7 +23,7 @@ set_include_path('../');
 				<div class="justify-content-md-center">
 
 					<?php include_once 'includes/class-nav.php'; ?>
-					<script>document.getElementById("class-nav-tap").className = "nav-link active"</script>
+					<script>document.getElementById("class-nav-jazz-hip-hop").className = "nav-link active"</script>
 
 					<h2>Jazz and Hip-Hop Classes</h2>
 
@@ -44,7 +44,10 @@ set_include_path('../');
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/jazz-hip-hop.jpg" class="card-img-top" alt="jazz and hip hop picture">
+								<img src="img/classes/hip-hop.jpg" class="card-img-top" alt="hip hop picture">
+							</div>
+							<div class="card">
+								<img src="img/classes/jazz.jpg" class="card-img-top" alt="jazz picture">
 							</div>
 						</div>
 					</div>

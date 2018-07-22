@@ -38,44 +38,45 @@ set_include_path('../');
 					<div class="row">
 						<div class="col-md-8">
 							<p><?php echo $result["Notes"]; ?></p>
+							<dl>
+								<dt>Name</dt>
+								<dd>
+									<?php echo $result["Name"]; ?>
+								</dd>
+								<dt>Days of Week</dt>
+								<dd>
+									<?php echo $result["Days"]; ?>
+								</dd>
+								<dt>Time of Day</dt>
+								<dd>
+									<?php echo $result["Times"]; ?>
+								</dd>
+								<dt>Appropiate Ages</dt>
+								<dd>
+									<?php echo $result["Ages"]; ?>
+								</dd>
+								<dt>Class starts</dt>
+								<dd>
+									<?php echo $result["Class starts"]; ?>
+								</dd>
+								<dt>Class ends</dt>
+								<dd>
+									<?php echo $result["Class ends"]; ?>
+								</dd>
+								<dt>Tuition</dt>
+								<dd>
+									<?php echo $result["Tuition"]; ?>
+								</dd>
+							</dl>
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/tap.jpg" class="card-img-top" alt="picture">
+								<img src="img/classes/<?php echo $type; ?>.jpg" class="card-img-top" alt="picture">
 							</div>
 						</div>
 					</div>
 
-					<dl>
-						<dt>Name</dt>
-						<dd>
-							<?php echo $result["Name"]; ?>
-						</dd>
-						<dt>Days of Week</dt>
-						<dd>
-							<?php echo $result["Days"]; ?>
-						</dd>
-						<dt>Time of Day</dt>
-						<dd>
-							<?php echo $result["Times"]; ?>
-						</dd>
-						<dt>Appropiate Ages</dt>
-						<dd>
-							<?php echo $result["Ages"]; ?>
-						</dd>
-						<dt>Class starts</dt>
-						<dd>
-							<?php echo $result["Class starts"]; ?>
-						</dd>
-						<dt>Class ends</dt>
-						<dd>
-							<?php echo $result["Class ends"]; ?>
-						</dd>
-						<dt>Tuition</dt>
-						<dd>
-							<?php echo $result["Tuition"]; ?>
-						</dd>
-					</dl>
+					
 				</dl>
 			</div>
 		</div>
