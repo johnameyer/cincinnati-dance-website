@@ -14,9 +14,9 @@
 
         <div style="height: 475px; position: relative">
 
-            <?php include_once 'includes/gallery-header.php'; ?>
+            <?php include_once 'includes/home/gallery-header.php'; ?>
 
-            <?php include_once 'includes/actioncalls.php'; ?>
+            <?php include_once 'includes/home/actioncalls.php'; ?>
 
         </div>
 
@@ -26,7 +26,7 @@
                     <div class="justify-content-md-center">
                             <?php include_once 'includes/info.php'; ?>
 
-                            <?php include_once 'includes/awards.php'; ?>
+                            <?php include_once 'includes/home/awards.php'; ?>
 
                             <?php include_once 'includes/calendar.php'; ?>
                         </div>
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <?php include_once 'includes/testimonials.php'; ?>
+        <?php include_once 'includes/home/testimonials.php'; ?>
 
         <?php include_once 'includes/footer.php'; ?>
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light sticky-top bg-light drop">
+<nav id="top-nav" class="navbar navbar-expand-md navbar-light sticky-top bg-light drop">
 
     <a href="" class="navbar-brand">
         <img src="img/logo.svg" style="height: 40px">
@@ -43,7 +43,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    Class Schedule
+                    2018-2019 Classes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="classes/">All</a>
@@ -64,11 +64,11 @@
                 <a class="nav-link" href="gallery">Gallery</a>
             </li>
         </ul>
-        <ul class="nav justify-content-end">
+        <!--ul class="nav justify-content-end">
             <li class="nav-item">
                 <a class="btn btn-primary" href="contact">Contact Us</a>
             </li>
-        </ul>
+        </ul-->
         <!--form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

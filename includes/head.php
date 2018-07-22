@@ -11,7 +11,7 @@
 <base href="<?php echo $base; ?>">
 <?php endif; ?>
 
-<title>Cincinnati Dance and Movement Center</title>
+<title>Cincinnati Dance and Movement Center<?php if(isset($page)) echo " - " . $page; ?></title>
 
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/menu.css">

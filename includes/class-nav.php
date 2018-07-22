@@ -1,6 +1,6 @@
 <h1>2018 Dance Classes</h1>
 <br>
-<ul class="nav nav-tabs">
+<ul class="nav nav-pills">
     <li class="nav-item">
         <a class="nav-link" id="class-nav-preschool" href="classes/preschool">Preschool</a>
     </li>

@@ -1,5 +1,6 @@
 <?php
 set_include_path('../');
+$page = "Tap Classes";
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,11 +22,15 @@ set_include_path('../');
 		<div class="container-fluid body-container">
 			<div class="body-inner">
 				<div class="justify-content-md-center">
+					<?php
+					$path = array(array("name" => "Classes", "path" => "classes/"));
+					include_once 'includes/breadcrumb.php';
+					?>
 
 					<?php include_once 'includes/class-nav.php'; ?>
 					<script>document.getElementById("class-nav-tap").className = "nav-link active"</script>
 
-					<h2>Tap Classes</h2>
+					<h2><?php echo $page; ?></h2>
 
 					<div class="row">
 						<div class="col-md-8">
