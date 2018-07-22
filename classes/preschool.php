@@ -23,7 +23,8 @@ set_include_path('../');
                     <div class="justify-content-md-center">
 
                         <?php include_once 'includes/class-nav.php'; ?>
-                        <script>document.getElementById("navpre").className = "nav-link active"</script>
+                        <script>document.getElementById("class-nav-preschool").className = "nav-link active"</script>
+
                         <h2>Preschool Classes</h2>
                         <div class="row">
                             <div class="col-md">
