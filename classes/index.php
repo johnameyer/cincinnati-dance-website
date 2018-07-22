@@ -52,6 +52,9 @@ set_include_path('../');
 												<h5 class="card-title">							
 													<?php echo $OBJ -> name; ?>
 												</h5>
+                                                <h6>
+                                                <?php echo $OBJ -> ageGroup; ?>
+                                                </h6>
 												<a href="#" class="btn btn-primary">Go somewhere</a>
 											</div>
 										</div>
