@@ -12,6 +12,8 @@ array_walk($csv, function(&$a) use ($csv) {
 array_shift($csv);
 $result = $csv[array_search($class, array_column($csv, 'Nice name'))];
 
+$students = array(array("name"=>"larry"));
+
 $page = $result["Name"];
 ?>
 <!doctype html>
@@ -73,6 +75,18 @@ $page = $result["Name"];
 									<?php echo $result["Tuition"]; ?>
 								</dd>
 							</dl>
+							<div class="dropdown">
+								<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Register
+								</a>
+
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<?php foreach ($students as $student): ?>
+										<a class="dropdown-item" href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$result["Nice name"], "student"=>$student["name"])); ?>">Register <?php echo ucwords($student["name"]); ?></a>
+									<?php endforeach; ?>
+									<a class="dropdown-item" href="classes/sign-up.php?<?php echo http_build_query(array("type"=>$type, "class"=>$result["Nice name"])); ?>">Register a different student</a>
+								</div>
+							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="card">
