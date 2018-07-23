@@ -26,16 +26,12 @@
                     <div class="justify-content-md-center">
                             <?php include_once 'includes/info.php'; ?>
 
-                            <?php include_once 'includes/home/awards.php'; ?>
-
                             <?php include_once 'includes/calendar.php'; ?>
                         </div>
                 </div>
             </div>
         </div>
-
-        <?php include_once 'includes/home/testimonials.php'; ?>
-
+        
         <?php include_once 'includes/footer.php'; ?>
 
         <?php include_once 'includes/javascript.php'; ?>
