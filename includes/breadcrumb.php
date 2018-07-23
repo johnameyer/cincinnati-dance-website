@@ -10,3 +10,4 @@
 		<li class="breadcrumb-item active" aria-current="page"><?php echo $page; ?></li>
 	</ol>
 </nav>
+<br>
