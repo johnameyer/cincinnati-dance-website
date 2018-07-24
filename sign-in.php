@@ -1,10 +1,35 @@
 <?php
 set_include_path('../');
 
-$type = urldecode($_GET["type"]);
-$class = urldecode($_GET["class"]);
+$return = isset($_REQUEST["return"]) ? urldecode($_REQUEST["return"]) : "/";
 
-$page = 'Sign Up';
+if(isset($_REQUEST['name'])){ //new user just registered
+	$options = ['cost' => 12];
+	$password = password_hash($_REQUEST['password'], PASSWORD_DEFAULT, $options);
+
+	$query = $conn->prepare("INSERT INTO `user` (email, password) VALUES (?,?)");
+	$query->bind_param('ss', $_REQUEST['email'], $password);//TODO form validation
+	$query->execute();
+	echo $conn->error;
+
+	$foreign_key = $conn->insert_id;
+
+
+	$query = $conn->prepare("INSERT INTO `contact` (`user`, `name`, `relationship`, `address`, `city`, `state`, `zip`, `contact_phone`, `emergency_phone`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+	$query->bind_param('isssssiss', $foreign_key, $_REQUEST['name'], $_REQUEST['relationship'], $_REQUEST['address'], $_REQUEST['city'], $_REQUEST['state'], $_REQUEST['zip'], $_REQUEST['contact-phone'], $_REQUEST['emergency-phone']);//TODO form validation
+	$query->execute();
+	echo $conn->error;
+
+	$conn->close();
+
+	//set session & redirect
+} else if(isset($_REQUEST["email"])){ //user just signed in
+	//TODO
+
+	//set session and redirect
+}
+
+$page = 'Sign In or Register';
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,9 +51,10 @@ $page = 'Sign Up';
 		<div class="container-fluid body-container">
 			<div class="body-inner">
 				<div class="justify-content-md-center">
-					<h2>Sign up Student</h2>
+					<h2><?php echo $page ?></h2>
 
-					<form action="new-student.php">
+					<!-- insert tabs here -->
+					<form>
 						<div class="form-group row">
 							<label for="name" class="col-4 col-form-label">Name</label> 
 							<div class="col-8">
@@ -99,8 +125,7 @@ $page = 'Sign Up';
 								<input id="verify-password" name="verify-password" type="password" required="required" class="form-control here">
 							</div>
 						</div> 
-						<input type="hidden" id="type" name="type" value="<?php echo $type; ?>">
-						<input type="hidden" id="class" name="class" value="<?php echo $class; ?>">
+						<input type="hidden" id="return" name="return" value="<?php echo urlencode($return); ?>">
 
 						<div class="form-group row">
 							<div class="offset-4 col-8">

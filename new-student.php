@@ -3,25 +3,7 @@ set_include_path('../');
 
 include_once 'includes/db.php';
 
-if(isset($_REQUEST['name'])){ //was redirected here from new-account
-	$options = ['cost' => 12];
-	$password = password_hash($_REQUEST['password'], PASSWORD_DEFAULT, $options);
-
-	$query = $conn->prepare("INSERT INTO `user` (email, password) VALUES (?,?)");
-	$query->bind_param('ss', $_REQUEST['email'], $password);//TODO form validation
-	$query->execute();
-	echo $conn->error;
-
-	$foreign_key = $conn->insert_id;
-
-
-	$query = $conn->prepare("INSERT INTO `contact` (`user`, `name`, `relationship`, `address`, `city`, `state`, `zip`, `contact_phone`, `emergency_phone`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
-	$query->bind_param('isssssiss', $foreign_key, $_REQUEST['name'], $_REQUEST['relationship'], $_REQUEST['address'], $_REQUEST['city'], $_REQUEST['state'], $_REQUEST['zip'], $_REQUEST['contact-phone'], $_REQUEST['emergency-phone']);//TODO form validation
-	$query->execute();
-	echo $conn->error;
-
-	$conn->close();
-} else {
+{
 	$email = "jack10042@gmail.com";
 	$query = "SELECT contact.id FROM (contact INNER JOIN user ON contact.user=user.id) WHERE user.email='$email'";
 
