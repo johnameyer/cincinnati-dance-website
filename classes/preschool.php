@@ -43,7 +43,7 @@ $page = "Preschool Classes";
 					</div>
 					<div class="col-md-4">
 						<div class="card">
-							<img src="img/classes/preschool.jpg" class="card-img-top" alt="preschool picture">
+							<img src="img/classes/preschool/preschool.jpg" class="card-img-top" alt="preschool picture">
 						</div>
 					</div>
 				</div>

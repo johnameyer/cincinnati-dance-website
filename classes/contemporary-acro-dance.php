@@ -59,10 +59,10 @@ $page = "Contemporary and Acro-Dance Classes";
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/contemporary.jpg" class="card-img-top" alt="contemporary picture">
+								<img src="img/classes/contemporary-acro-dance/contemporary.jpg" class="card-img-top" alt="contemporary picture">
 							</div>
 							<div class="card">
-								<img src="img/classes/acro-dance.jpg" class="card-img-top" alt="acro-dance picture">
+								<img src="img/classes/contemporary-acro-dance/acro-dance.jpg" class="card-img-top" alt="acro-dance picture">
 							</div>
 						</div>
 					</div>

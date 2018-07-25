@@ -54,7 +54,7 @@ $page = "Performance Teams";
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/performance.jpg" class="card-img-top" alt="performance picture">
+								<img src="img/classes/performance/performance.jpg" class="card-img-top" alt="performance picture">
 							</div>
 						</div>
 					</div>

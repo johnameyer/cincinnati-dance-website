@@ -49,7 +49,7 @@ $page = "Ballet Classes";
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/ballet.jpg" class="card-img-top" alt="ballet picture">
+								<img src="img/classes/ballet/ballet.jpg" class="card-img-top" alt="ballet picture">
 							</div>
 						</div>
 					</div>

@@ -52,7 +52,7 @@ $page = "Tap Classes";
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/tap.jpg" class="card-img-top" alt="tap picture">
+								<img src="img/classes/tap/tap.jpg" class="card-img-top" alt="tap picture">
 							</div>
 						</div>
 					</div>

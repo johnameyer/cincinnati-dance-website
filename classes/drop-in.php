@@ -45,7 +45,7 @@ $page = "Drop-In Classes";
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/performance.jpg" class="card-img-top" alt="drop-in picture">
+								<img src="img/classes/drop-in/drop-in.jpg" class="card-img-top" alt="drop-in picture">
 							</div>
 						</div>
 					</div>

@@ -49,10 +49,10 @@ $page = "Jazz and Hip-Hop Classes";
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/hip-hop.jpg" class="card-img-top" alt="hip hop picture">
+								<img src="img/classes/jazz-hip-hop/hip-hop.jpg" class="card-img-top" alt="hip hop picture">
 							</div>
 							<div class="card">
-								<img src="img/classes/jazz.jpg" class="card-img-top" alt="jazz picture">
+								<img src="img/classes/jazz-hip-hop/jazz.jpg" class="card-img-top" alt="jazz picture">
 							</div>
 						</div>
 					</div>
