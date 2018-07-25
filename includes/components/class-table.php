@@ -11,7 +11,7 @@ array_shift($csv);
 <div>
     <div class="row justify-content-center" >
         <?php foreach($csv as $item): ?>
-        <div class="col-3 col-md-offset-1">
+        <div class="col-4 col-md-offset-1">
             <div class="card">
                 <img class="card-img-top" src='<?php echo $item["Image"]; ?>' alt='<?php echo $item["Name"]; ?> image'>
                 <div class="card-body">
@@ -23,7 +23,7 @@ array_shift($csv);
         <?php endforeach; ?>
     </div>
 </div>
-
+<br>
 <table class="table table-responsive">
     <thead>
         <th scope="col">Class</th>
