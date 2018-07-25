@@ -12,17 +12,17 @@ if(!isset($_SESSION['id'])){
 	header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/'));
 	exit();
 }
-if(isset($_REQUEST['name'])){
+if(isset($_REQUEST['fname'])){
 	$foreign_key = $_SESSION['id'];
 
-	$query = $conn->prepare("INSERT INTO `student` (`name`, `birth_date`, `age`, `school_district`, `grade`, `medical_info`, `contact`) VALUES (?, ?, ?, ?, ?, ?, ?);");
-	$query->bind_param('ssisssi', $_REQUEST['name'], $_REQUEST['birth'], $_REQUEST['age'], $_REQUEST['school-district'], $_REQUEST['grade'], $_REQUEST['medical'], $foreign_key);//TODO form validation
+	$query = $conn->prepare("INSERT INTO `student` (`fname`, `lname`, `birth_date`, `age`, `school_district`, `grade`, `medical_info`, `contact`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+	$query->bind_param('sssisssi', $_REQUEST['fname'], $_REQUEST['lname'], $_REQUEST['birth'], $_REQUEST['age'], $_REQUEST['school-district'], $_REQUEST['grade'], $_REQUEST['medical'], $foreign_key);//TODO form validation
 	$query->execute();
 	echo $conn->error;
 
 	$student = $conn->insert_id;
 
-	echo ("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/') . 'classes/register.php?' . http_build_query(array("type"=>$type, "class"=>$class, "student"=>$student)));
+	header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '') . '/classes/register.php?' . http_build_query(array("type"=>$type, "class"=>$class, "student"=>$student)));
 	exit();
 }
 
@@ -50,17 +50,23 @@ $page = 'Register a New Student';
 				<div class="justify-content-md-center">
 					<h2>Sign up Student</h2>
 
-					<form method="GET">
+					<form method="POST">
 						<div class="form-group row">
-							<label for="name" class="col-4 col-form-label">Name</label> 
+							<label for="fname" class="col-4 col-form-label">First Name</label> 
 							<div class="col-8">
-								<input id="name" name="name" placeholder="Jane Doe" type="text" required="required" class="form-control here">
+								<input id="fname" name="fname" placeholder="Jane" type="text" required="required" class="form-control here">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="lname" class="col-4 col-form-label">Last Name</label> 
+							<div class="col-8">
+								<input id="lname" name="lname" placeholder="Doe" type="text" required="required" class="form-control here">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="birth" class="col-4 col-form-label">Date of Birth</label> 
 							<div class="col-8">
-								<input id="birth" name="birth" type="text" class="form-control here" required="required">
+								<input id="birth" name="birth" placeholder="2001-12-31" type="text" class="form-control here" required="required">
 							</div>
 						</div>
 						<div class="form-group row">

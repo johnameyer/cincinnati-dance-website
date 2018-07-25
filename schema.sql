@@ -38,7 +38,8 @@ DROP TABLE IF EXISTS `contact`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) DEFAULT NULL,
+  `fname` varchar(100) NOT NULL,
+  `lname` varchar(45) NOT NULL,
   `relationship` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
@@ -51,7 +52,7 @@ CREATE TABLE `contact` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `user_id_UNIQUE` (`user`),
   CONSTRAINT `user_fk` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,9 +78,10 @@ DROP TABLE IF EXISTS `student`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `fname` varchar(45) NOT NULL,
+  `lname` varchar(45) NOT NULL,
   `birth_date` date DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
+  `age` int(3) DEFAULT NULL,
   `school_district` varchar(45) DEFAULT NULL,
   `grade` varchar(45) DEFAULT NULL,
   `medical_info` varchar(300) DEFAULT NULL,
@@ -88,7 +90,7 @@ CREATE TABLE `student` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `contact_id_idx` (`contact`),
   CONSTRAINT `contact_id` FOREIGN KEY (`contact`) REFERENCES `contact` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +127,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -137,4 +139,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-24 21:30:15
+-- Dump completed on 2018-07-24 23:24:48

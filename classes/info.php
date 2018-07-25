@@ -101,7 +101,7 @@ $page = $csv_item["Name"];
 										<?php foreach ($students as $student): ?>
 											<a class="dropdown-item" href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$csv_item["Nice name"], "student"=>$student["id"])); ?>">Register <?php echo ucwords($student["name"]); ?></a>
 										<?php endforeach; ?>
-										<a class="dropdown-item" href="classes/new-student.php?<?php echo http_build_query(array("type"=>$type, "class"=>$csv_item["Nice name"])); ?>">Register a different student</a>
+										<a class="dropdown-item" href="classes/new-student.php?<?php echo http_build_query(array("type"=>$type, "class"=>$csv_item["Nice name"])); ?>">Register a new student</a>
 									</div>
 								</div>
 								<?php else: ?>

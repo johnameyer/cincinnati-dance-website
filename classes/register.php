@@ -19,7 +19,7 @@ $result = $csv[array_search($class, array_column($csv, 'Nice name'))];
 if(isset($_REQUEST['student'])){
 	$student = $_REQUEST['student'];
 	$email = $_SESSION['email'];
-	$query = "SELECT student.id, student.name FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email' AND student.id='$student'";
+	$query = "SELECT student.id, student.fname, student.lname FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email' AND student.id='$student'";
 
 	$sql_result = mysqli_query($conn, $query);
 	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
@@ -58,7 +58,9 @@ $page = $result["Name"];
 					?>
 					<h2><?php echo $result["Name"]; ?></h2>
 
-					<h3>Register <?php echo $student['name']; ?></h3>
+					<h3>Register <?php echo $student['fname']; ?></h3>
+
+					<a href="">Click here to register</a>
 
 				</div>
 			</div>

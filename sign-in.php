@@ -1,38 +1,47 @@
 <?php
 set_include_path('../');
 
+include_once('includes/validate.php');
 include_once('includes/db.php');
 include_once('includes/session.php');
 
 $return = isset($_REQUEST["return"]) ? urldecode($_REQUEST["return"]) : "/";
 
 if(isset($_REQUEST['email'])){ //new user just registered
-	$options = ['cost' => 12];
-	$password = password_hash($_REQUEST['password'], PASSWORD_DEFAULT, $options);
-
-	$query = $conn->prepare("INSERT INTO `user` (email, password) VALUES (?,?)");
-	$query->bind_param('ss', $_REQUEST['email'], $password);//TODO form validation
-	$query->execute();
-	echo $conn->error;
-
-	$foreign_key = $conn->insert_id;
-
-
-	$query = $conn->prepare("INSERT INTO `contact` (`user`, `name`, `relationship`, `address`, `city`, `state`, `zip`, `contact_phone`, `emergency_phone`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
-	$query->bind_param('isssssiss', $foreign_key, $_REQUEST['name'], $_REQUEST['relationship'], $_REQUEST['address'], $_REQUEST['city'], $_REQUEST['state'], $_REQUEST['zip'], $_REQUEST['contact-phone'], $_REQUEST['emergency-phone']);//TODO form validation
-	$query->execute();
-	echo $conn->error;
-
-	if(isset($foreign_key)){
-		$_SESSION['id'] = $foreign_key;
-		$_SESSION['email'] = $_REQUEST['email']; //TODO support return field
-		header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/'));
-		exit();
+	$email = validate_email($_REQUEST['email']);
+	if($_REQUEST['password'] !== $_REQUEST['verify-password']){
+		$error = 'Passwords do not match';
 	}
+	if(!isset($error)){
 
-	$conn->close();
+		$conn->begin_transaction();
 
-	//set session & redirect
+		$options = ['cost' => 12];
+		$password = password_hash($_REQUEST['password'], PASSWORD_DEFAULT, $options);
+
+		$query = $conn->prepare("INSERT INTO `user` (email, password) VALUES (?,?)");
+		$query->bind_param('ss', $_REQUEST['email'], $password);//TODO form validation
+		$query->execute();
+		echo $conn->error;
+
+		$foreign_key = $conn->insert_id;
+
+
+		$query = $conn->prepare("INSERT INTO `contact` (`user`, `fname`, `lname`, `relationship`, `address`, `city`, `state`, `zip`, `contact_phone`, `emergency_phone`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+		$query->bind_param('issssssiss', $foreign_key, $_REQUEST['fname'], $_REQUEST['lname'], $_REQUEST['relationship'], $_REQUEST['address'], $_REQUEST['city'], $_REQUEST['state'], $_REQUEST['zip'], $_REQUEST['contact-phone'], $_REQUEST['emergency-phone']);//TODO form validation
+		$query->execute();
+		echo $conn->error;
+
+		$conn->commit();
+		$conn->close();
+
+		if(isset($foreign_key)){
+			$_SESSION['id'] = $foreign_key;
+			$_SESSION['email'] = $_REQUEST['email']; //TODO support return field
+			header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/'));
+			exit();
+		}
+	}
 } else if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 	//TODO
 	$email = $_REQUEST['sign-in-email'];
@@ -53,8 +62,6 @@ if(isset($_REQUEST['email'])){ //new user just registered
 		header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/'));
 		exit();
 	}
-
-	//set session and redirect
 }
 
 $page = 'Sign In or Register';
@@ -119,9 +126,15 @@ $page = 'Sign In or Register';
 								<h2>Sign Up</h2>
 
 								<div class="form-group row">
-									<label for="name" class="col-4 col-form-label">Name</label> 
+									<label for="fname" class="col-4 col-form-label">First Name</label> 
 									<div class="col-8">
-										<input id="name" name="name" placeholder="Jane Doe" type="text" required="required" class="form-control here">
+										<input id="fname" name="fname" placeholder="Jane" type="text" required="required" class="form-control here">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="lname" class="col-4 col-form-label">Last Name</label> 
+									<div class="col-8">
+										<input id="lname" name="lname" placeholder="Doe" type="text" required="required" class="form-control here">
 									</div>
 								</div>
 								<div class="form-group row">
