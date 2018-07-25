@@ -5,7 +5,7 @@
         <a class="nav-link" id="class-nav-preschool" href="classes/preschool">Preschool</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="class-nav-ballet" href="classes/ballet">Ballet</a>
+        <a class="nav-link" id="class-nav-ballet" href="classes/ballet">Ballet & Pointe</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" id="class-nav-tap" href="classes/tap">Tap</a>

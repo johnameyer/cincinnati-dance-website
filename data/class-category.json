@@ -2,36 +2,43 @@
     {
         "name": "Pre-School",
         "ageGroup": "(ages 2 to 6)",
-        "img": ""
+        "img": "",
+        "link":"classes/preschool.php"
     },
     {
-        "name": "Ballet Program",
+        "name": "Ballet & Pointe",
         "ageGroup": "(ages 6 to adult)",
-        "img": ""
+        "img": "",
+        "link":"classes/ballet.php"
     },
     {
         "name": "Tap",
         "ageGroup": "(ages 5 to adult)",
-        "img": ""
+        "img": "",
+        "link":"classes/tap.php"
     },
     {
         "name": "Jazz &amp; Hip-Hop",
         "ageGroup": "(ages 2 to 6)",
-        "img": ""
+        "img": "",
+        "link":"classes/jazz-hip-hop.php"
     },
     {
         "name": "Contemporary &amp; Acro-Dance",
         "ageGroup": "(ages 10 to adult)",
-        "img": ""
+        "img": "",
+        "link":"classes/contemporary-acro-dance.php"
     },
     {
         "name": "Performance Teams",
         "ageGroup": "(ages 8 to adult)",
-        "img": ""
+        "img": "",
+        "link":"classes/performance-teams.php"
     },
     {
         "name": "Drop-In Classes",
         "ageGroup": "(ages 6 to adult)",
-        "img": ""
+        "img": "",
+        "link":"classes/drop-in.php"
     }
 ]

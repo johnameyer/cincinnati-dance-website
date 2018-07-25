@@ -60,7 +60,7 @@ $page = "Class Listing";
 												<h6>
 													<?php echo $OBJ -> ageGroup; ?>
 												</h6>
-												<a href="#" class="btn btn-primary">Go somewhere</a>
+												<a href='<?php echo $OBJ -> link; ?>' class="btn btn-primary">Check It Out</a>
 											</div>
 										</div>
 									</div>

@@ -1,6 +1,6 @@
 <?php
 set_include_path('../');
-$page = "Ballet Classes";
+$page = "Ballet & Pointe Classes";
 ?>
 <!doctype html>
 <html lang="en">
