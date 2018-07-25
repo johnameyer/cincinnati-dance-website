@@ -29,12 +29,12 @@
             <li class="nav-item">
                 <a class="nav-link" style="display:none" href="events/">News and Events</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="display:none">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">
                     Programs
                 </a>
-                <div class="dropdown-menu" style="display:none" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="team/ballet">Ballet Program</a>
                     <a class="dropdown-item" href="team/open">Open Division</a>
                     <a class="dropdown-item" href="team/performance">Performance Teams</a>

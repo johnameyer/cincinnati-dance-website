@@ -9,9 +9,9 @@ array_shift($csv);
 ?>
 
 <div>
-    <div class="row">
+    <div class="row justify-content-center" >
         <?php foreach($csv as $item): ?>
-        <div class="col">
+        <div class="col-3 col-md-offset-1">
             <div class="card">
                 <img class="card-img-top" src='<?php echo $item["Image"]; ?>' alt='<?php echo $item["Name"]; ?> image'>
                 <div class="card-body">
