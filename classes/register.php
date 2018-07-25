@@ -1,6 +1,9 @@
 <?php
 set_include_path('../');
 
+include_once('includes/db.php');
+include_once('includes/session.php');
+
 $type = urldecode($_GET["type"]);
 $class = urldecode($_GET["class"]);
 $file = '../data/' . $type . '.csv';
@@ -11,6 +14,21 @@ array_walk($csv, function(&$a) use ($csv) {
 });
 array_shift($csv);
 $result = $csv[array_search($class, array_column($csv, 'Nice name'))];
+
+
+if(isset($_REQUEST['student'])){
+	$student = $_REQUEST['student'];
+	$email = $_SESSION['email'];
+	$query = "SELECT student.id, student.name FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email' AND student.id='$student'";
+
+	$sql_result = mysqli_query($conn, $query);
+	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
+		if($row = mysqli_fetch_assoc($sql_result)) {
+			$student = $row;
+		}
+		$sql_result->close();
+	}
+}
 
 $page = $result["Name"];
 ?>
@@ -40,50 +58,9 @@ $page = $result["Name"];
 					?>
 					<h2><?php echo $result["Name"]; ?></h2>
 
-					<div class="row">
-						<div class="col-md-8">
-							<p><?php echo $result["Notes"]; ?></p>
-							<dl>
-								<dt>Name</dt>
-								<dd>
-									<?php echo $result["Name"]; ?>
-								</dd>
-								<dt>Days of Week</dt>
-								<dd>
-									<?php echo $result["Days"]; ?>
-								</dd>
-								<dt>Time of Day</dt>
-								<dd>
-									<?php echo $result["Times"]; ?>
-								</dd>
-								<dt>Appropiate Ages</dt>
-								<dd>
-									<?php echo $result["Ages"]; ?>
-								</dd>
-								<dt>Class starts</dt>
-								<dd>
-									<?php echo $result["Class starts"]; ?>
-								</dd>
-								<dt>Class ends</dt>
-								<dd>
-									<?php echo $result["Class ends"]; ?>
-								</dd>
-								<dt>Tuition</dt>
-								<dd>
-									<?php echo $result["Tuition"]; ?>
-								</dd>
-							</dl>
-							<a href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$result["Nice name"])); ?>">Click here to register</a>
-						</div>
-						<div class="col-md-4">
-							<div class="card">
-								<img src="img/classes/<?php echo $type; ?>.jpg" class="card-img-top" alt="picture">
-							</div>
-						</div>
-					</div>
+					<h3>Register <?php echo $student['name']; ?></h3>
 
-					
-				</dl>
+				</div>
 			</div>
 		</div>
 	</div>

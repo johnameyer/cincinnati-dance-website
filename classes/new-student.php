@@ -2,25 +2,29 @@
 set_include_path('../');
 
 include_once 'includes/db.php';
+include_once 'includes/session.php';
 
-{
-	$email = "jack10042@gmail.com";
-	$query = "SELECT contact.id FROM (contact INNER JOIN user ON contact.user=user.id) WHERE user.email='$email'";
 
-	$result = mysqli_query($conn, $query);
-	if ($result && mysqli_num_rows($result) > 0) {
-		$row = mysqli_fetch_assoc($result);
-		$foreign_key = $row['id'];
-		$result->close();
-	}
+$type = urldecode($_REQUEST["type"]);
+$class = urldecode($_REQUEST["class"]);
+
+if(!isset($_SESSION['id'])){
+	header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/'));
+	exit();
 }
+if(isset($_REQUEST['name'])){
+	$foreign_key = $_SESSION['id'];
 
-if(!isset($foreign_key)){
-	//redirect
+	$query = $conn->prepare("INSERT INTO `student` (`name`, `birth_date`, `age`, `school_district`, `grade`, `medical_info`, `contact`) VALUES (?, ?, ?, ?, ?, ?, ?);");
+	$query->bind_param('ssisssi', $_REQUEST['name'], $_REQUEST['birth'], $_REQUEST['age'], $_REQUEST['school-district'], $_REQUEST['grade'], $_REQUEST['medical'], $foreign_key);//TODO form validation
+	$query->execute();
+	echo $conn->error;
+
+	$student = $conn->insert_id;
+
+	echo ("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/') . 'classes/register.php?' . http_build_query(array("type"=>$type, "class"=>$class, "student"=>$student)));
+	exit();
 }
-
-$type = urldecode($_GET["type"]);
-$class = urldecode($_GET["class"]);
 
 $page = 'Register a New Student';
 ?>
@@ -46,7 +50,7 @@ $page = 'Register a New Student';
 				<div class="justify-content-md-center">
 					<h2>Sign up Student</h2>
 
-					<form action="classes/register.php">
+					<form method="GET">
 						<div class="form-group row">
 							<label for="name" class="col-4 col-form-label">Name</label> 
 							<div class="col-8">
@@ -80,7 +84,6 @@ $page = 'Register a New Student';
 
 						<input type="hidden" id="type" name="type" value="<?php echo $type; ?>">
 						<input type="hidden" id="class" name="class" value="<?php echo $class; ?>">
-						<input type="hidden" id="user" name="user" value="<?php echo $foreign_key; ?>">
 						<!--div class="form-group">
 							<label for="exampleInputPassword1">Password</label>
 							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
