@@ -60,28 +60,13 @@ $page = $result["Name"];
 
 					<h3>Register <?php echo $student['fname']; ?></h3>
 
-					<p>Actual one:</p>
-
-					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="hosted_button_id" value="52AQN8DDER4GA">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<input type="hidden" name="hosted_button_id" value="W8SNFPZ7ZZ2AL">
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
 
-					<p>Test add to their cart:</p>
-
-					<form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="item_name" value="<?php echo $result["Name"]; ?> Registration">
-						<input type="hidden" name="hosted_button_id" value="YEYWTNVE7JD8J">
-						<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-
-					<p>Test add to our cart:</p>
-
-					<button class="btn-primary" onclick="addToCart()">Register for <?php echo $result["Name"]; ?></button>
 
 				</div>
 			</div>
@@ -92,20 +77,6 @@ $page = $result["Name"];
 <?php include_once 'includes/footer.php'; ?>
 
 <?php include_once 'includes/javascript.php'; ?>
-<script type="text/javascript">
-	addToCart = function(){};
-	$(function(){
-		addToCart = function(){
-			$.post('backend/add-to-cart.php', {class: "<?php echo $class; ?>", type: "<?php echo $type; ?>", student: "<?php echo $student['id']; ?>"}, function(response){
-				if(response == "success"){
-					window.location.href = "payment/checkout.php";
-				} else {
-					console.log("error");
-				}
-			});
-		}
-	});
-</script>
 </body>
 
 </html>
