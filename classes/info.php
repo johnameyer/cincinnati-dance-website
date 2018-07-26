@@ -1,6 +1,9 @@
 <?php
 set_include_path('../');
 
+include_once 'includes/db.php';
+include_once 'includes/session.php';
+
 $type = urldecode($_GET["type"]);
 $class = urldecode($_GET["class"]);
 $file = '../data/' . $type . '.csv';
@@ -10,9 +13,24 @@ array_walk($csv, function(&$a) use ($csv) {
 	$a["Nice name"] = preg_replace(array("/[^a-zA-Z\s]/", "/\s\s+/", "/(\s+-\s*|\s*-\s+)/"), array("-", " ", " "), strtolower($a["Name"]));
 });
 array_shift($csv);
-$result = $csv[array_search($class, array_column($csv, 'Nice name'))];
+$csv_item = $csv[array_search($class, array_column($csv, 'Nice name'))];
 
-$page = $result["Name"];
+$students = array();
+
+if(isset($_SESSION['email'])){
+	$email = $_SESSION['email'];
+	$query = "SELECT student.id, student.fname FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
+
+	$result = mysqli_query($conn, $query);
+	if ($result && mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)) {
+			array_push($students, $row);
+		}
+		$result->close();
+	}
+}
+
+$page = $csv_item["Name"];
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,59 +56,75 @@ $page = $result["Name"];
 					$path = array(array("name" => "Classes", "path" => "classes/"), array("name" => ucwords($type), "path" => "classes/" . $type));
 					include_once 'includes/breadcrumb.php';
 					?>
-					<h2><?php echo $result["Name"]; ?></h2>
+					<h2><?php echo $csv_item["Name"]; ?></h2>
 
 					<div class="row">
 						<div class="col-md-8">
-							<p><?php echo $result["Notes"]; ?></p>
+							<p><?php echo $csv_item["Notes"]; ?></p>
 							<dl>
 								<dt>Name</dt>
 								<dd>
-									<?php echo $result["Name"]; ?>
+									<?php echo $csv_item["Name"]; ?>
 								</dd>
 								<dt>Days of Week</dt>
 								<dd>
-									<?php echo $result["Days"]; ?>
+									<?php echo $csv_item["Days"]; ?>
 								</dd>
 								<dt>Time of Day</dt>
 								<dd>
-									<?php echo $result["Times"]; ?>
+									<?php echo $csv_item["Times"]; ?>
 								</dd>
 								<dt>Appropiate Ages</dt>
 								<dd>
-									<?php echo $result["Ages"]; ?>
+									<?php echo $csv_item["Ages"]; ?>
 								</dd>
 								<dt>Class starts</dt>
 								<dd>
-									<?php echo $result["Class starts"]; ?>
+									<?php echo $csv_item["Class starts"]; ?>
 								</dd>
 								<dt>Class ends</dt>
 								<dd>
-									<?php echo $result["Class ends"]; ?>
+									<?php echo $csv_item["Class ends"]; ?>
 								</dd>
 								<dt>Tuition</dt>
 								<dd>
-									<?php echo $result["Tuition"]; ?>
+									<?php echo $csv_item["Tuition"]; ?>
 								</dd>
 							</dl>
-						</div>
-						<div class="col-md-4">
-							<div class="card">
-								<img src="img/classes/<?php echo $type; ?>.jpg" class="card-img-top" alt="picture">
+							<?php if(isset($_SESSION['id'])): ?>
+								<div class="dropdown">
+									<a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Register
+									</a>
+
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+										<?php foreach ($students as $student): ?>
+											<a class="dropdown-item" href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$csv_item["Nice name"], "student"=>$student["id"])); ?>">Register <?php echo ucwords($student["fname"]); ?></a>
+										<?php endforeach; ?>
+										<a class="dropdown-item" href="classes/new-student.php?<?php echo http_build_query(array("type"=>$type, "class"=>$csv_item["Nice name"])); ?>">Register a new student</a>
+									</div>
+								</div>
+								<?php else: ?>
+									<p>Please sign in to register for classes</p>
+								<?php endif; ?>
+							</div>
+							<div class="col-md-4">
+								<div class="card">
+									<img src="img/classes/<?php echo $type; ?>.jpg" class="card-img-top" alt="picture">
+								</div>
 							</div>
 						</div>
-					</div>
 
-					
-				</dl>
+						
+					</dl>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<?php include_once 'includes/footer.php'; ?>
+	<?php include_once 'includes/footer.php'; ?>
 
-<?php include_once 'includes/javascript.php'; ?>
+	<?php include_once 'includes/javascript.php'; ?>
 </body>
 
 </html>
