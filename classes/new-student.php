@@ -1,7 +1,6 @@
 <?php
 set_include_path('../');
 
-include_once 'includes/db.php';
 include_once 'includes/session.php';
 
 
@@ -10,19 +9,6 @@ $class = urldecode($_REQUEST["class"]);
 
 if(!isset($_SESSION['id'])){
 	header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/'));
-	exit();
-}
-if(isset($_REQUEST['fname'])){
-	$foreign_key = $_SESSION['id'];
-
-	$query = $conn->prepare("INSERT INTO `student` (`fname`, `lname`, `birth_date`, `age`, `school_district`, `grade`, `medical_info`, `contact`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
-	$query->bind_param('sssisssi', $_REQUEST['fname'], $_REQUEST['lname'], $_REQUEST['birth'], $_REQUEST['age'], $_REQUEST['school-district'], $_REQUEST['grade'], $_REQUEST['medical'], $foreign_key);//TODO form validation
-	$query->execute();
-	echo $conn->error;
-
-	$student = $conn->insert_id;
-
-	header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '') . '/classes/register.php?' . http_build_query(array("type"=>$type, "class"=>$class, "student"=>$student)));
 	exit();
 }
 
@@ -99,16 +85,59 @@ $page = 'Register a New Student';
 								<button name="submit" type="submit" class="btn btn-primary">Submit</button>
 							</div>
 						</div>
+						<div id="new-student-msg" class="text-danger"></div>
 					</form>
 				</dl>
 			</div>
 		</div>
 	</div>
 </div>
-
 <?php include_once 'includes/footer.php'; ?>
 
 <?php include_once 'includes/javascript.php'; ?>
+
+<script type="text/javascript">
+	$(function(){
+		$("#to-sign-in").click(function(){
+			window.location.replace("sign-in.php");
+		});
+		$("form").validate({
+			submitHandler: submit,
+			rules: {
+				fname: {
+					required: true,
+					alpha: true
+				},
+				lname: {
+					required: true,
+					alpha: true
+				},
+				birth: {
+					required: true,
+					date: true
+				},
+				age: {
+					required: true,
+					number: true
+				},
+				"school-district": {
+					required: true,
+					minlength: 2
+				}
+			}
+		});
+		function submit(){
+			console.log();
+			$.post("backend/new-student.php", $("form").serialize(), function(response){
+				if(response == "failure"){
+					$("#new-student-msg").text(response);
+				} else {
+					window.location.href = 'classes/register.php?student=' + response['student'] + '&<?php echo http_build_query(array("type"=>$type, "class"=>$class)); ?>';
+				}
+			});
+		};
+	});
+</script>
 </body>
 
 </html>

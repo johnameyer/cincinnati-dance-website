@@ -93,7 +93,7 @@ $page = $csv_item["Name"];
 							</dl>
 							<?php if(isset($_SESSION['id'])): ?>
 								<div class="dropdown">
-									<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Register
 									</a>
 
