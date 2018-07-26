@@ -1,3 +1,6 @@
+<?php
+include_once('includes/session.php');
+?>
 <nav id="top-nav" class="navbar navbar-expand-md navbar-light sticky-top bg-light drop">
 
 	<a href="" class="navbar-brand">
