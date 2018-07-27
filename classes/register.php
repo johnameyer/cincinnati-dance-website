@@ -19,7 +19,7 @@ $students = array();
 
 if(isset($_SESSION['email'])){
 	$email = $_SESSION['email'];
-	$query = "SELECT student.id, student.fname, student.lname FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
+	$query = "SELECT student.id, student.fname, student.lname, (SELECT COUNT(*) FROM `student_class` WHERE student_class.student=student.id AND student_class.class='$class') AS in_class FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
 
 	$sql_result = mysqli_query($conn, $query);
 	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
@@ -61,9 +61,9 @@ $page = "Register for " . $result["Name"];
 					<p>Select students to register for this class:</p>
 					<?php foreach ($students as $student): ?>
 						<div class="form-check">
-							<input class="form-check-input student" type="checkbox" value="" name="<?php echo $student['fname']; ?>" id="student-<?php echo $student['id']; ?>">
+							<input <?php echo $student['in_class'] ? 'disabled' : ''; ?> class="form-check-input student" type="checkbox" value="" name="<?php echo $student['fname']; ?>" id="student-<?php echo $student['id']; ?>">
 							<label class="form-check-label" for="student-<?php echo $student['id']; ?>">
-								<?php echo $student['fname']; ?> <?php echo $student['lname']; ?>
+								<?php echo $student['fname']; ?> <?php echo $student['lname']; ?> <?php echo $student['in_class'] ? '(Already registered for this)' : ''; ?>
 							</label>
 						</div>
 					<?php endforeach; ?>

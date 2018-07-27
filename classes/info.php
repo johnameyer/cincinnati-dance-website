@@ -92,7 +92,7 @@ $page = $result["Name"];
 								</dd>
 							</dl>
 							<?php if(isset($_SESSION['contact-id'])): ?>
-									<a class="btn btn-primary" href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$csv_item["Nice name"])); ?>">
+									<a class="btn btn-primary" href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$class)); ?>">
 										Register
 									</a>
 								<?php else: ?>
