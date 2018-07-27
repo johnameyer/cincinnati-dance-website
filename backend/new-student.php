@@ -15,7 +15,7 @@ if(isset($_REQUEST['fname'])){
 	$query->execute();
 	$error = $conn->error;
 	if(strlen($error)){
-		echo json_encode("failure");
+		echo json_encode($error);
 	}
 	$student = $conn->insert_id;
 	echo json_encode(array("student" => $student));

@@ -15,22 +15,22 @@ array_walk($csv, function(&$a) use ($csv) {
 array_shift($csv);
 $result = $csv[array_search($class, array_column($csv, 'Nice name'))];
 
+$students = array();
 
-if(isset($_REQUEST['student'])){
-	$student = $_REQUEST['student'];
+if(isset($_SESSION['email'])){
 	$email = $_SESSION['email'];
-	$query = "SELECT student.id, student.fname, student.lname FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email' AND student.id='$student'";
+	$query = "SELECT student.id, student.fname, student.lname FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
 
 	$sql_result = mysqli_query($conn, $query);
 	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
-		if($row = mysqli_fetch_assoc($sql_result)) {
-			$student = $row;
+		while($row = mysqli_fetch_assoc($sql_result)) {
+			array_push($students, $row);
 		}
 		$sql_result->close();
 	}
 }
 
-$page = $result["Name"];
+$page = "Register for " . $result["Name"];
 ?>
 <!doctype html>
 <html lang="en">
@@ -58,31 +58,20 @@ $page = $result["Name"];
 					?>
 					<h2><?php echo $result["Name"]; ?></h2>
 
-					<h3>Register <?php echo $student['fname']; ?></h3>
+					<p>Select students to register for this class:</p>
+					<?php foreach ($students as $student): ?>
+						<div class="form-check">
+							<input class="form-check-input student" type="checkbox" value="" name="<?php echo $student['fname']; ?>" id="student-<?php echo $student['id']; ?>">
+							<label class="form-check-label" for="student-<?php echo $student['id']; ?>">
+								<?php echo $student['fname']; ?> <?php echo $student['lname']; ?>
+							</label>
+						</div>
+					<?php endforeach; ?>
 
-					<p>Actual one:</p>
+					<br>
 
-					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="hosted_button_id" value="52AQN8DDER4GA">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-
-					<p>Test add to their cart:</p>
-
-					<form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="item_name" value="<?php echo $result["Name"]; ?> Registration">
-						<input type="hidden" name="hosted_button_id" value="YEYWTNVE7JD8J">
-						<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-
-					<p>Test add to our cart:</p>
-
-					<button class="btn-primary" onclick="addToCart()">Register for <?php echo $result["Name"]; ?></button>
-
+					<button class="btn btn-primary" onclick="addToCart('checkout')">Register and checkout</button>
+					<button class="btn btn-primary" onclick="addToCart()">Register and continue browsing</button>
 				</div>
 			</div>
 		</div>
@@ -95,13 +84,31 @@ $page = $result["Name"];
 <script type="text/javascript">
 	addToCart = function(){};
 	$(function(){
-		addToCart = function(){
-			$.post('backend/add-to-cart.php', {class: "<?php echo $class; ?>", type: "<?php echo $type; ?>", student: "<?php echo $student['id']; ?>"}, function(response){
-				if(response == "success"){
-					window.location.href = "payment/checkout.php";
-				} else {
-					console.log("error");
+		addToCart = function(destination){
+			error = {};
+			i = 0;
+			completed = function(){
+				if(i-- > 0 && JSON.stringify(error).length == 2){
+					switch(destination){
+						case 'checkout':
+						window.location.href = "payment/checkout.php";
+						break;
+						default:
+						window.history.back();
+					}
 				}
+			}
+			i = $('input.student:checked').length;
+			$('input.student:checked').each(function(){
+				$.post('backend/add-to-cart.php', {class: "<?php echo $class; ?>", type: "<?php echo $type; ?>", student: $(this).attr('id').replace('student-', '')}, function(response){
+					if(response == "success"){
+
+					} else {
+						console.log("error");
+						error[$(this).attr('name')] = response;
+					}
+					completed();
+				});
 			});
 		}
 	});

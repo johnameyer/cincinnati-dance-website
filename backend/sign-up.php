@@ -38,9 +38,10 @@ if(isset($_REQUEST['email'])){ //new user just registered
 		if(strlen($error) == 0 && isset($foreign_key)){
 			$_SESSION['id'] = $foreign_key;
 			$_SESSION['email'] = $_REQUEST['email']; //TODO support return field
+			$_SESSION['fname'] = $_REQUEST['fname'];
 			echo json_encode("success");
 			exit();
 		}
 	}
 }
-echo json_encode("failure");
+echo json_encode(isset($error) ? $error : "failure");

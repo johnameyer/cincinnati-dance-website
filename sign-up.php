@@ -103,8 +103,7 @@ $page = 'Sign In or Register';
 							<div class="col-8">
 								<input id="verify-password" name="verify-password" type="password" required="required" class="form-control here">
 							</div>
-						</div> 
-						<input type="hidden" id="return" name="return" value="<?php echo urlencode($return); ?>">
+						</div>
 
 						<div class="form-group row">
 							<div class="offset-4 col-8">
