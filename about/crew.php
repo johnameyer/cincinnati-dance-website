@@ -29,7 +29,7 @@ set_include_path('../');
                         <div class="col-md-10 col-md-offset-1" id="cardbox">
                             <br>
 
-                            <h1>Our Crew</h1>
+                            <h1>Our Faculty/Staff</h1>
                             <div class="row ">
                                 <?php
                                 $LEFT = false;

@@ -22,7 +22,7 @@ set_include_path('../');
                     <div class="col-md-10 col-md-offset-1">
                         <br>
 
-                        <h1>Our Studio</h1>
+                        <h1>Our Facility</h1>
 
                         <p class="lead">
                             The Cincinnati Dance and Movement Center's 7,000-square-foot facility is state-of-the-art, featuring some of the largest

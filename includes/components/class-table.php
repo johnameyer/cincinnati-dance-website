@@ -7,22 +7,6 @@ array_walk($csv, function(&$a) use ($csv) {
 });
 array_shift($csv);
 ?>
-
-<div>
-    <div class="row justify-content-center" >
-        <?php foreach($csv as $item): ?>
-        <div class="col-4 col-md-offset-1">
-            <div class="card">
-                <img class="card-img-top" src='<?php echo $item["Image"]; ?>' alt='<?php echo $item["Name"]; ?> image'>
-                <div class="card-body">
-                    <h5 class="card-title"> <?php echo $item["Name"]; ?> </h5>
-                    <p class="card-text"> <?php echo $item["Description"]; ?> </p>
-                </div>
-            </div>
-        </div>
-        <?php endforeach; ?>
-    </div>
-</div>
 <br>
 <table class="table table-responsive">
     <thead>
@@ -53,7 +37,7 @@ array_shift($csv);
                 <?php echo $item["Class starts"]; ?>
             </td>
             <td style="width: 40%">
-                <?php echo $item["Notes"]; ?>
+                <?php echo $item["Brief"]; ?>
             </td>
             <td>
                 <a href="classes/info?<?php echo http_build_query(array("type"=>$type, "class"=>$item["Nice name"])); ?>">More information</a>

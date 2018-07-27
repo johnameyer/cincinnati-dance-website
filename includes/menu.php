@@ -22,8 +22,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" style="display:none" href="about/story">Our Story</a>
-                    <a class="dropdown-item" href="about/crew">Our Crew</a>
-                    <a class="dropdown-item" href="about/studio">Our Studio</a>
+                    <a class="dropdown-item" href="about/crew">Our Faculty/Staff</a>
+                    <a class="dropdown-item" href="about/studio">Our Facility</a>
                 </div>
             </li>
             <li class="nav-item">

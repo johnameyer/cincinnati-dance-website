@@ -42,11 +42,11 @@ $page = $result["Name"];
 
 					<div class="row">
 						<div class="col-md-8">
-							<p><?php echo $result["Notes"]; ?></p>
+							<p><?php echo $result["Full"]; ?></p>
 							<dl>
-								<dt>Name</dt>
+								<dt>Notes</dt>
 								<dd>
-									<?php echo $result["Name"]; ?>
+									<?php echo $result["Notes"]; ?>
 								</dd>
 								<dt>Days of Week</dt>
 								<dd>
@@ -76,7 +76,7 @@ $page = $result["Name"];
 						</div>
 						<div class="col-md-4">
 							<div class="card">
-								<img src="img/classes/<?php echo $type; ?>.jpg" class="card-img-top" alt="picture">
+								<img src='<?php echo $result["Image"]; ?>' class="card-img-top" alt="picture">
 							</div>
 						</div>
 					</div>

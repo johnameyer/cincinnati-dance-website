@@ -16,8 +16,6 @@
 
             <?php include_once 'includes/home/gallery-header.php'; ?>
 
-            <?php include_once 'includes/home/actioncalls.php'; ?>
-
         </div>
 
         <div class="drop-up">
