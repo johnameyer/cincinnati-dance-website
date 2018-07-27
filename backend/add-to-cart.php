@@ -8,7 +8,7 @@ include_once 'includes/db.php';
 header('Content-Type: application/json');
 
 if(isset($_REQUEST['student'])){
-	$foreign_key = $_SESSION['id'];//TODO add check fo if user has permission to student
+	$foreign_key = $_SESSION['contact-id'];//TODO add check fo if user has permission to student
 
 	$query = $conn->prepare("INSERT INTO `student_class` (`student`, `class`) VALUES (?, ?);");
 	$query->bind_param('is', $_REQUEST['student'], $_REQUEST['class']);//TODO form validation

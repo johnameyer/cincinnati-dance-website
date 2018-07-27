@@ -71,13 +71,13 @@
 </li>
 </ul>
 <ul class="nav justify-content-end">
-	<?php if(isset($_SESSION['id'])): ?>
+	<?php if(isset($_SESSION['contact-id'])): ?>
 		<li class="nav-item justify-content-end" style="display: flex; align-items: center;">
 			Welcome <?php echo $_SESSION['fname']; ?>
 		</li>
 	<?php endif; ?>
 	<li class="nav-item">
-		<?php if(isset($_SESSION['id'])): ?>
+		<?php if(isset($_SESSION['contact-id'])): ?>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="dropdown-account" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Info</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

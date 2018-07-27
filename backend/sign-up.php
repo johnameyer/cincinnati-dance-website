@@ -36,7 +36,7 @@ if(isset($_REQUEST['email'])){ //new user just registered
 		$conn->close();
 
 		if(strlen($error) == 0 && isset($foreign_key)){
-			$_SESSION['id'] = $foreign_key;
+			$_SESSION['contact-id'] = $conn->insert_id;
 			$_SESSION['email'] = $_REQUEST['email']; //TODO support return field
 			$_SESSION['fname'] = $_REQUEST['fname'];
 			echo json_encode("success");

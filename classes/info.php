@@ -91,7 +91,7 @@ $page = $result["Name"];
 									<?php echo $result["Tuition"]; ?>
 								</dd>
 							</dl>
-							<?php if(isset($_SESSION['id'])): ?>
+							<?php if(isset($_SESSION['contact-id'])): ?>
 								<div class="dropdown">
 									<a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Register

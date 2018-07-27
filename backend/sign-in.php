@@ -24,7 +24,7 @@ if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 	}
 
 	if(isset($id)){
-		$_SESSION['id'] = $id;
+		$_SESSION['contact-id'] = $id;
 		$_SESSION['email'] = $email;
 		$_SESSION['fname'] = $fname;
 

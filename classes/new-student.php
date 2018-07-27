@@ -7,7 +7,7 @@ include_once 'includes/session.php';
 $type = urldecode($_REQUEST["type"]);
 $class = urldecode($_REQUEST["class"]);
 
-if(!isset($_SESSION['id'])){
+if(!isset($_SESSION['contact-id'])){
 	header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/'));
 	exit();
 }
