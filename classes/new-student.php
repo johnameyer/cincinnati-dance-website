@@ -3,10 +3,6 @@ set_include_path('../');
 
 include_once 'includes/session.php';
 
-
-$type = urldecode($_REQUEST["type"]);
-$class = urldecode($_REQUEST["class"]);
-
 if(!isset($_SESSION['contact-id'])){
 	header("Location: " . (getenv('CINCI_DANCE_BASE') ?: '/'));
 	exit();
@@ -73,9 +69,6 @@ $page = 'Register a New Student';
 								<textarea id="medical" name="medical" cols="40" rows="5" class="form-control"></textarea>
 							</div>
 						</div> 
-
-						<input type="hidden" id="type" name="type" value="<?php echo $type; ?>">
-						<input type="hidden" id="class" name="class" value="<?php echo $class; ?>">
 						<!--div class="form-group">
 							<label for="exampleInputPassword1">Password</label>
 							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
@@ -132,7 +125,7 @@ $page = 'Register a New Student';
 				if(response == "failure"){
 					$("#new-student-msg").text(response);
 				} else {
-					window.location.href = 'classes/register.php?student=' + response['student'] + '&<?php echo http_build_query(array("type"=>$type, "class"=>$class)); ?>';
+					window.history.back();
 				}
 			});
 		};

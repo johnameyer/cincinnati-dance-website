@@ -92,18 +92,9 @@ $page = $result["Name"];
 								</dd>
 							</dl>
 							<?php if(isset($_SESSION['contact-id'])): ?>
-								<div class="dropdown">
-									<a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<a class="btn btn-primary" href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$csv_item["Nice name"])); ?>">
 										Register
 									</a>
-
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-										<?php foreach ($students as $student): ?>
-											<a class="dropdown-item" href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$result["Nice name"], "student"=>$student["id"])); ?>">Register <?php echo ucwords($student["fname"]); ?></a>
-										<?php endforeach; ?>
-										<a class="dropdown-item" href="classes/new-student.php?<?php echo http_build_query(array("type"=>$type, "class"=>$result["Nice name"])); ?>">Register a new student</a>
-									</div>
-								</div>
 								<?php else: ?>
 									<p>Please sign in to register for classes</p>
 								<?php endif; ?>

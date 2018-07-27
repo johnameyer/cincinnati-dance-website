@@ -70,6 +70,8 @@ $page = "Register for " . $result["Name"];
 
 					<br>
 
+					<a href="classes/new-student.php">Add a new student</a>
+					<br>
 					<button class="btn btn-primary" onclick="addToCart('checkout')">Register and checkout</button>
 					<button class="btn btn-primary" onclick="addToCart()">Register and continue browsing</button>
 				</div>
