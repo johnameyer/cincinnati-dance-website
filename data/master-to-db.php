@@ -3,6 +3,8 @@ set_include_path('../');
 
 include_once 'includes/db.php';
 
+mkdir('./class/');
+
 $file = 'master-sheet.csv';
 $csv = array_map('str_getcsv', file($file));
 array_walk($csv, function(&$a) use ($csv) {

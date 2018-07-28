@@ -15,11 +15,36 @@ array_walk($csv, function(&$a) use ($csv) {
 array_shift($csv);
 $result = $csv[array_search($class, array_column($csv, 'Nice name'))];
 
+if(!isset($_REQUEST['class-id'])){
+	$class_name = $result['Name'];
+	$query = "SELECT class.id, class.name FROM `class` WHERE class.name LIKE '$class_name'";
+
+	$sql_result = mysqli_query($conn, $query);
+	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
+		if($row = mysqli_fetch_assoc($sql_result)) {
+			$class = $row;
+		}
+		$sql_result->close();
+	}
+} else {
+	$class_id = $_REQUEST['class-id'];
+	$query = "SELECT class.id, class.name FROM `class` WHERE class.id='$class_id'";
+
+	$sql_result = mysqli_query($conn, $query);
+	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
+		if($row = mysqli_fetch_assoc($sql_result)) {
+			$class = $row;
+		}
+		$sql_result->close();
+	}
+}
+
 $students = array();
 
 if(isset($_SESSION['email'])){
 	$email = $_SESSION['email'];
-	$query = "SELECT student.id, student.fname, student.lname, (SELECT COUNT(*) FROM `student_class` WHERE student_class.student=student.id AND student_class.class='$class') AS in_class FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
+	$class_id = $class['id'];
+	$query = "SELECT student.id, student.fname, student.lname, (SELECT COUNT(*) FROM `student_class` WHERE student_class.student=student.id AND student_class.class='$class_id') AS in_class FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
 
 	$sql_result = mysqli_query($conn, $query);
 	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
@@ -30,7 +55,7 @@ if(isset($_SESSION['email'])){
 	}
 }
 
-$page = "Register for " . $result["Name"];
+$page = "Register for " . $class["name"];
 ?>
 <!doctype html>
 <html lang="en">
@@ -56,7 +81,7 @@ $page = "Register for " . $result["Name"];
 					$path = array(array("name" => "Classes", "path" => "classes/"), array("name" => ucwords($type), "path" => "classes/" . $type));
 					include_once 'includes/breadcrumb.php';
 					?>
-					<h2><?php echo $result["Name"]; ?></h2>
+					<h2><?php echo $class["name"]; ?></h2>
 
 					<p>Select students to register for this class:</p>
 					<?php foreach ($students as $student): ?>
@@ -102,7 +127,7 @@ $page = "Register for " . $result["Name"];
 			}
 			i = $('input.student:checked').length;
 			$('input.student:checked').each(function(){
-				$.post('backend/add-to-cart.php', {class: "<?php echo $class; ?>", type: "<?php echo $type; ?>", student: $(this).attr('id').replace('student-', '')}, function(response){
+				$.post('backend/add-to-cart.php', {class: "<?php echo $class['id']; ?>", type: "<?php echo $type; ?>", student: $(this).attr('id').replace('student-', '')}, function(response){
 					if(response == "success"){
 
 					} else {

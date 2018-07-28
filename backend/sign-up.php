@@ -33,7 +33,6 @@ if(isset($_REQUEST['email'])){ //new user just registered
 		$error = isset($error) ? $error : $conn->error;
 
 		$conn->commit();
-		$conn->close();
 
 		if(strlen($error) == 0 && isset($foreign_key)){
 			$_SESSION['contact-id'] = $conn->insert_id;
@@ -42,6 +41,8 @@ if(isset($_REQUEST['email'])){ //new user just registered
 			echo json_encode("success");
 			exit();
 		}
+		
+		$conn->close();
 	}
 }
 echo json_encode(isset($error) ? $error : "failure");

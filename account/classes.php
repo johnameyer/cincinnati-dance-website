@@ -65,7 +65,7 @@ $page = "Your Registered Classes";
 										<?php echo $student['class']; ?>
 									</td>
 									<td>
-										<?php echo $student['has_paid'] ? 'Yes' : 'No'; ?>
+										<?php echo $student['has_paid']==2 ? 'Yes' : $student['has_paid']==1 ? 'Waiting for confirmation from Paypal' : 'No'; ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>

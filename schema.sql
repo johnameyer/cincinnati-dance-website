@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `cinci_dance` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `cinci_dance`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cinci_dance
@@ -111,12 +113,14 @@ DROP TABLE IF EXISTS `student_class`;
 CREATE TABLE `student_class` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `student` int(11) NOT NULL,
-  `class` varchar(45) NOT NULL,
-  `has_paid` bit(1) DEFAULT b'0',
+  `class` int(11) NOT NULL,
+  `has_paid` bit(2) DEFAULT b'0',
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `class_student_UNIQUE` (`student`,`class`),
+  KEY `class_id_idx` (`class`),
+  CONSTRAINT `class_id` FOREIGN KEY (`class`) REFERENCES `class` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `student_id` FOREIGN KEY (`student`) REFERENCES `student` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,4 +150,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-27 22:34:36
+-- Dump completed on 2018-07-28 12:25:17
