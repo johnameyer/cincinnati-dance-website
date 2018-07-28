@@ -11,10 +11,10 @@ $dbname = "cinci_dance";
 $conn = new MySQLi($servername, $username, $password, $dbname,3306);
 
 if (!$conn) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
+	echo "Error: Unable to connect to MySQL." . PHP_EOL;
+	echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+	echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+	exit;
 }
 
 /*
@@ -38,4 +38,30 @@ $conn->close();
 </table>
 </div>
 */
+function checkForPaymentDuplicate($txn_id){
+	$servername = "127.0.0.1";
+	$username = "root";
+	$password = "";
+	$dbname = "cinci_dance";
+
+	$conn = new MySQLi($servername, $username, $password, $dbname,3306);
+
+	if (!$conn) {
+		echo "Error: Unable to connect to MySQL." . PHP_EOL;
+		echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+		echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+		exit;
+	}
+
+	$query = "SELECT id from `payment` WHERE transaction_id='$txn_id'";
+
+	$result = mysqli_query($conn, $query);
+	
+	$conn->close();
+	if ($result && mysqli_num_rows($result) > 0) {
+		$result->close();
+		return true;
+	}
+	return false;
+}
 ?>

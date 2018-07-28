@@ -31,7 +31,7 @@ foreach ($myPost as $key => $value) {
 }
 
 // Step 2: POST IPN data back to PayPal to validate
-$ch = curl_init('https://ipnpb.paypal.com/cgi-bin/webscr');
+$ch = curl_init('https://ipnpb.sandbox.paypal.com/cgi-bin/webscr');
 curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
@@ -61,6 +61,9 @@ if (strcmp ($res, "VERIFIED") == 0) {
   // check that payment_amount/payment_currency are correct
   // process the notification
   // assign posted variables to local variables
+	set_include_path('../');
+	include_once('includes/db.php');
+
 	$item_name = $_POST['item_name'];
 	$item_number = $_POST['item_number'];
 	$payment_status = $_POST['payment_status'];
@@ -69,14 +72,53 @@ if (strcmp ($res, "VERIFIED") == 0) {
 	$txn_id = $_POST['txn_id'];
 	$receiver_email = $_POST['receiver_email'];
 	$payer_email = $_POST['payer_email'];
+
+	$contact_id = $_POST['custom'];
   // IPN message values depend upon the type of notification sent.
   // To loop through the &_POST array and print the NV pairs to the screen:
-	foreach($_POST as $key => $value) {
-		echo $key . " = " . $value . "<br>";
+	if(strcmp($receiver_email,"cincinnatidanceandmovement-facilitator@gmail.com")!=0 && strcmp($receiver_email, "cincinnatidanceandmovement@gmail.com")!=0){
+		exit();
 	}
 
-	//insert into transaction db
-	//get quantity and amount paid, and update up to n records, adding pointer to transaction record
+	$isDuplicate = checkForPaymentDuplicate($txn_id);
+
+	$payment_amount = floatval($payment_amount);
+	$numberPaidFor = intval($payment_amount / 25);
+
+	$payment_id = -1;
+
+	if(!$isDuplicate) {
+		$query = "INSERT INTO `payment` (transaction_id, number_paid_for, amount_paid, status) VALUES (?, ?, ?, ?)";
+		$query = $conn->prepare($query);
+		$query->bind_param('siss', $txn_id, $numberPaidFor, $payment_amount, $payment_status);//TODO form validation
+		$query->execute();
+
+		$payment_id = $conn->insert_id;
+	} else {
+		$query = "UPDATE `payment` SET number_paid_for=?, amount_paid=?, status=? WHERE transaction_id=?";
+		$query = $conn->prepare($query);
+		$query->bind_param('isss', $numberPaidFor, $payment_amount, $payment_status, $txn_id);//TODO form validation
+		$query->execute();
+
+		$query = "SELECT id FROM payment WHERE transaction_id='$txn_id'";
+
+		$result = $conn->query($query);
+		if ($result && mysqli_num_rows($result) > 0) {
+			$row = mysqli_fetch_assoc($result);
+			$payment_id = $row['id'];
+		}
+
+	}
+
+	if($payment_status == "Completed"){//TODO can receive twice?
+		$query = "UPDATE student_class SET payment=? WHERE student_class.id IN ( SELECT id FROM (SELECT student_class.id FROM `student_class` INNER JOIN `student` ON student_class.student=student.id WHERE student.contact=? ORDER BY id ASC LIMIT ? ) tmp );";
+		$query = $conn->prepare($query);
+		$query->bind_param('iii', $payment_id, $contact_id, $numberPaidFor);//TODO form validation
+		$query->execute();
+
+		
+	}
+
 } else if (strcmp ($res, "INVALID") == 0) {
   // IPN invalid, log for manual investigation
 	echo "The response from IPN was: <b>" .$res ."</b>";
