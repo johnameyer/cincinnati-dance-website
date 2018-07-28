@@ -8,7 +8,7 @@ $students = array();
 
 if(isset($_SESSION['email'])){
 	$email = $_SESSION['email'];
-	$query = "SELECT student.fname, student.lname, student_class.class, student_class.has_paid FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id INNER JOIN `student_class` ON student_class.student=student.id) WHERE user.email='$email'";
+	$query = "SELECT student.fname, student.lname, student_class.class, student_class.has_paid, student_class.payment FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id INNER JOIN `student_class` ON student_class.student=student.id) WHERE user.email='$email'";
 
 	$result = mysqli_query($conn, $query);
 	if ($result && mysqli_num_rows($result) > 0) {
@@ -65,7 +65,7 @@ $page = "Your Registered Classes";
 										<?php echo $student['class']; ?>
 									</td>
 									<td>
-										<?php echo $student['has_paid']==2 ? 'Yes' : $student['has_paid']==1 ? 'Waiting for confirmation from Paypal' : 'No'; ?>
+										<?php echo $student['has_paid']==2 ? 'Yes' : $student['payment'] != NULL ? 'Waiting for confirmation from Paypal' : 'No'; ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>
