@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `cinci_dance` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `cinci_dance`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cinci_dance
@@ -34,7 +36,7 @@ CREATE TABLE `class` (
   `type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +62,7 @@ CREATE TABLE `contact` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `user_id_UNIQUE` (`user`),
   CONSTRAINT `user_fk` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,9 +74,15 @@ DROP TABLE IF EXISTS `payment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `transaction_id` varchar(45) DEFAULT NULL,
+  `number_paid_for` int(5) DEFAULT NULL,
+  `amount_paid` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL,
+  `inserted_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +106,7 @@ CREATE TABLE `student` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `contact_id_idx` (`contact`),
   CONSTRAINT `contact_id` FOREIGN KEY (`contact`) REFERENCES `contact` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,12 +119,17 @@ DROP TABLE IF EXISTS `student_class`;
 CREATE TABLE `student_class` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `student` int(11) NOT NULL,
-  `class` varchar(45) NOT NULL,
-  `has_paid` bit(1) DEFAULT b'0',
+  `class` int(11) NOT NULL,
+  `has_paid` int(1) DEFAULT '0',
+  `payment` int(11) DEFAULT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `class_student_UNIQUE` (`student`,`class`),
+  KEY `class_id_idx` (`class`),
+  KEY `payment_id_idx` (`payment`),
+  CONSTRAINT `class_id` FOREIGN KEY (`class`) REFERENCES `class` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `payment_id` FOREIGN KEY (`payment`) REFERENCES `payment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `student_id` FOREIGN KEY (`student`) REFERENCES `student` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +147,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -146,4 +159,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-27 22:34:36
+-- Dump completed on 2018-07-28 17:46:10

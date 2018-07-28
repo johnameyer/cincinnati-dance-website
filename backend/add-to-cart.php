@@ -11,7 +11,7 @@ if(isset($_REQUEST['student'])){
 	$foreign_key = $_SESSION['contact-id'];//TODO add check fo if user has permission to student
 
 	$query = $conn->prepare("INSERT INTO `student_class` (`student`, `class`) VALUES (?, ?);");
-	$query->bind_param('is', $_REQUEST['student'], $_REQUEST['class']);//TODO form validation
+	$query->bind_param('ii', $_REQUEST['student'], $_REQUEST['class']);//TODO form validation
 	$query->execute();
 	$error = $conn->error;
 	if(strlen($error)){

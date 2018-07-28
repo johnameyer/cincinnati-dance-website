@@ -31,17 +31,19 @@ if(isset($_REQUEST['email'])){ //new user just registered
 		$query->bind_param('issssssiss', $foreign_key, $_REQUEST['fname'], $_REQUEST['lname'], $_REQUEST['relationship'], $_REQUEST['address'], $_REQUEST['city'], $_REQUEST['state'], $_REQUEST['zip'], $_REQUEST['contact-phone'], $_REQUEST['emergency-phone']);//TODO form validation
 		$query->execute();
 		$error = isset($error) ? $error : $conn->error;
-
+		$contact_id = $conn->insert_id;
 		$conn->commit();
-		$conn->close();
 
-		if(strlen($error) == 0 && isset($foreign_key)){
-			$_SESSION['contact-id'] = $conn->insert_id;
+
+		if(strlen($error) == 0 && isset($foreign_key) && isset($contact_id)){
+			$_SESSION['contact-id'] = $contact_id;
 			$_SESSION['email'] = $_REQUEST['email']; //TODO support return field
 			$_SESSION['fname'] = $_REQUEST['fname'];
 			echo json_encode("success");
 			exit();
 		}
+
+		$conn->close();
 	}
 }
 echo json_encode(isset($error) ? $error : "failure");

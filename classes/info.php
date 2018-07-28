@@ -77,7 +77,7 @@ $page = $result["name"];
 									</dd>
 								</dl>
 								<?php if(isset($_SESSION['contact-id'])): ?>
-								<a class="btn btn-primary" href="classes/register.php?<?php echo http_build_query(array("type"=>$type, "class"=>$class)); ?>">
+								<a class="btn btn-primary" href="classes/register.php?<?php echo http_build_query(array("class"=>$result['id'])); ?>">
 									Register
 								</a>
 								<?php else: ?>

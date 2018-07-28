@@ -27,7 +27,6 @@ $results = getByType($type);
 				<?php echo $item["times"]; ?>
 			</td>
 			<td>
-				<p> test</p>
 				<?php echo $item["ages"]; ?>
 			</td>
 			<td>

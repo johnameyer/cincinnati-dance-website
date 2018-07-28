@@ -3,6 +3,8 @@ set_include_path('../');
 
 include_once 'includes/db.php';
 
+mkdir('./class/');
+
 $file = 'master-sheet.csv';
 $csv = array_map('str_getcsv', file($file));
 array_walk($csv, function(&$a) use ($csv) {
@@ -33,21 +35,4 @@ foreach($csv as $item){
 		}
 	}
 	file_put_contents('./class/' . $item['Id'] . '.json', json_encode(array('tuition' => $item['Tuition'], 'notes' => $item['Notes'], 'brief' => $item['Brief'], 'description' => $item['Full'])));
-}
-
-$id=1;
-$query = "SELECT * FROM `class` WHERE id='$id';";
-
-$result = mysqli_query($conn, $query);
-if ($result && mysqli_num_rows($result) > 0) {
-	$row = mysqli_fetch_assoc($result);
-	var_dump($row);
-}
-
-$query = "SELECT * FROM `class` WHERE type LIKE '%drop-in%';";
-
-$result = mysqli_query($conn, $query);
-if ($result && mysqli_num_rows($result) > 0) {
-	$row = mysqli_fetch_assoc($result);
-	var_dump($row);
 }

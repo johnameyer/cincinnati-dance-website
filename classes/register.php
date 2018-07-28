@@ -4,22 +4,14 @@ set_include_path('../');
 include_once('includes/db.php');
 include_once('includes/session.php');
 
-$type = urldecode($_GET["type"]);
-$class = urldecode($_GET["class"]);
-$file = '../data/' . $type . '.csv';
-$csv = array_map('str_getcsv', file($file));
-array_walk($csv, function(&$a) use ($csv) {
-	$a = array_combine($csv[0], $a);
-	$a["Nice name"] = preg_replace(array("/[^a-zA-Z\s]/", "/\s\s+/", "/(\s+-\s*|\s*-\s+)/"), array("-", " ", " "), strtolower($a["Name"]));
-});
-array_shift($csv);
-$result = $csv[array_search($class, array_column($csv, 'Nice name'))];
+$class = getById($_REQUEST['class']);
 
 $students = array();
 
 if(isset($_SESSION['email'])){
 	$email = $_SESSION['email'];
-	$query = "SELECT student.id, student.fname, student.lname, (SELECT COUNT(*) FROM `student_class` WHERE student_class.student=student.id AND student_class.class='$class') AS in_class FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
+	$class_id = $class['id'];
+	$query = "SELECT student.id, student.fname, student.lname, (SELECT COUNT(*) FROM `student_class` WHERE student_class.student=student.id AND student_class.class='$class_id') AS in_class FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
 
 	$sql_result = mysqli_query($conn, $query);
 	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
@@ -30,7 +22,7 @@ if(isset($_SESSION['email'])){
 	}
 }
 
-$page = "Register for " . $result["Name"];
+$page = "Register for " . $class["name"];
 ?>
 <!doctype html>
 <html lang="en">
@@ -52,11 +44,7 @@ $page = "Register for " . $result["Name"];
 		<div class="container-fluid body-container">
 			<div class="body-inner">
 				<div class="justify-content-md-center">
-					<?php
-					$path = array(array("name" => "Classes", "path" => "classes/"), array("name" => ucwords($type), "path" => "classes/" . $type));
-					include_once 'includes/breadcrumb.php';
-					?>
-					<h2><?php echo $result["Name"]; ?></h2>
+					<h2><?php echo $class["name"]; ?></h2>
 
 					<p>Select students to register for this class:</p>
 					<?php foreach ($students as $student): ?>
@@ -73,7 +61,7 @@ $page = "Register for " . $result["Name"];
 					<a href="classes/new-student.php">Add a new student</a>
 					<br>
 					<button class="btn btn-primary" onclick="addToCart('checkout')">Register and checkout</button>
-					<button class="btn btn-primary" onclick="addToCart()">Register and continue browsing</button>
+					<button class="btn btn-primary" onclick="addToCart('')">Register and continue browsing</button>
 				</div>
 			</div>
 		</div>
@@ -102,7 +90,7 @@ $page = "Register for " . $result["Name"];
 			}
 			i = $('input.student:checked').length;
 			$('input.student:checked').each(function(){
-				$.post('backend/add-to-cart.php', {class: "<?php echo $class; ?>", type: "<?php echo $type; ?>", student: $(this).attr('id').replace('student-', '')}, function(response){
+				$.post('backend/add-to-cart.php', {class: "<?php echo $class['id']; ?>", student: $(this).attr('id').replace('student-', '')}, function(response){
 					if(response == "success"){
 
 					} else {
