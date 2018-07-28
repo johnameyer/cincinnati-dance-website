@@ -34,3 +34,20 @@ foreach($csv as $item){
 	}
 	file_put_contents('./class/' . $item['Id'] . '.json', json_encode(array('tuition' => $item['Tuition'], 'notes' => $item['Notes'], 'brief' => $item['Brief'], 'description' => $item['Full'])));
 }
+
+$id=1;
+$query = "SELECT * FROM `class` WHERE id='$id';";
+
+$result = mysqli_query($conn, $query);
+if ($result && mysqli_num_rows($result) > 0) {
+	$row = mysqli_fetch_assoc($result);
+	var_dump($row);
+}
+
+$query = "SELECT * FROM `class` WHERE type LIKE '%drop-in%';";
+
+$result = mysqli_query($conn, $query);
+if ($result && mysqli_num_rows($result) > 0) {
+	$row = mysqli_fetch_assoc($result);
+	var_dump($row);
+}

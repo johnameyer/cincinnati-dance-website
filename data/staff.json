@@ -1,29 +1,33 @@
 [{
     "name": "Tina Marie Prentosito",
     "bio": "Dance Teams, Tap, Jazz, Show Choir (dance), A Chance To Dance",
-    "photoLink": "img/staff/Tina-Marie-Prentosito-reduced.jpg"
+    "photoLink": "img/about/staff/Tina-Marie-Prentosito-reduced.jpg"
 }, {
     "name": "Mary Anne Schaeper",
     "bio": "Ballet, Pointe, Ballet Ensembles",
-    "photoLink": "img/staff/Mary-Anne-Schaeper-reduced.jpg"
+    "photoLink": "img/about/staff/Mary-Anne-Schaeper-reduced.jpg"
 }, {
     "name": "Imani Crosby",
     "bio": "Jazz/Hip-Hop, Tap, Pre-School",
-    "photoLink": "img/staff/Imani-Crosby-reduced.jpg"
+    "photoLink": "img/about/staff/Imani-Crosby-reduced.jpg"
 }, {
     "name": "Brittany Colyer",
     "bio": "Contemporary, Acro-Dance, Hip-Hop",
-    "photoLink": "img/staff/Brittany-Colyer-reduced.jpg"
+    "photoLink": "img/about/staff/Brittany-Colyer-reduced.jpg"
 }, {
     "name": "John Washam",
     "bio": "Show Choir (vocals)",
-    "photoLink": "img/staff/John-Washam-reduced.jpg"
+    "photoLink": "img/about/staff/John-Washam-reduced.jpg"
 }, {
     "name": "Melissa Alcorn",
     "bio": "Office Manager",
-    "photoLink": "img/staff/Melissa-Alcorn-reduced.jpg"
+    "photoLink": "img/about/staff/Melissa-Alcorn-reduced.jpg"
 }, {
     "name": "Aversa Prentosito",
     "bio": "Teaching Assistant",
-    "photoLink": "img/staff/Aversa-Prentosito-reduced.jpg"
+    "photoLink": "img/about/staff/Aversa-Prentosito-reduced.jpg"
+}, {
+    "name": "Natalie Alcorn",
+    "bio": "Teaching Assistant",
+    "photoLink": "img/about/staff/Natalie-Alcorn-reduced.jpg"
 }]

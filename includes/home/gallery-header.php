@@ -16,13 +16,13 @@
             <img class="d-block w-100" src='img/carousel/car5.jpg' alt="Fifth slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src='img/carousel/car60.jpg' alt="Sixth slide">
+            <img class="d-block w-100" src='img/carousel/car6.jpg' alt="Sixth slide">
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src='img/carousel/car7.jpg' alt="Seventh slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src='img/carousel/car80.jpg' alt="Eigth slide">
+            <img class="d-block w-100" src='img/carousel/car8.jpg' alt="Eigth slide">
         </div>
     </div>
     <!--a class="carousel-control-prev" href="#gallery-header" role="button" data-slide="prev">
