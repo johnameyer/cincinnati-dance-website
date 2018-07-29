@@ -27,3 +27,5 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
+
+<?php include_once('includes/analytics.php'); ?>
