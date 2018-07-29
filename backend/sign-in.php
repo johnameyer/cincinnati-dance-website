@@ -7,6 +7,8 @@ include_once('includes/session.php');
 
 header('Content-Type: application/json');
 
+sleep(1); //make wait so cannot spam
+
 if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 	//TODO
 	$email = $_REQUEST['sign-in-email'];
@@ -19,8 +21,15 @@ if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 			$id = $row['id'];
 			$email = $row['email'];
 			$fname = $row['fname'];
+		} else {
+			echo json_encode("That's not the right password for this account.");
+			$result->close();
+			exit();
 		}
 		$result->close();
+	} else {
+		echo json_encode("Looks like you don't already have an account by that email, please try again or create one.");
+		exit();
 	}
 
 	if(isset($id)){
@@ -32,4 +41,5 @@ if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 		exit();
 	}
 }
-echo json_encode("failure");
+echo json_encode("Unknown error.");
+exit();

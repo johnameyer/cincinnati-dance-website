@@ -83,11 +83,11 @@
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="account/student.php">Your Students</a>
 					<a class="dropdown-item" href="account/classes.php">Your Registered Classes</a>
-					<a class="dropdown-item" href="sign-out.php">Sign Out</a>
+					<a class="dropdown-item" href="account/sign-out.php">Sign Out</a>
 				</div>
 			</li>
 			<?php else: ?>
-				<a class="btn btn-primary" href="sign-in.php">Sign In</a>
+				<a class="btn btn-primary" href="account/sign-in.php">Sign In</a>
 			<?php endif; ?>
 		</li>
 	</ul>

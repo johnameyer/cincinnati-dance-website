@@ -18,13 +18,13 @@ function connect(){
 	return $conn;
 }
 
-function getById($id) {
+function getClassById($id) {
 	$conn = connect();
 	$query = "SELECT * FROM `class` WHERE id='$id';";
 	$sql_result = $conn->query($query);
 	$result = NULL;
-	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
-		$result = mysqli_fetch_assoc($sql_result);
+	if ($sql_result && $sql_result->num_rows > 0) {
+		$result = $sql_result->fetch_assoc();
 		$result = array_merge($result, getClassContent($id));
 		$sql_result->close();
 	}
@@ -32,13 +32,13 @@ function getById($id) {
 	return $result;
 }
 
-function getByType($type) {
+function getClassByType($type) {
 	$conn = connect();
 	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%';";
 	$sql_result = $conn->query($query);
 	$result = array();
-	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
-		while($row = mysqli_fetch_assoc($sql_result)) {
+	if ($sql_result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
 			$row = array_merge($row,getClassContent($row["id"]));
 			array_push($result, $row);
 		}
@@ -52,27 +52,35 @@ function getClassContent($id){
 	return json_decode(file_get_contents("../data/class/$id.json"), true);
 }
 
-function checkForPaymentDuplicate($txn_id){//TODO just be a return transaction and use truthy value as indicating duplication
+function getPaymentByTransaction($txn_id){//TODO just be a return transaction and use truthy value as indicating duplication
 
 	$conn = connect();
 
-	if (!$conn) {
-		echo "Error: Unable to connect to MySQL." . PHP_EOL;
-		echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-		echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-		exit;
-	}
+	$query = "SELECT * FROM `payment` WHERE transaction_id='$txn_id'";
 
-	$query = "SELECT id from `payment` WHERE transaction_id='$txn_id'";
-
-	$result = $conn->query($query);
+	$sql_result = $conn->query($query);
 	
 	$conn->close();
-	if ($result && mysqli_num_rows($result) > 0) {
-		$result->close();
-		return true;
+
+	$result = NULL;
+	if ($sql_result && $sql_result->num_rows > 0 && $row = $sql_result->fetch_assoc()) {
+		$result = $row;
+		$sql_result->close();
 	}
-	return false;
+	return $result;
+}
+
+function getUserByEmail($type) {
+	$conn = connect();
+	$query = "SELECT * FROM `user` WHERE email='$type';";
+	$sql_result = $conn->query($query);
+	$result = NULL;
+	if ($sql_result && $sql_result->num_rows > 0 && $row = $sql_result->fetch_assoc()) {
+		$result = $row;
+		$sql_result->close();
+	}
+	$conn->close();
+	return $result;
 }
 
 function getStudentClassesByContact($contact_id){
@@ -81,12 +89,12 @@ function getStudentClassesByContact($contact_id){
 	$student_classes = array();
 	$query = "SELECT student.fname, student.lname, class.name as 'class-name', student_class.has_paid, payment.status FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id INNER JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id) WHERE student.contact='$contact_id'";
 
-	$result = $conn->query($query);
-	if ($result && mysqli_num_rows($result) > 0) {
-		while($row = mysqli_fetch_assoc($result)) {
+	$sql_result = $conn->query($query);
+	if ($result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
 			array_push($student_classes, $row);
 		}
-		$result->close();
+		$sql_result->close();
 	}
 	$conn->close();
 	return $student_classes;
@@ -98,12 +106,12 @@ function getStudentsByContact($contact_id){
 	$students = array();
 	$query = "SELECT student.fname, student.lname, (SELECT COUNT(student_class.id) FROM `student_class` WHERE student_class.student=student.id) AS count FROM `student` WHERE student.contact='$contact_id'";
 
-	$result = $conn->query($query);
-	if ($result && mysqli_num_rows($result) > 0) {
-		while($row = mysqli_fetch_assoc($result)) {
+	$sql_result = $conn->query($query);
+	if ($result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
 			array_push($students, $row);
 		}
-		$result->close();
+		$sql_result->close();
 	}
 	$conn->close();
 	return $students;
@@ -116,8 +124,8 @@ function getStudentsByContactWithClassStatus($contact_id, $class_id){
 
 	$students = array();
 	$sql_result = $conn->query($query);
-	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
-		while($row = mysqli_fetch_assoc($sql_result)) {
+	if ($sql_result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
 			array_push($students, $row);
 		}
 		$sql_result->close();

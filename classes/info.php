@@ -4,7 +4,7 @@ set_include_path('../');
 include_once 'includes/db.php';
 include_once 'includes/session.php';
 
-$result = getById($_GET['class']);
+$result = getClassById($_GET['class']);
 
 $page = $result["name"];
 ?>

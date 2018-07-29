@@ -48,7 +48,7 @@ $page = 'Sign In or Register';
 
 						<div id="sign-in-msg" class="text-danger"></div>
 					</form>
-					<a id="to-sign-up" class="text-secondary">If you don't have an account, click here</a>
+					<a id="to-sign-up" class="text-primary">If you don't have an account, click here</a>
 				</div>
 
 			</div>

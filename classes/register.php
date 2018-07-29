@@ -5,7 +5,7 @@ include_once 'includes/db.php';
 include_once 'includes/session.php';
 require_once 'includes/login-check.php';
 
-$class = getById($_REQUEST['class']);
+$class = getClassById($_REQUEST['class']);
 
 $students = array();
 

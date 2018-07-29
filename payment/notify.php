@@ -80,24 +80,24 @@ if (strcmp ($res, "VERIFIED") == 0) {
 		exit();
 	}
 
-	$isDuplicate = checkForPaymentDuplicate($txn_id);
+	$in_table = getPaymentByTransaction($txn_id);
 
 	$payment_amount = floatval($payment_amount);
-	$numberPaidFor = intval($payment_amount / 25);
+	$number_paid_for = intval($payment_amount / 25);
 
 	$payment_id = -1;
 
-	if(!$isDuplicate) {
+	if(!$in_table) {
 		$query = "INSERT INTO `payment` (transaction_id, number_paid_for, amount_paid, status) VALUES (?, ?, ?, ?)";
 		$query = $conn->prepare($query);
-		$query->bind_param('siss', $txn_id, $numberPaidFor, $payment_amount, $payment_status);//TODO form validation
+		$query->bind_param('siss', $txn_id, $number_paid_for, $payment_amount, $payment_status);//TODO form validation
 		$query->execute();
 
 		$payment_id = $conn->insert_id;
 	} else {
 		$query = "UPDATE `payment` SET number_paid_for=?, amount_paid=?, status=? WHERE transaction_id=?";
 		$query = $conn->prepare($query);
-		$query->bind_param('isss', $numberPaidFor, $payment_amount, $payment_status, $txn_id);//TODO form validation
+		$query->bind_param('isss', $number_paid_for, $payment_amount, $payment_status, $txn_id);//TODO form validation
 		$query->execute();
 
 		$query = "SELECT id FROM payment WHERE transaction_id='$txn_id'";
@@ -110,16 +110,16 @@ if (strcmp ($res, "VERIFIED") == 0) {
 
 	}
 
-	if($payment_status == "Completed"){//TODO can receive twice?
+	if($in_table['status'] != 'Completed' && $payment_status == 'Completed'){
 		$query = "UPDATE student_class SET payment=? WHERE student_class.id IN ( SELECT id FROM (SELECT student_class.id FROM `student_class` INNER JOIN `student` ON student_class.student=student.id WHERE student.contact=? ORDER BY id ASC LIMIT ? ) tmp );";
 		$query = $conn->prepare($query);
-		$query->bind_param('iii', $payment_id, $contact_id, $numberPaidFor);//TODO form validation
+		$query->bind_param('iii', $payment_id, $contact_id, $number_paid_for);//TODO form validation
 		$query->execute();
 
 		
 	}
 
-} else if (strcmp ($res, "INVALID") == 0) {
+} else if (strcmp($res, "INVALID") == 0) {
   // IPN invalid, log for manual investigation
 	echo "The response from IPN was: <b>" .$res ."</b>";
 }

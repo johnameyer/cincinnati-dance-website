@@ -12,6 +12,12 @@ if(isset($_REQUEST['email'])){ //new user just registered
 	if($_REQUEST['password'] !== $_REQUEST['verify-password']){
 		$error = 'Passwords do not match';
 	}
+
+	if(getUserByEmail($email)){
+		echo json_encode("We already have an account by that email, please sign in instead");
+		exit();
+	}
+
 	if(!isset($error)){
 
 		$conn->begin_transaction();

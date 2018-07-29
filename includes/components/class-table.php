@@ -1,6 +1,6 @@
 <?php
 include_once 'includes/db.php';
-$results = getByType($type);
+$results = getClassByType($type);
 ?>
 <br>
 <table class="table table-responsive">
