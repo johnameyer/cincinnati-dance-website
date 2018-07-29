@@ -79,7 +79,7 @@ function getStudentClassesByContact($contact_id){
 	$conn = connect();
 
 	$student_classes = array();
-	$query = "SELECT student.fname, student.lname, student_class.class, student_class.has_paid, payment.status FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id INNER JOIN `payment` ON student_class.payment=payment.id) WHERE student.contact='$contact_id'";
+	$query = "SELECT student.fname, student.lname, class.name as 'class-name', student_class.has_paid, payment.status FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id INNER JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id) WHERE student.contact='$contact_id'";
 
 	$result = $conn->query($query);
 	if ($result && mysqli_num_rows($result) > 0) {

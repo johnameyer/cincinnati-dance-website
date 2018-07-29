@@ -38,9 +38,9 @@ $page = "Your Registered Classes";
 					<table class="table">
 						<thead>
 							<tr>
+								<th scope="col">Class</th>
 								<th scope="col">First Name</th>
 								<th scope="col">Last Name</th>
-								<th scope="col">Class</th>
 								<th scope="col">Paid for</th>
 							</tr>
 						</thead>
@@ -48,17 +48,18 @@ $page = "Your Registered Classes";
 							<?php foreach ($student_classes as $student_class): ?>
 								<tr>
 									<td>
+										<?php echo $student_class['class-name']; ?>
+									</td>
+									<td>
 										<?php echo $student_class['fname']; ?>
 									</td>
 									<td>
 										<?php echo $student_class['lname']; ?>
 									</td>
 									<td>
-										<?php echo $student_class['class']; ?>
-									</td>
-									<td>
 										<?php echo strcmp($student_class['has_paid'], '0')==0 ? 'No' : ($student_class['status'] != "Completed" ? 'Waiting for confirmation from Paypal' : 'Paid'); ?>
 									</td>
+									
 								</tr>
 							<?php endforeach; ?>
 						</tbody>

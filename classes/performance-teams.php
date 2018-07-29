@@ -62,7 +62,7 @@ $page = "Performance Teams";
 					<br>
 
 					<?php
-					$type = 'performance-teams';
+					$type = 'performance';
 					include_once('includes/components/class-table.php');
 					?>
 				</div>
