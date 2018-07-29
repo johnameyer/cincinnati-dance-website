@@ -73,7 +73,7 @@ $page = $result["name"];
 							</div>
 							<div class="col-md-4">
 								<div class="card">
-									<img src='<?php echo $result["image"]; ?>' class="card-img-top" alt="picture">
+									<img src='img/classes/<?php echo $result["image"]; ?>' class="card-img-top" alt="picture">
 								</div>
 							</div>
 						</div>

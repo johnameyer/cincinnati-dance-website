@@ -35,17 +35,32 @@ $page = "Tap Classes";
 					<div class="row">
 						<div class="col-md-8">
 							<p>
-								Our Tap program is a comprehensive program (beginners through advanced) that covers the range of tap styles, from vintage Broadway-style
-								tap to the newest trends in rhythm tap, under the direction of award-winning tap master Ms. Tina Marie Prentosito. Beginning tappers learn
-								correct tap technique and terminology under the tutelage of Ms. Imani (who trained for over a decade with Ms. Tina), and intermediate and
-								advanced students take class with Ms. Tina. Dress code is dancewear of any type for girls (leotard and tights, unitard, leggings and dance top,
-								etc.) and dancewear or exercise wear for boys (shorts/warm-ups and T-shirt, etc.) No pants that cover the shoes, no hair in face, no dangling
-								jewelry. Any style tap shoes are permitted for class. For performances, shoe requirements vary, so please see notes.
+								We offer a comprehensive tap program (beginner through advanced) that covers the
+								wide range of tap styles, from vintage Broadway-style tap to the newest trends in
+								rhythm tap, under the direction of award-winning tap master Ms. Tina Marie Prentosito.
+								Beginning tappers learn correct tap technique and terminology under the tutelage of Ms.
+								Imani (who trained for over a decade with Ms. Tina), and intermediate and advanced
+								students take class with Ms. Tina.
 							</p>
 							<p>
-								Students taking more than one class per week are eligible for our multiple class discounts, which are as follows: 2 nd class 10% discount, 3 rd class
-								20% discount, 4 th class 30% discount, 5 th class 40% discount, 6 th class or more 50% discount. (calculated starting with longest class first, and going
-								down to shortest class) Tuition listed is full price, not including multi-class discounts.
+								Tap dance is about footwork, rhythm, and taking dance beyond the visual to the
+								auditory. We teach dancers how to use their feet as percussive instruments to create
+								sounds as they dance, and our tap classes stress the key elements of timing, rhythm,
+								and musicality.
+							</p>
+							<p>
+								Dress code is dancewear of any type for girls (leotard and tights, unitard, leggings and
+								dance top, etc.) and dancewear or exercise wear for boys (shorts/warm-ups and T-shirt,
+								etc.) No pants that cover the shoes, no hair in face, no dangling jewelry. Tap shoes of
+								any style are permitted for class. For performances, shoe requirements vary, so please
+								see notes.
+							</p>
+							<p>
+								Students taking more than one class per week are eligible for our multiple class
+								discounts, which are as follows: 2nd class 10% discount, 3rd class 20% discount, 4th
+								class 30% discount, 5th class 40% discount, 6th class or more 50% discount.
+								(calculated starting with longest class first, and going down to shortest class) Tuition
+								listed is full price, not including multi-class discounts.
 							</p>
 
 							<br>

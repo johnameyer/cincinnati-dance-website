@@ -50,8 +50,8 @@ $page = "Contemporary and Acro-Dance Classes";
 								If tights are worn in class, they must be footless or convertible tights as students work on skills barefooted.
 							</p>
 							<p>
-								Students taking more than one class per week are eligible for our multiple class discounts, which are as follows: 2 nd class 10% discount, 3 rd class
-								20% discount, 4 th class 30% discount, 5 th class 40% discount, 6 th class or more 50% discount (calculated starting with longest class first and going
+								Students taking more than one class per week are eligible for our multiple class discounts, which are as follows: 2nd class 10% discount, 3rd class
+								20% discount, 4th class 30% discount, 5th class 40% discount, 6th class or more 50% discount (calculated starting with longest class first and going
 								down to shortest class.) Tuition listed is full price, not including multi-class discounts.
 							</p>
 
