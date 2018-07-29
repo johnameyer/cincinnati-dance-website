@@ -4,20 +4,7 @@ set_include_path('../');
 include_once 'includes/db.php';
 include_once 'includes/session.php';
 
-$students = array();
 $result = getById($_GET['class']);
-if(isset($_SESSION['email'])){
-	$email = $_SESSION['email'];
-	$query = "SELECT student.id, student.fname FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
-
-	$sql_result = mysqli_query($conn, $query);
-	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
-		while($row = mysqli_fetch_assoc($sql_result)) {
-			array_push($students, $row);
-		}
-		$sql_result->close();
-	}
-}
 
 $page = $result["name"];
 ?>

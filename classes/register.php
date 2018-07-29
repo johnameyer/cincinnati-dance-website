@@ -1,25 +1,18 @@
 <?php
 set_include_path('../');
 
-include_once('includes/db.php');
-include_once('includes/session.php');
+include_once 'includes/db.php';
+include_once 'includes/session.php';
+require_once 'includes/login-check.php';
 
 $class = getById($_REQUEST['class']);
 
 $students = array();
 
-if(isset($_SESSION['email'])){
-	$email = $_SESSION['email'];
+if(isset($_SESSION['contact-id'])){
+	$contact_id = $_SESSION['contact-id'];
 	$class_id = $class['id'];
-	$query = "SELECT student.id, student.fname, student.lname, (SELECT COUNT(*) FROM `student_class` WHERE student_class.student=student.id AND student_class.class='$class_id') AS in_class FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
-
-	$sql_result = mysqli_query($conn, $query);
-	if ($sql_result && mysqli_num_rows($sql_result) > 0) {
-		while($row = mysqli_fetch_assoc($sql_result)) {
-			array_push($students, $row);
-		}
-		$sql_result->close();
-	}
+	$students = getStudentsByContactWithClassStatus($contact_id, $class_id);
 }
 
 $page = "Register for " . $class["name"];

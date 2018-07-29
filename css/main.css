@@ -41,3 +41,13 @@
     object-fit: cover;
     height: 250px;
 }
+
+.btn-primary {
+    background-color: #04A466 !important;
+    border-color: #04A466 !important;
+}
+
+.btn-primary:hover {
+    background-color: #048754 !important;
+    border-color: #048754 !important;
+}

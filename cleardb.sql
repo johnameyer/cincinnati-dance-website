@@ -1,3 +1,5 @@
+use cinci_dance;
+
 SET FOREIGN_KEY_CHECKS = 0;
 
 TRUNCATE class;

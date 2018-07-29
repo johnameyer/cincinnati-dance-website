@@ -3,20 +3,13 @@ set_include_path('../');
 
 include_once 'includes/db.php';
 include_once 'includes/session.php';
+require_once 'includes/login-check.php';
 
 $students = array();
 
-if(isset($_SESSION['email'])){
-	$email = $_SESSION['email'];
-	$query = "SELECT student.id, student.fname, student.lname, (SELECT count(student_class.id) FROM student_class WHERE student_class.student=student.id) as count FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id) WHERE user.email='$email'";
-
-	$result = mysqli_query($conn, $query);
-	if ($result && mysqli_num_rows($result) > 0) {
-		while($row = mysqli_fetch_assoc($result)) {
-			array_push($students, $row);
-		}
-		$result->close();
-	}
+if(isset($_SESSION['contact-id'])){
+	$contact_id = $_SESSION['contact-id'];
+	$students = getStudentsByContact($contact_id);
 }
 
 $page = "Your Students";

@@ -3,6 +3,7 @@ set_include_path('../');
 
 include_once 'includes/db.php';
 include_once 'includes/session.php';
+require_once 'includes/login-check.php';
 
 $students = array();
 

@@ -3,20 +3,12 @@ set_include_path('../');
 
 include_once 'includes/db.php';
 include_once 'includes/session.php';
+require_once 'includes/login-check.php';
 
-$students = array();
-
-if(isset($_SESSION['email'])){
-	$email = $_SESSION['email'];
-	$query = "SELECT student.fname, student.lname, student_class.class, student_class.has_paid, payment.status FROM (`contact` INNER JOIN `user` ON contact.user=user.id INNER JOIN `student` ON student.contact=contact.id INNER JOIN `student_class` ON student_class.student=student.id INNER JOIN `payment` ON student_class.payment=payment.id) WHERE user.email='$email'";
-
-	$result = mysqli_query($conn, $query);
-	if ($result && mysqli_num_rows($result) > 0) {
-		while($row = mysqli_fetch_assoc($result)) {
-			array_push($students, $row);
-		}
-		$result->close();
-	}
+$student_classes = array();
+if(isset($_SESSION['contact-id'])){
+	$contact_id = $_SESSION['contact-id'];
+	$student_classes = getStudentClassesByContact($contact_id);
 }
 
 $page = "Your Registered Classes";
@@ -53,19 +45,19 @@ $page = "Your Registered Classes";
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach ($students as $student): ?>
+							<?php foreach ($student_classes as $student_class): ?>
 								<tr>
 									<td>
-										<?php echo $student['fname']; ?>
+										<?php echo $student_class['fname']; ?>
 									</td>
 									<td>
-										<?php echo $student['lname']; ?>
+										<?php echo $student_class['lname']; ?>
 									</td>
 									<td>
-										<?php echo $student['class']; ?>
+										<?php echo $student_class['class']; ?>
 									</td>
 									<td>
-										<?php echo strcmp($student['has_paid'], '0')==0 ? 'No' : ($student['status'] != "Completed" ? 'Waiting for confirmation from Paypal' : 'Paid'); ?>
+										<?php echo strcmp($student_class['has_paid'], '0')==0 ? 'No' : ($student_class['status'] != "Completed" ? 'Waiting for confirmation from Paypal' : 'Paid'); ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>

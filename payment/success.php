@@ -1,13 +1,9 @@
 <?php
-$my_file = 'file.log';
-$handle = fopen($my_file, 'a') or die('Cannot open file:  '.$my_file);
-
-fwrite($handle, "Success:" . json_encode($_REQUEST) . "\n");
-
 set_include_path('../');
 
 include_once 'includes/db.php';
 include_once 'includes/session.php';
+require_once 'includes/login-check.php';
 
 if(isset($_SESSION['contact-id'])){
 	$contact = $_SESSION['contact-id'];

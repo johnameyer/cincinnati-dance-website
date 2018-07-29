@@ -74,14 +74,14 @@ $page = 'Sign In or Register';
 						<div class="form-group row">
 							<label for="contact-phone" class="col-4 col-form-label">Contact Phone Number</label> 
 							<div class="col-8">
-								<input id="contact-phone" name="contact-phone" placeholder="555-5555" type="tel" aria-describedby="contact-phoneHelpBlock" required="required" class="form-control here"> 
+								<input id="contact-phone" name="contact-phone" placeholder="555-555-5555" type="tel" aria-describedby="contact-phoneHelpBlock" required="required" class="form-control here"> 
 								<span id="contact-phoneHelpBlock" class="form-text text-muted">Number to call with important info; for example, to notify of a class cancellation</span>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="emergency-phone" class="col-4 col-form-label">Emergency Phone Number</label> 
 							<div class="col-8">
-								<input id="emergency-phone" name="emergency-phone" placeholder="555-5555" type="tel" aria-describedby="emergency-phoneHelpBlock" required="required" class="form-control here"> 
+								<input id="emergency-phone" name="emergency-phone" placeholder="555-555-5555" type="tel" aria-describedby="emergency-phoneHelpBlock" required="required" class="form-control here"> 
 								<span id="emergency-phoneHelpBlock" class="form-text text-muted">To be used in case of emergency if we can’t reach you at your contact phone</span>
 							</div>
 						</div>

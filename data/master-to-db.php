@@ -15,7 +15,6 @@ array_shift($csv);
 var_dump($csv);
 
 foreach($csv as $item){
-
 	{
 		$query = $conn->prepare("INSERT INTO `class` (id, name, days, times, ages, class_starts, class_ends, image, type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
 		$query->bind_param('issssssss', $item['Id'], $item['Name'], $item['Days'], $item['Times'], $item['Ages'], $item['Class starts'], $item['Class ends'], $item['Image'], $item['Type']);

@@ -1,6 +1,5 @@
 <?php
 include_once 'includes/db.php';
-$type = "ballet";
 $results = getByType($type);
 ?>
 <br>
