@@ -25,7 +25,7 @@ set_include_path('../');
 							<h1>Our Facility</h1>
 							<div class="col-md-6" style="margin:auto; display:block">
 								<div class="card">
-									<img src="img/about/facility.jpg" class="card-img" alt="facility picture">
+									<img src="img/about/studio/outside.jpg" class="card-img" alt="exterior picture">
 								</div>
 							</div>
 							<p class="lead" style="text-align:center">
@@ -40,6 +40,12 @@ set_include_path('../');
 								and women's restrooms are in the lower level, with a dressing area in the women's restroom. There
 								is plenty of parking in CDMC's private lot, surrounded by a beautiful wooded setting.
 							</p>
+							<div class="col-md-6" style="margin:auto; display:block">
+								<div class="card">
+									<img src="img/about/studio/classroom.jpg" class="card-img" alt="exterior picture">
+								</div>
+							</div>
+							<br>
 							<div class="card text-center">
 								<div class="card-header">
 									Our Location

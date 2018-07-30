@@ -13,13 +13,13 @@
 	},
 	{
 		"name": "Tap",
-		"ageGroup": "(ages 5 to adult)",
+		"ageGroup": "(ages 6 to adult)",
 		"img": "img/classes/tap/tap.jpg",
 		"link":"classes/tap.php"
 	},
 	{
 		"name": "Jazz &amp; Hip-Hop",
-		"ageGroup": "(ages 2 to 6)",
+		"ageGroup": "(ages 5 to adult)",
 		"img": "img/classes/jazz-hip-hop/jazz-hip-hop.jpg",
 		"link":"classes/jazz-hip-hop.php"
 	},
