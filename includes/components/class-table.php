@@ -10,7 +10,7 @@ $results = getClassByType($type);
 		<th scope="col">Times</th>
 		<th scope="col">Ages</th>
 		<th scope="col">Class Starts</th>
-		<th scope="col">Notes</th>
+		<th scope="col">Brief Description</th>
 		<th scope="col">Learn More</th>
 	</thead>
 	<tbody>

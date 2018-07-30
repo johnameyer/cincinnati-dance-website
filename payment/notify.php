@@ -111,7 +111,7 @@ if (strcmp ($res, "VERIFIED") == 0) {
 	}
 
 	if($in_table['status'] != 'Completed' && $payment_status == 'Completed'){
-		$query = "UPDATE student_class SET payment=? WHERE student_class.id IN ( SELECT id FROM (SELECT student_class.id FROM `student_class` INNER JOIN `student` ON student_class.student=student.id WHERE student.contact=? ORDER BY id ASC LIMIT ? ) tmp );";
+		$query = "UPDATE student_class SET payment=?, has_paid=1 WHERE student_class.id IN ( SELECT id FROM (SELECT student_class.id FROM `student_class` INNER JOIN `student` ON student_class.student=student.id WHERE student.contact=? ORDER BY id ASC LIMIT ? ) tmp );";
 		$query = $conn->prepare($query);
 		$query->bind_param('iii', $payment_id, $contact_id, $number_paid_for);//TODO form validation
 		$query->execute();

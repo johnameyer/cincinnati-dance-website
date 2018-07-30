@@ -9,6 +9,7 @@ $student_classes = array();
 if(isset($_SESSION['contact-id'])){
 	$contact_id = $_SESSION['contact-id'];
 	$student_classes = getStudentClassesByContact($contact_id);
+	$unpaid = getUnpaidClassesByContact($contact_id);
 }
 
 $page = "Your Registered Classes";
@@ -64,7 +65,11 @@ $page = "Your Registered Classes";
 							<?php endforeach; ?>
 						</tbody>
 					</table>
-					<a href="payment/checkout.php">Complete payment</a>
+					<a class="btn btn-secondary" href="classes/index.php">Browse classes</a>
+					<?php if($unpaid): ?>
+						<br>
+						<a class="btn btn-primary" href="payment/checkout.php">Complete payment</a>
+					<?php endif ?>
 				</div>
 			</div>
 		</div>

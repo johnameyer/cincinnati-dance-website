@@ -51,10 +51,14 @@ $page = "Register for " . $class["name"];
 
 					<br>
 
-					<a href="classes/new-student.php">Add a new student</a>
-					<br>
-					<button class="btn btn-primary" onclick="addToCart('checkout')">Register and checkout</button>
-					<button class="btn btn-primary" onclick="addToCart('')">Register and continue browsing</button>
+					<a class="btn btn-secondary" href="classes/new-student.php">Add a new student</a>
+					<?php if($students): ?>
+						<br>
+						<br>
+						<button class="btn btn-primary" onclick="addToCart('checkout')">Register and checkout</button>
+						<button class="btn btn-primary" onclick="addToCart('')">Register and continue browsing</button>
+					<?php endif ?>
+					<div id="register-msg" class="text-danger"></div>
 				</div>
 			</div>
 		</div>
@@ -82,13 +86,16 @@ $page = "Register for " . $class["name"];
 				}
 			}
 			i = $('input.student:checked').length;
+			if(i == 0){
+				$('#register-msg').text('Please select one student to register');
+			}
 			$('input.student:checked').each(function(){
 				$.post('backend/add-to-cart.php', {class: "<?php echo $class['id']; ?>", student: $(this).attr('id').replace('student-', '')}, function(response){
 					if(response == "success"){
 
 					} else {
 						console.log("error");
-						error[$(this).attr('name')] = response;
+						$('#register-msg').text($('#register-msg').text() + "," + response);
 					}
 					completed();
 				});
