@@ -25,6 +25,8 @@ $page = 'Sign In or Register';
 		<div class="container-fluid body-container">
 			<div class="body-inner">
 				<div class="justify-content-md-center">
+											<a id="to-sign-up" class="btn btn-secondary" style="color:white; float:right">Need an account?</a>
+					<br>
 					<h2>Sign In</h2>
 					<form method="POST">
 						<div class="form-group row">
@@ -48,7 +50,6 @@ $page = 'Sign In or Register';
 
 						<div id="sign-in-msg" class="text-danger"></div>
 					</form>
-					<a id="to-sign-up" class="text-primary">If you don't have an account, click here</a>
 				</div>
 
 			</div>

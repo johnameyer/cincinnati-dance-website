@@ -1,44 +1,44 @@
 [
-    {
-        "name": "Pre-School",
-        "ageGroup": "(ages 2 to 6)",
-        "img": "",
-        "link":"classes/preschool.php"
-    },
-    {
-        "name": "Ballet & Pointe",
-        "ageGroup": "(ages 6 to adult)",
-        "img": "",
-        "link":"classes/ballet.php"
-    },
-    {
-        "name": "Tap",
-        "ageGroup": "(ages 5 to adult)",
-        "img": "",
-        "link":"classes/tap.php"
-    },
-    {
-        "name": "Jazz &amp; Hip-Hop",
-        "ageGroup": "(ages 2 to 6)",
-        "img": "",
-        "link":"classes/jazz-hip-hop.php"
-    },
-    {
-        "name": "Contemporary &amp; Acro-Dance",
-        "ageGroup": "(ages 10 to adult)",
-        "img": "",
-        "link":"classes/contemporary-acro-dance.php"
-    },
-    {
-        "name": "Performance Teams",
-        "ageGroup": "(ages 8 to adult)",
-        "img": "",
-        "link":"classes/performance-teams.php"
-    },
-    {
-        "name": "Drop-In Classes",
-        "ageGroup": "(ages 6 to adult)",
-        "img": "",
-        "link":"classes/drop-in.php"
-    }
+	{
+		"name": "Pre-School",
+		"ageGroup": "(ages 2 to 6)",
+		"img": "img/classes/preschool/preschool.jpg",
+		"link":"classes/preschool.php"
+	},
+	{
+		"name": "Ballet & Pointe",
+		"ageGroup": "(ages 6 to adult)",
+		"img": "img/classes/ballet/ballet.jpg",
+		"link":"classes/ballet.php"
+	},
+	{
+		"name": "Tap",
+		"ageGroup": "(ages 5 to adult)",
+		"img": "img/classes/tap/tap.jpg",
+		"link":"classes/tap.php"
+	},
+	{
+		"name": "Jazz &amp; Hip-Hop",
+		"ageGroup": "(ages 2 to 6)",
+		"img": "img/classes/jazz-hip-hop/jazz-hip-hop.jpg",
+		"link":"classes/jazz-hip-hop.php"
+	},
+	{
+		"name": "Contemporary &amp; Acro-Dance",
+		"ageGroup": "(ages 10 to adult)",
+		"img": "img/classes/contemporary-acro-dance/contemporary-acro-dance.jpg",
+		"link":"classes/contemporary-acro-dance.php"
+	},
+	{
+		"name": "Performance Teams",
+		"ageGroup": "(ages 8 to adult)",
+		"img": "img/classes/performance-teams/performance-teams.jpg",
+		"link":"classes/performance-teams.php"
+	},
+	{
+		"name": "Drop-In Classes",
+		"ageGroup": "(ages 6 to adult)",
+		"img": "img/classes/drop-in/drop-in.jpg",
+		"link":"classes/drop-in.php"
+	}
 ]

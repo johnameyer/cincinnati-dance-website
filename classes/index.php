@@ -52,7 +52,7 @@ $page = "Class Listing";
 									?>
 									<div class="col">
 										<div class="card">
-											<img class="card-img-top" src="http://via.placeholder.com/400x200" alt="Card image cap">
+											<img class="card-img-top" src="<?php echo $OBJ -> img; ?>" alt="Card image cap">
 											<div class="card-body">
 												<h5 class="card-title">							
 													<?php echo $OBJ -> name; ?>

@@ -53,10 +53,12 @@ set_include_path('../');
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
 
-				<?php include_once 'includes/footer.php'; ?>
+		<?php include_once 'includes/footer.php'; ?>
 
-				<?php include_once 'includes/javascript.php'; ?>
-				</body>
+		<?php include_once 'includes/javascript.php'; ?>
+	</body>
 
-			</html>
+</html>
