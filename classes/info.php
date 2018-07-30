@@ -61,6 +61,8 @@ $page = $result["name"];
 									<dt>Tuition</dt>
 									<dd>
 										<?php echo $result["tuition"]; ?>
+										<br>
+										<a href="data/payment_policies.pdf">Additional Tuition Information</a>
 									</dd>
 								</dl>
 								<?php if(isset($_SESSION['contact-id'])): ?>
@@ -68,7 +70,7 @@ $page = $result["name"];
 									Register
 								</a>
 								<?php else: ?>
-								<p>Please sign in to register for classes</p>
+								<a id="to-sign-in" class="btn btn-primary" style="color:white">Please sign in to register for classes</a>
 								<?php endif; ?>
 							</div>
 							<div class="col-md-4">

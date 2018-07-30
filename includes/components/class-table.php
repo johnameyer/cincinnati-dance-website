@@ -35,7 +35,7 @@ $results = getClassByType($type);
 				<?php echo $item["brief"]; ?>
 			</td>
 			<td>
-				<a href="classes/info?<?php echo http_build_query(array("type"=>$type, "class"=>$item["id"])); ?>">More information</a>
+				<a class="btn btn-primary" role="button" href="classes/info?<?php echo http_build_query(array("type"=>$type, "class"=>$item["id"])); ?>">More Information</a>
 			</td>
 		</tr>
 		<?php endforeach; ?>
