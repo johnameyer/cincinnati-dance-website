@@ -34,7 +34,7 @@ function getClassById($id) {
 
 function getClassByType($type) {
 	$conn = connect();
-	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%' ORDER BY name ASC;";
+	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%' ORDER BY priority DESC, name ASC;";
 	$sql_result = $conn->query($query);
 	$result = array();
 	if ($sql_result && $sql_result->num_rows > 0) {
