@@ -24,6 +24,8 @@
                     <div class="justify-content-md-center">
                             <?php include_once 'includes/info.php'; ?>
 
+                            <?php include_once 'includes/home/actioncalls.php'; ?>
+
                             <?php include_once 'includes/calendar.php'; ?>
                         </div>
                 </div>
