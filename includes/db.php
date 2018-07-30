@@ -121,7 +121,7 @@ function getStudentsByContact($contact_id){
 	$conn = connect();
 
 	$students = array();
-	$query = "SELECT student.fname, student.lname, (SELECT COUNT(student_class.id) FROM `student_class` WHERE student_class.student=student.id) AS count FROM `student` WHERE student.contact='$contact_id'";
+	$query = "SELECT student.fname, student.lname, TIMESTAMPDIFF (YEAR, student.birth_date, CURDATE()) AS age, (SELECT COUNT(student_class.id) FROM `student_class` WHERE student_class.student=student.id) AS count FROM `student` WHERE student.contact='$contact_id'";
 
 	$sql_result = $conn->query($query);
 	if ($sql_result && $sql_result->num_rows > 0) {
@@ -137,7 +137,7 @@ function getStudentsByContact($contact_id){
 function getStudentsByContactWithClassStatus($contact_id, $class_id){
 	$conn = connect();
 
-	$query = "SELECT student.id, student.fname, student.lname, (SELECT COUNT(*) FROM `student_class` WHERE student_class.student=student.id AND student_class.class='$class_id') AS in_class FROM `student` WHERE student.contact='$contact_id'";
+	$query = "SELECT student.id, student.fname, student.lname, TIMESTAMPDIFF (YEAR, student.birth_date, CURDATE()) AS age, (SELECT COUNT(*) FROM `student_class` WHERE student_class.student=student.id AND student_class.class='$class_id') AS in_class FROM `student` WHERE student.contact='$contact_id'";
 
 	$students = array();
 	$sql_result = $conn->query($query);

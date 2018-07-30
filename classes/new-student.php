@@ -52,12 +52,6 @@ $page = 'Register a New Student';
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="age" class="col-4 col-form-label">Age</label> 
-							<div class="col-8">
-								<input id="age" name="age" type="text" required="required" class="form-control here">
-							</div>
-						</div>
-						<div class="form-group row">
 							<label for="school-district" class="col-4 col-form-label">School / District (if minor)</label> 
 							<div class="col-8">
 								<input id="school-district" name="school-district" type="text" class="form-control here">
@@ -108,10 +102,6 @@ $page = 'Register a New Student';
 				birth: {
 					required: true,
 					date: true
-				},
-				age: {
-					required: true,
-					number: true
 				},
 				"school-district": {
 					required: true,
