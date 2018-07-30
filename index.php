@@ -22,7 +22,9 @@
 			<div class="container-fluid body-container">
 				<div class="body-inner">
 					<div class="justify-content-md-center">
-						<?php include_once 'includes/info.php'; ?>
+						<?php include_once 'includes/home/news.php'; ?>
+						<br>
+						<?php include_once 'includes/home/info.php'; ?>
 						<?php include_once 'includes/calendar.php'; ?>
 						<?php include_once 'includes/home/social-buttons.php'; ?>
 					</div>
