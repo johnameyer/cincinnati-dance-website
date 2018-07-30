@@ -75,8 +75,8 @@ $page = "Your Unpaid Classes";
 						</tbody>
 					</table>
 
-					<p>Note that any registration fees paid over the initial class will be credited towards tuition. <a href="data/payment_policies.pdf">Read more</a></p>
-					<a href="data/legalese.pdf">By checking out, you agree to the conditions here</a>
+					<p>Note that any registration fees paid over the initial class will be credited towards tuition. <a target="_blank" href="data/payment_policies.pdf">Read more</a></p>
+					<a target="_blank" href="data/legalese.pdf">By checking out, you agree to the conditions here</a>
 					
 					<br>
 

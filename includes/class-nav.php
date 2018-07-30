@@ -1,4 +1,4 @@
-<h1>2018 Dance Classes</h1>
+<h1>2018-2019 Dance Classes</h1>
 <br>
 <ul class="nav nav-pills">
     <li class="nav-item">

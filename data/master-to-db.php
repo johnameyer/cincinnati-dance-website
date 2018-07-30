@@ -16,8 +16,8 @@ var_dump($csv);
 
 foreach($csv as $item){
 	{
-		$query = $conn->prepare("INSERT INTO `class` (id, name, days, times, ages, class_starts, class_ends, image, type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
-		$query->bind_param('issssssss', $item['Id'], $item['Name'], $item['Days'], $item['Times'], $item['Ages'], $item['Class starts'], $item['Class ends'], $item['Image'], $item['Type']);
+		$query = $conn->prepare("INSERT INTO `class` (id, name, days, times, ages, class_starts, class_ends, image, type, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+		$query->bind_param('issssssssi', $item['Id'], $item['Name'], $item['Days'], $item['Times'], $item['Ages'], $item['Class starts'], $item['Class ends'], $item['Image'], $item['Type'], $item['Priority']);
 		$query->execute();
 		$error = $conn->error;
 		if(strlen($error)){
@@ -26,8 +26,8 @@ foreach($csv as $item){
 	}
 
 	{
-		$query = $conn->prepare("UPDATE `class` SET name=?, days=?, times=?, ages=?, class_starts=?, class_ends=?, image=?, type=? WHERE id=?");
-		$query->bind_param('ssssssssi', $item['Name'], $item['Days'], $item['Times'], $item['Ages'], $item['Class starts'], $item['Class ends'], $item['Image'], $item['Type'], $item['Id']);
+		$query = $conn->prepare("UPDATE `class` SET name=?, days=?, times=?, ages=?, class_starts=?, class_ends=?, image=?, type=?, priority=? WHERE id=?");
+		$query->bind_param('ssssssssii', $item['Name'], $item['Days'], $item['Times'], $item['Ages'], $item['Class starts'], $item['Class ends'], $item['Image'], $item['Type'], $item['Priority'], $item['Id']);
 		$query->execute();
 		if(strlen($error)){
 			echo json_encode($error) . '<br>';

@@ -70,6 +70,7 @@ $page = "Your Registered Classes";
 						<br>
 						<a class="btn btn-primary" href="payment/checkout.php">Complete payment</a>
 					<?php endif ?>
+					<p>Please note that we do not consider a class completely registered until payment is confirmed</p>
 				</div>
 			</div>
 		</div>
