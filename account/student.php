@@ -60,6 +60,7 @@ $page = "Your Students";
 							<?php endforeach; ?>
 						</tbody>
 					</table>
+					<a class="btn btn-primary" href="classes/new-student.php">Add a new student</a>
 				</div>
 			</div>
 		</div>

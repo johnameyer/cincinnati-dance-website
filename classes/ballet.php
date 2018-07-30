@@ -33,17 +33,34 @@ $page = "Ballet & Pointe Classes";
 
 					<div class="row">
 						<div class="col-md-8">
-							<p>Our Ballet Program is a leveled classical ballet program (beginners through pre-professional) under the direction of Ms. Mary Anne Schaeper (BA
-								and MA in Dance, UC College-Conservatory of Music) with a strong focus on correct technique while experiencing “la joie de danse” (the joy of
-								dance). Dress code is black leotard and pink tights (for girls) and black tights/leggings and close-fitting white t-shirt (for boys.) Pink split-sole
-								ballet shoes for girls and black split-sole ballet shoes for boys. Hair in a bun and no jewelry. All students are welcomed in our ballet program,
-								but for upper levels, an informal audition is usually required (such as participating in a class to determine correct level placement.) Please
-							contact us with any questions.</p>
+							<p>We offer a leveled classical ballet program (beginners through pre-professional) under
+								the direction of Ms. Mary Anne Schaeper (BA and MA in Dance, UC College-
+								Conservatory of Music) with a strong focus on correct technique while experiencing “la
+								joie de danse” (the joy of dance).
+							</p>
 							<p>
-								Please note that many of our upper-level ballet students take multiple ballet classes (and/or other classes we offer) per week, and are therefore
-								eligible for our multiple class discounts, which are as follows: 2nd class 10% discount, 3rd class 20% discount, 4th class 30% discount, 5th class 40%
-								discount, 6th class or more 50% discount. (calculated starting with longest class first, and going down to shortest class) Tuition listed is full price,
-							not including multi-class discounts.</p>
+								Ballet is the technical foundation of most other dance genres, and we like to encourage
+								our students to study ballet in addition to their other dance classes. Our ballet classes
+								stress proper technique at the barre and center floor, with an emphasis on correct body
+								placement, strength, and flexibility. Students learn not only correct technique, but also
+								correct terminology. We teach classical ballet, based on the Cecchetti method with
+								some Vaganova influence.
+							</p>
+							<p>
+								Dress code is black leotard and pink tights (for girls) and black tights/leggings and
+								close-fitting white t-shirt (for boys.) Pink split-sole ballet shoes for girls and black split-
+								sole ballet shoes for boys. Hair in a bun and no jewelry. All students are welcomed in
+								our ballet program, but for upper levels, an informal audition is usually required (such as
+								participating in a class to determine correct level placement.) Please contact us with any
+								questions.
+							</p>
+							<p>
+								Please note that many of our upper-level ballet students take multiple ballet classes
+								(and/or other classes we offer) per week, and are therefore eligible for our multiple class
+								discounts, which are as follows: 2nd class 10% discount, 3rd class 20% discount, 4th
+								class 30% discount, 5th class 40% discount, 6th class or more 50% discount.
+								(calculated starting with longest class first, and going down to shortest class) Tuition
+							listed is full price, not including multi-class discounts.</p>
 
 							<br>
 						</div>

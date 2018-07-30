@@ -175,11 +175,12 @@ $page = 'Sign In or Register';
 			}
 		});
 		function submit(){
-			console.log();
+			$('button[name=submit]').attr('disabled','true');
 			$.post("backend/sign-up.php", $("form").serialize(), function(response){
 				if(response == "success"){
 					window.history.back();
 				} else {
+					$('button[name=submit]').removeAttr('disabled');
 					$("#sign-up-msg").text(response);
 				}
 			});

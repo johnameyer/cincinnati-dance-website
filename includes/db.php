@@ -34,7 +34,7 @@ function getClassById($id) {
 
 function getClassByType($type) {
 	$conn = connect();
-	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%';";
+	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%' ORDER BY name ASC;";
 	$sql_result = $conn->query($query);
 	$result = array();
 	if ($sql_result && $sql_result->num_rows > 0) {
@@ -87,10 +87,27 @@ function getStudentClassesByContact($contact_id){
 	$conn = connect();
 
 	$student_classes = array();
-	$query = "SELECT student.fname, student.lname, class.name as 'class-name', student_class.has_paid, payment.status FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id INNER JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id) WHERE student.contact='$contact_id'";
+	$query = "SELECT student.fname, student.lname, class.name as 'class-name', student_class.has_paid, payment.status FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id LEFT JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id) WHERE student.contact='$contact_id'";
 
 	$sql_result = $conn->query($query);
-	if ($result && $sql_result->num_rows > 0) {
+	if ($sql_result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
+			array_push($student_classes, $row);
+		}
+		$sql_result->close();
+	}
+	$conn->close();
+	return $student_classes;
+}
+
+function getUnpaidClassesByContact($contact_id){
+	$conn = connect();
+
+	$student_classes = array();
+	$query = "SELECT class.name as 'class-name', student_class.has_paid, payment.status FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id LEFT JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id) WHERE student.contact='$contact_id' AND ( student_class.has_paid=0 OR payment.status NOT LIKE 'Completed')";
+
+	$sql_result = $conn->query($query);
+	if ($sql_result && $sql_result->num_rows > 0) {
 		while($row = $sql_result->fetch_assoc()) {
 			array_push($student_classes, $row);
 		}
@@ -107,7 +124,7 @@ function getStudentsByContact($contact_id){
 	$query = "SELECT student.fname, student.lname, (SELECT COUNT(student_class.id) FROM `student_class` WHERE student_class.student=student.id) AS count FROM `student` WHERE student.contact='$contact_id'";
 
 	$sql_result = $conn->query($query);
-	if ($result && $sql_result->num_rows > 0) {
+	if ($sql_result && $sql_result->num_rows > 0) {
 		while($row = $sql_result->fetch_assoc()) {
 			array_push($students, $row);
 		}
