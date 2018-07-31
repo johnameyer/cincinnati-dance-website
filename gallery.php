@@ -5,68 +5,78 @@ $page = "Gallery";
 <!doctype html>
 <html lang="en">
 
-<head>
-	<?php include_once 'includes/head.php'; ?>
+	<head>
+		<?php include_once 'includes/head.php'; ?>
 
-	<link rel="stylesheet" href="css/carousel.css">
-	<link rel="stylesheet" href="css/awards.css">
-	<link rel="stylesheet" href="css/actioncalls.css">
-	<style type="text/css">
-		#gallery img {
-			height: 80vh;
-		    object-fit: cover;
-		}
-	</style>
-</head>
+		<link rel="stylesheet" href="css/carousel.css">
+		<link rel="stylesheet" href="css/awards.css">
+		<link rel="stylesheet" href="css/actioncalls.css">
+		<style type="text/css">
+			#gallery img {
+				height: 80vh;
+				object-fit: cover;
+			}
+		</style>
+	</head>
 
-<body>
-	<?php include_once 'includes/menu.php'; ?>
+	<body>
+		<?php include_once 'includes/menu.php'; ?>
 
-	<?php include_once 'includes/header-image.php'; ?>
+		<?php include_once 'includes/header-image.php'; ?>
 
-	<div class="drop-up">
-		<div class="container-fluid body-container">
-			<div class="body-inner">
-				<div class="justify-content-md-center">
-					<?php
-					$path = array();
-					include_once 'includes/breadcrumb.php';
-					?>
+		<div class="drop-up">
+			<div class="container-fluid body-container">
+				<div class="body-inner">
+					<div class="justify-content-md-center">
+						<?php
+						$path = array();
+						include_once 'includes/breadcrumb.php';
+						?>
 
-					<h2><?php echo $page; ?></h2>
+						<h2><?php echo $page; ?></h2>
 
-					<br>
+						<br>
+						<!--div class="card-deck">
+							<?php
+							$file = file_get_contents('data/gallery-folders.json');
+							$json = json_decode($file);
+							foreach($json as $OBJ):
+							?>
+							<?php include 'includes/components/gallery-card.php' ?>
+							<?php endforeach ?>
+						</div-->
 
-					<div id="gallery" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<?php for ($i=0; $i < 20; $i++): ?>
+
+						<div id="gallery" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<?php for ($i=0; $i < 20; $i++): ?>
 								<li data-target="#gallery" data-slide-to="<?php echo $i; ?>" class="<?php echo $i==0?"active":""; ?>"></li>
-							<?php endfor; ?>
-						</ol>
-						<div class="carousel-inner">
-							<?php for ($i=0; $i < 20; $i++): ?>
+								<?php endfor; ?>
+							</ol>
+							<div class="carousel-inner">
+								<?php for ($i=0; $i < 20; $i++): ?>
 								<div class="carousel-item<?php echo $i==0?" active":""; ?>">
-									<img class="d-block w-100" src="img/gallery/<?php echo $i; ?>.jpg" alt="First slide">
+									<img class="d-block w-100" src="img/gallery/dress18-06-08/<?php echo $i; ?>.jpg" alt="First slide">
 								</div>
-							<?php endfor; ?>
+								<?php endfor; ?>
+							</div>
+							<a class="carousel-control-prev" href="#gallery" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#gallery" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
 						</div>
-						<a class="carousel-control-prev" href="#gallery" role="button" data-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#gallery" role="button" data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<?php include_once 'includes/footer.php'; ?>
+		<?php include_once 'includes/footer.php'; ?>
 
-	<?php include_once 'includes/javascript.php'; ?>
-</body>
+		<?php include_once 'includes/javascript.php'; ?>
+	</body>
 
 </html>

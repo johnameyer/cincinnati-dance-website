@@ -70,7 +70,7 @@ $page = $result["name"];
 									Register
 								</a>
 								<?php else: ?>
-								<a id="to-sign-in" class="btn btn-primary" style="color:white">Please sign in to register for classes</a>
+								<a id="to-sign-in" class="btn btn-primary" href="account/sign-in.php" style="color:white">Please sign in to register for classes</a>
 								<?php endif; ?>
 							</div>
 							<div class="col-md-4">
