@@ -1,5 +1,6 @@
 <?php
 set_include_path('../');
+$page = "Why CDMC";
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,15 +15,20 @@ set_include_path('../');
 
 	<body>
 		<?php include_once 'includes/menu.php'; ?>
+		<?php include_once 'includes/header-image.php'; ?>
 
 		<div class="drop-up">
 			<div class="container-fluid body-container">
 				<div class="body-inner">
 					<div class="row justify-content-md-center">
 						<div class="col-md-10 col-md-offset-1">
-							<br>
+							<?php
+							$path = array(array("name" => "About Us", "path" => "about/"));
+							include_once 'includes/breadcrumb.php';
+							?>
 
-							<h1>Why Us?</h1>
+
+							<h1>Why CDMC</h1>
 							<div class="col-md-6" style="margin:auto; display:block">
 								<div class="card">
 									<img src="img/about/about.jpg" class="card-img" alt="facility picture">

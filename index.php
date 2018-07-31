@@ -29,7 +29,6 @@
 						<?php include_once 'includes/home/news.php'; ?>
 						<br>
 						<?php include_once 'includes/home/info.php'; ?>
-						<?php include_once 'includes/calendar.php'; ?>
 						<?php include_once 'includes/home/link-cards.php'; ?>
 						<br>
 						<?php include_once 'includes/home/social-buttons.php'; ?>

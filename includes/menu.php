@@ -90,11 +90,11 @@
 					<a class="dropdown-item" href="account/sign-out.php">Sign Out</a>
 				</div>
 			</li>
+			<?php else: ?>
 			<li>
-				<?php else: ?>
 				<a class="btn btn-primary" href="account/sign-in.php">Sign In</a>
-				<?php endif; ?>
 			</li>
+			<?php endif; ?>
 		</ul>
 	</div>
 </nav>

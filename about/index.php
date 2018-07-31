@@ -1,6 +1,6 @@
 <?php
 set_include_path('../');
-$page = "Calendar";
+$page = "About Us";
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,23 +15,24 @@ $page = "Calendar";
 
 	<body>
 		<?php include_once 'includes/menu.php'; ?>
-		<?php include_once 'includes/header-image.php' ?>
+		<?php include_once 'includes/header-image.php'; ?>
 
 		<div class="drop-up">
 			<div class="container-fluid body-container">
 				<div class="body-inner">
 					<div class="row justify-content-md-center">
 						<div class="col-md-10 col-md-offset-1">
-						<?php
-						$path = array(array("name" => "Student", "path" => "#"));
-						include_once 'includes/breadcrumb.php';
-						?>
-
-							<h2>Upcoming Events</h2>
-
-							<div class="text-center">
-								<iframe src="https://calendar.google.com/calendar/embed?src=4cll8j34qjs5m7m0m81iq5t2sk%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-							</div>
+							<?php
+							$path = array();
+							include_once 'includes/breadcrumb.php';
+							?>
+							<h1>About Us</h1>
+							<p class="lead" style="text-align:center">Check out one of the pages below to learn more about us.</p>
+							<br>
+							<?php include_once 'includes/home/link-cards.php'; ?>
+							<br>
+							<br>
+							<br>
 							<br>
 						</div>
 					</div>

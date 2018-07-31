@@ -27,7 +27,7 @@ $page = "Jazz and Hip-Hop Classes";
 						include_once 'includes/breadcrumb.php';
 						?>
 
-						<?php include_once 'includes/class-nav.php'; ?>
+						<?php include_once 'includes/components/class-nav.php'; ?>
 						<script>document.getElementById("class-nav-jazz-hip-hop").className = "nav-link active"</script>
 
 						<h2><?php echo $page; ?></h2>

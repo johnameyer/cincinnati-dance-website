@@ -26,7 +26,7 @@ $page = "Ballet & Pointe Classes";
 					$path = array(array("name" => "Classes", "path" => "classes/"));
 					include_once 'includes/breadcrumb.php';
 					?>
-					<?php include_once 'includes/class-nav.php'; ?>
+					<?php include_once 'includes/components/class-nav.php'; ?>
 					<script>document.getElementById("class-nav-ballet").className = "nav-link active"</script>
 
 					<h2><?php echo $page; ?></h2>

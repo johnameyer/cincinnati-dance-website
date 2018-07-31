@@ -16,7 +16,6 @@ $page = "Contemporary and Acro-Dance Classes";
 <body>
 	<?php include_once 'includes/menu.php'; ?>
 
-	<?php include_once 'includes/header-image.php'; ?>
 
 	<div class="drop-up">
 		<div class="container-fluid body-container">
@@ -27,7 +26,7 @@ $page = "Contemporary and Acro-Dance Classes";
 					include_once 'includes/breadcrumb.php';
 					?>
 
-					<?php include_once 'includes/class-nav.php'; ?>
+					<?php include_once 'includes/components/class-nav.php'; ?>
 					<script>document.getElementById("class-nav-contemporary-acro-dance").className = "nav-link active"</script>
 
 					<h2><?php echo $page; ?></h2>

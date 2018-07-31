@@ -22,12 +22,18 @@ $page = $result["name"];
 	<body>
 		<?php include_once 'includes/menu.php'; ?>
 
-		<?php include_once 'includes/header-image.php'; ?>
-
 		<div class="drop-up">
 			<div class="container-fluid body-container">
 				<div class="body-inner">
 					<div class="justify-content-md-center">
+
+						<?php
+						$path = array(array("name" => "Student", "path" => "#"),array("name" => $result["type"], "path" => "#"));
+						include_once 'includes/breadcrumb.php';
+						?>
+
+						<?php include_once 'includes/components/class-nav.php'; ?>
+
 						<h2><?php echo $result["name"]; ?></h2>
 
 						<div class="row">

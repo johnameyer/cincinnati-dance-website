@@ -16,8 +16,6 @@ $page = "Drop-In Classes";
 <body>
 	<?php include_once 'includes/menu.php'; ?>
 
-	<?php include_once 'includes/header-image.php'; ?>
-
 	<div class="drop-up">
 		<div class="container-fluid body-container">
 			<div class="body-inner">
@@ -27,7 +25,7 @@ $page = "Drop-In Classes";
 					include_once 'includes/breadcrumb.php';
 					?>
 
-					<?php include_once 'includes/class-nav.php'; ?>
+					<?php include_once 'includes/components/class-nav.php'; ?>
 					<script>document.getElementById("class-nav-drop-in").className = "nav-link active"</script>
 
 					<h2><?php echo $page; ?></h2>
