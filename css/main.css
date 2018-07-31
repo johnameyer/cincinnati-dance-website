@@ -1,3 +1,35 @@
+#gallery-box{
+	height: 475px;
+	position: relative;
+}
+
+/* This media query works for medium screen devices (All devices with resolution from 992px to 1199px), for example Computers */
+
+@media (min-width: 992px) and (max-width: 1199px){
+
+	#gallery-box{
+		height: 475px;
+		position: relative;
+	}
+}
+
+/* This media query works for small screen devices (All devices with resolution from 768px to 991px), for example tablets */
+
+@media (min-width: 601px) and (max-width: 991px){
+	#gallery-box{
+		height: 375px;
+		position: relative;
+	}
+}
+
+/* This media query works for extra small screen devices (All devices with below resolution of 767px), for example Iphones, Smart Phones */
+
+@media (max-width: 600px){
+	#gallery-box{
+		height: 175px;
+		position: relative;
+	}
+}
 .drop {
 	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -50,6 +82,11 @@
 .btn-primary:hover {
 	background-color: #048754 !important;
 	border-color: #048754 !important;
+}
+
+.bg-primary {
+	background-color: #04A466 !important;
+	border-color: #04A466 !important;
 }
 
 #header-img {

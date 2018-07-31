@@ -20,13 +20,13 @@
 	{
 		"name": "Jazz &amp; Hip-Hop",
 		"ageGroup": "(ages 5 to adult)",
-		"img": "img/classes/jazz-hip-hop/jazz-hip-hop.jpg",
+		"img": "img/classes/jazz-hip-hop/jazz.jpg",
 		"link":"classes/jazz-hip-hop.php"
 	},
 	{
 		"name": "Contemporary &amp; Acro-Dance",
 		"ageGroup": "(ages 10 to adult)",
-		"img": "img/classes/contemporary-acro-dance/contemporary-acro-dance.jpg",
+		"img": "img/classes/contemporary-acro-dance/contemporary.jpg",
 		"link":"classes/contemporary-acro-dance.php"
 	},
 	{

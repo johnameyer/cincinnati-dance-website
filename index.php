@@ -9,10 +9,14 @@
 		<link rel="stylesheet" href="css/actioncalls.css">
 	</head>
 
+	<style>
+
+	</style>
+
 	<body>
 		<?php include_once 'includes/menu.php'; ?>
 
-		<div id="header-img">
+		<div id="gallery-box">
 
 			<?php include_once 'includes/home/gallery-header.php'; ?>
 
@@ -26,6 +30,8 @@
 						<br>
 						<?php include_once 'includes/home/info.php'; ?>
 						<?php include_once 'includes/calendar.php'; ?>
+						<?php include_once 'includes/home/link-cards.php'; ?>
+						<br>
 						<?php include_once 'includes/home/social-buttons.php'; ?>
 					</div>
 				</div>

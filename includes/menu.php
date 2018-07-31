@@ -79,17 +79,21 @@
 			<?php endif; ?>
 			<li class="nav-item">
 				<?php if(isset($_SESSION['contact-id'])): ?>
+				<pre>  </pre>
+			</li>
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="dropdown-account" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Info</a>
+				<a class="btn btn-primary dropdown-toggle" href="#" id="dropdown-account" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Info</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="account/student.php">Your Students</a>
 					<a class="dropdown-item" href="account/classes.php">Your Registered Classes</a>
+					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="account/sign-out.php">Sign Out</a>
 				</div>
 			</li>
-			<?php else: ?>
-			<a class="btn btn-primary" href="account/sign-in.php">Sign In</a>
-			<?php endif; ?>
+			<li>
+				<?php else: ?>
+				<a class="btn btn-primary" href="account/sign-in.php">Sign In</a>
+				<?php endif; ?>
 			</li>
 		</ul>
 	</div>

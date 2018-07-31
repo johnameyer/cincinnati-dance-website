@@ -1,32 +1,23 @@
-<div id="awards" class="row">
-    <div class="col-md">
-        <div class="card">
-            <img class="card-img-top" src="http://via.placeholder.com/200x200" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">#3 Dance Studio</h5>
-                <p class="card-text">Ranked #3 for dance studios in Cincinnati in 2017, and has ranked in the top consistently since 2011.</p>
-                <!--a href="#" class="btn btn-primary">Go somewhere</a-->
-            </div>
-        </div>
-    </div>
-    <div class="col-md">
-        <div class="card">
-            <img class="card-img-top" src="http://via.placeholder.com/200x200" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">A+ BBB Rating</h5>
-                <p class="card-text">Rated A+ with the Better Business Bureau for 17 years straight.</p>
-                <!--a href="#" class="btn btn-primary">Go somewhere</a-->
-            </div>
-        </div>
-    </div>
-    <div class="col-md">
-        <div class="card">
-            <img class="card-img-top" src="http://via.placeholder.com/200x200" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">National Dance Champs (2012)</h5>
-                <p class="card-text">Lorem Ipsum and description goes here</p>
-                <!--a href="#" class="btn btn-primary">Go somewhere</a-->
-            </div>
-        </div>
-    </div>
+<div id="link-cards" class="row">
+	<div class="col">
+		<button class="btn btn-primary w-100" style="margin:5px" onclick="window.location.href='about/why.php'">
+			<h5 class="card-title">Why CDMC?</h5>
+			<p class="card-text d-none d-sm-block">Discover what makes us one of the best.</p>
+			<!--a href="#" class="btn btn-primary">Go somewhere</a-->
+		</button>
+	</div>
+	<div class="col">
+		<button class="btn btn-primary w-100" style="margin:5px" onclick="window.location.href='about/crew.php'">
+			<h5 class="card-title">Faculty and Staff</h5>
+			<p class="card-text d-none d-sm-blockd-none d-sm-block">Meet our award winning teachers.</p>
+			<!--a href="#" class="btn btn-primary">Go somewhere</a-->
+		</button>
+	</div>
+	<div class="col">
+		<button class="btn btn-primary w-100" style="margin:5px" onclick="window.location.href='about/studio.php'">
+			<h5 class="card-title">Facility</h5>
+			<p class="card-text d-none d-sm-block">Tour our state-of-the-art facility.</p>
+			<!--a href="#" class="btn btn-primary">Go somewhere</a-->
+		</button>
+	</div>
 </div>
