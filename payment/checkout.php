@@ -76,7 +76,7 @@ $page = "Your Unpaid Classes";
 					</table>
 
 					<p>Note that any registration fees paid over the initial class will be credited towards tuition. <a target="_blank" href="data/payment_policies.pdf">Read more</a></p>
-					<a target="_blank" href="data/legalese.pdf">By checking out, you agree to the conditions here</a>
+					<a target="_blank" href="payment/waiver.php">By checking out, you agree to the conditions here</a>
 					
 					<br>
 
