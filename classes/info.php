@@ -28,7 +28,7 @@ $page = $result["name"];
 					<div class="justify-content-md-center">
 
 						<?php
-						$path = array(array("name" => "Student", "path" => "#"),array("name" => $result["type"], "path" => "#"));
+						$path = array(array("name" => "Classes", "path" => "classes/"));
 						include_once 'includes/breadcrumb.php';
 						?>
 

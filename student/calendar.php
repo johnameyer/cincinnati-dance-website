@@ -23,7 +23,7 @@ $page = "Calendar";
 					<div class="row justify-content-md-center">
 						<div class="col-md-10 col-md-offset-1">
 						<?php
-						$path = array(array("name" => "Student", "path" => "#"));
+						$path = array(array("name" => "Student"));
 						include_once 'includes/breadcrumb.php';
 						?>
 
