@@ -1,10 +1,10 @@
 <?php
 //TODO use bindParams for all
 function connect(){
-	$servername = "127.0.0.1";
-	$username = "root";
-	$password = "";
-	$dbname = "cinci_dance";
+	$servername = getenv("MYSQL_SERVER_NAME") ?: "127.0.0.1";
+	$username = getenv("MYSQL_USERNAME") ?: "root";
+	$password = getenv("MYSQL_PASSWORD") ?: "";
+	$dbname =  getenv("MYSQL_SCHEMA_NAME") ?:"cinci_dance";
 
 	//Create connection
 	$conn = new MySQLi($servername, $username, $password, $dbname,3306);
@@ -34,7 +34,7 @@ function getClassById($id) {
 
 function getClassByType($type) {
 	$conn = connect();
-	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%' ORDER BY priority DESC, name ASC;";
+	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%' ORDER BY priority ASC, name ASC;";
 	$sql_result = $conn->query($query);
 	$result = array();
 	if ($sql_result && $sql_result->num_rows > 0) {

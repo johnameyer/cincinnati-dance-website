@@ -12,7 +12,7 @@
 	<body>
 		<?php include_once 'includes/menu.php'; ?>
 
-		<div style="height: 475px; position: relative">
+		<div id="header-img">
 
 			<?php include_once 'includes/home/gallery-header.php'; ?>
 

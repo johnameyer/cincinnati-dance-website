@@ -1,53 +1,58 @@
 .drop {
-    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .drop-up {
-    -webkit-box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px -2px rgba(0, 0, 0, 0.12), 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px -2px rgba(0, 0, 0, 0.12), 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px -2px rgba(0, 0, 0, 0.12), 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px -2px rgba(0, 0, 0, 0.12), 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .body-container {
-    width: 100%;
-    background-color: #04A466;
+	width: 100%;
+	background-color: #04A466;
 }
 
 .body-inner {
-    background-color: white;
-    margin: 0 5%;
-    padding: 20px 5%;
+	background-color: white;
+	margin: 0 5%;
+	padding: 20px 5%;
 }
 
 .green {
-    background-color: #04A466;
+	background-color: #04A466;
 }
 
 .green-dark-1 {
-    background-color: #048754;
+	background-color: #048754;
 }
 
 .green-dark-2 {
-    background-color: #036941;
+	background-color: #036941;
 }
 
 .green-dark-3 {
-    background-color: #024B2F;
+	background-color: #024B2F;
 }
 
 #header-image img {
-    position: relative;
-    z-index: -1;
-    object-fit: cover;
-    height: 250px;
+	position: relative;
+	z-index: -1;
+	object-fit: cover;
+	height: 250px;
 }
 
 .btn-primary {
-    background-color: #04A466 !important;
-    border-color: #04A466 !important;
+	background-color: #04A466 !important;
+	border-color: #04A466 !important;
 }
 
 .btn-primary:hover {
-    background-color: #048754 !important;
-    border-color: #048754 !important;
+	background-color: #048754 !important;
+	border-color: #048754 !important;
+}
+
+#header-img {
+	height: 24vw;
+	position: relative;
 }

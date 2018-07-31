@@ -1,11 +1,15 @@
 @media(max-width: 768px) {
-    nav.navbar .nav.justify-content-end a.nav-link {
-        padding: .5rem 0;
-    }
-    nav.navbar .nav.justify-content-end {
-        justify-content: inherit !important;
-    }
-    .col-md { /*TODO increase specificity */
-        margin-bottom: 20px;
-    }
+	nav.navbar .nav.justify-content-end a.nav-link {
+		padding: .5rem 0;
+	}
+	nav.navbar .nav.justify-content-end {
+		justify-content: inherit !important;
+	}
+	.col-md { /*TODO increase specificity */
+		margin-bottom: 20px;
+	}
+	#header-img {
+		height: 30vh;
+		position: relative;
+	}
 }
