@@ -26,7 +26,7 @@ $page = "Preschool Classes";
 						?>
 
 						<?php include_once 'includes/components/class-nav.php'; ?>
-						<script>document.getElementById("class-nav-preschool").className = "nav-link active"</script>
+						<script>setActiveClass("class-nav-preschool")</script>
 
 						<h2><?php echo $page; ?></h2>
 
@@ -36,29 +36,29 @@ $page = "Preschool Classes";
 									Our preschool classes are designed to introduce basic dance technique, with a focus on developing gross motor skills, musicality, and dance fundamentals in a fun and encouraging environment.  Dress code is dancewear (leotard and tights for girls, shorts and a close-fitting T-shirt for boys) and ballet shoes (pink for girls, black for boys.)  Hair secured back from face and no dangling jewelry please. 
 								</p>
 
-							<br>
-						</div>
-						<div class="col-md-4">
-							<div class="card">
-								<img src="img/classes/preschool/preschool.jpg" class="card-img-top" alt="preschool picture">
+								<br>
+							</div>
+							<div class="col-md-4">
+								<div class="card">
+									<img src="img/classes/preschool/preschool.jpg" class="card-img-top" alt="preschool picture">
+								</div>
 							</div>
 						</div>
+
+						<br>
+
+						<?php
+						$type = 'preschool';
+						include_once('includes/components/class-table.php');
+						?>
 					</div>
-
-					<br>
-
-					<?php
-					$type = 'preschool';
-					include_once('includes/components/class-table.php');
-					?>
 				</div>
 			</div>
 		</div>
-		</div>
 
-	<?php include_once 'includes/footer.php'; ?>
+		<?php include_once 'includes/footer.php'; ?>
 
-	<?php include_once 'includes/javascript.php'; ?>
+		<?php include_once 'includes/javascript.php'; ?>
 	</body>
 
 </html>
