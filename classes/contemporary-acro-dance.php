@@ -26,8 +26,8 @@ $page = "Contemporary and Acro-Dance Classes";
 					include_once 'includes/breadcrumb.php';
 					?>
 
-					<?php include_once 'includes/components/class-nav.php'; ?>
-					<script>document.getElementById("class-nav-contemporary-acro-dance").className = "nav-link active"</script>
+						<?php include_once 'includes/components/class-nav.php'; ?>
+						<script>setActiveClass("class-nav-contemporary-acro-dance")</script>
 
 					<h2><?php echo $page; ?></h2>
 

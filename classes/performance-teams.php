@@ -26,7 +26,7 @@ $page = "Performance Teams";
 						?>
 
 						<?php include_once 'includes/components/class-nav.php'; ?>
-						<script>document.getElementById("class-nav-performance-teams").className = "nav-link active"</script>
+						<script>setActiveClass("class-nav-performance-teams")</script>
 
 						<h2><?php echo $page; ?></h2>
 
