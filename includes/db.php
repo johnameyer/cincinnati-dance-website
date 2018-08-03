@@ -1,5 +1,10 @@
 <?php
 //TODO use bindParams for all
+
+define('REQUIRED_VARS', TRUE);
+
+@include_once 'vars.php';
+
 function connect(){
 	$servername = getenv("MYSQL_SERVER_NAME") ?: "127.0.0.1";
 	$username = getenv("MYSQL_USERNAME") ?: "root";
@@ -7,7 +12,7 @@ function connect(){
 	$dbname =  getenv("MYSQL_SCHEMA_NAME") ?:"cinci_dance";
 
 	//Create connection
-	$conn = new MySQLi($servername, $username, $password, $dbname,3306);
+	$conn = new MySQLi($servername, $username, $password, $dbname, 3306);
 
 	if (!$conn) {
 		echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -52,21 +57,19 @@ function getClassContent($id){
 	return json_decode(file_get_contents("../data/class/$id.json"), true);
 }
 
-function getPaymentByTransaction($txn_id){//TODO just be a return transaction and use truthy value as indicating duplication
+function getPaymentByTransaction($txn_id){
+	$query = "SELECT * FROM `payment` WHERE `transaction_id`='$txn_id'";
 
 	$conn = connect();
-
-	$query = "SELECT * FROM `payment` WHERE transaction_id='$txn_id'";
-
 	$sql_result = $conn->query($query);
-	
-	$conn->close();
 
 	$result = NULL;
 	if ($sql_result && $sql_result->num_rows > 0 && $row = $sql_result->fetch_assoc()) {
 		$result = $row;
 		$sql_result->close();
 	}
+
+	$conn->close();
 	return $result;
 }
 
