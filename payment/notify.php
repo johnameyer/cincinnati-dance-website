@@ -1,10 +1,12 @@
 <?php
-$my_file = 'file.log';
-$handle = fopen($my_file, 'a') or die('Cannot open file:  '.$my_file);
+/*
+	$my_file = 'file.log';
+	$handle = fopen($my_file, 'a') or die('Cannot open file:  '.$my_file);
 
-fwrite($handle, "Notify:" . json_encode($_REQUEST) . "\n");
+	fwrite($handle, "Notify:" . json_encode($_REQUEST) . "\n");
 ?>
 <?php
+*/
 // STEP 1: read POST data
 // Reading POSTed data directly from $_POST causes serialization issues with array data in the POST.
 // Instead, read raw POST data from the input stream.
@@ -31,7 +33,7 @@ foreach ($myPost as $key => $value) {
 }
 
 // Step 2: POST IPN data back to PayPal to validate
-$ch = curl_init('https://ipnpb.sandbox.paypal.com/cgi-bin/webscr');
+$ch = curl_init('https://ipnpb.paypal.com/cgi-bin/webscr');
 curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
@@ -50,8 +52,6 @@ if ( !($res = curl_exec($ch)) ) {
 	exit;
 }
 curl_close($ch);
-?>
-<?php
 // inspect IPN validation result and act accordingly
 if (strcmp ($res, "VERIFIED") == 0) {
   // The IPN is verified, process it:
@@ -110,14 +110,16 @@ if (strcmp ($res, "VERIFIED") == 0) {
 
 	}
 
-	if($in_table['status'] != 'Completed' && $payment_status == 'Completed'){
+	echo $conn->error;
+
+	if((!$in_table || $in_table['status'] != 'Completed') && $payment_status == 'Completed'){
 		$query = "UPDATE student_class SET payment=?, has_paid=1 WHERE student_class.id IN ( SELECT id FROM (SELECT student_class.id FROM `student_class` INNER JOIN `student` ON student_class.student=student.id WHERE student.contact=? ORDER BY id ASC LIMIT ? ) tmp );";
 		$query = $conn->prepare($query);
 		$query->bind_param('iii', $payment_id, $contact_id, $number_paid_for);//TODO form validation
 		$query->execute();
-
-		
 	}
+
+	$conn->close();
 
 } else if (strcmp($res, "INVALID") == 0) {
   // IPN invalid, log for manual investigation
