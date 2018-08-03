@@ -7,10 +7,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<?php if($base): //include base tag only if defined in environment
-?>
-<base href="<?php echo $base; ?>">
-<?php endif; ?>
+<base href="<?php echo $base ?: '/'; ?>">
+
 <title>Cincinnati Dance and Movement Center<?php if(isset($page)) echo " - " . $page; ?></title>
 
 <link rel="stylesheet" href="css/main.css">
