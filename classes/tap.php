@@ -26,7 +26,7 @@ $page = "Tap Classes";
 						?>
 
 						<?php include_once 'includes/components/class-nav.php'; ?>
-						<script>document.getElementById("class-nav-tap").className = "nav-link active"</script>
+						<script>setActiveClass("class-nav-tap")</script>
 
 						<h2><?php echo $page; ?></h2>
 
