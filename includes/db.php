@@ -90,7 +90,7 @@ function getStudentClassesByContact($contact_id){
 	$conn = connect();
 
 	$student_classes = array();
-	$query = "SELECT student.fname, student.lname, class.name as 'class-name', student_class.has_paid, payment.status FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id LEFT JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id) WHERE student.contact='$contact_id'";
+	$query = "SELECT student, class, student.fname, student.lname, class.name as 'class-name', student_class.has_paid, payment.status FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id LEFT JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id) WHERE student.contact='$contact_id'";
 
 	$sql_result = $conn->query($query);
 	if ($sql_result && $sql_result->num_rows > 0) {
@@ -152,6 +152,15 @@ function getStudentsByContactWithClassStatus($contact_id, $class_id){
 	}
 	$conn->close();
 	return $students;
+}
+
+function deleteStudentClass($student_id, $class_id){
+	$conn = connect();
+
+	$query = $conn->prepare("DELETE FROM student_class WHERE student=? AND class=?");
+	$query->bind_param('ii', $student_id, $class_id);
+	$query->execute();
+	return $conn->error;	
 }
 
 $conn = connect();

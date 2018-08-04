@@ -64,7 +64,7 @@ $page = 'Sign In or Register';
 							<div class="form-group row">
 								<label for="state" class="col-4 col-form-label">State</label> 
 								<div class="col-8">
-									<input id="state" name="state" type="text" required="required" class="form-control here">
+									<input placeholder="OH" id="state" name="state" type="text" required="required" class="form-control here">
 								</div>
 							</div>
 							<div class="form-group row">
@@ -148,7 +148,8 @@ $page = 'Sign In or Register';
 							minlength: 2
 						},
 						state: {
-							minlength: 2
+							minlength: 2,
+							maxlength: 2
 						},
 						zip: {
 							number: true
