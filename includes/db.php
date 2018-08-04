@@ -157,7 +157,7 @@ function deleteStudentClass($student_id, $class_id){
 	$query = $conn->prepare("DELETE FROM student_class WHERE student=? AND class=?");
 	$query->bind_param('ii', $student_id, $class_id);
 	$query->execute();
-	return $conn->error;	
+	return $conn->error;
 }
 
 $conn = connect();
