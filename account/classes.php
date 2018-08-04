@@ -17,37 +17,37 @@ $page = "Your Registered Classes";
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<?php include_once 'includes/head.php'; ?>
+<head>
+	<?php include_once 'includes/head.php'; ?>
 
-		<link rel="stylesheet" href="css/carousel.css">
-		<link rel="stylesheet" href="css/awards.css">
-		<link rel="stylesheet" href="css/actioncalls.css">
-	</head>
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/awards.css">
+	<link rel="stylesheet" href="css/actioncalls.css">
+</head>
 
-	<body>
-		<?php include_once 'includes/menu.php'; ?>
+<body>
+	<?php include_once 'includes/menu.php'; ?>
 
-		<?php include_once 'includes/header-image.php'; ?>
+	<?php include_once 'includes/header-image.php'; ?>
 
-		<div class="drop-up">
-			<div class="container-fluid body-container">
-				<div class="body-inner">
-					<div class="justify-content-md-center">
-						<h2><?php echo $page; ?></h2>
+	<div class="drop-up">
+		<div class="container-fluid body-container">
+			<div class="body-inner">
+				<div class="justify-content-md-center">
+					<h2><?php echo $page; ?></h2>
 
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col">Class</th>
-									<th scope="col">First Name</th>
-									<th scope="col">Last Name</th>
-									<th scope="col">Paid for</th>
-									<th scope="col"></th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach ($student_classes as $student_class): ?>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Class</th>
+								<th scope="col">First Name</th>
+								<th scope="col">Last Name</th>
+								<th scope="col">Paid for</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($student_classes as $student_class): ?>
 								<tr>
 									<td>
 										<?php echo $student_class['class-name']; ?>
@@ -63,36 +63,37 @@ $page = "Your Registered Classes";
 									</td>
 									<td>
 										<?php if(strcmp($student_class['has_paid'], '0')==0): ?>
-										<button class="btn btn-danger" onclick="deleteStudentClass(<?php echo preg_replace('/"/', '\'', json_encode($student_class)); ?>)">Remove Registration</button>
+											<button class="btn btn-danger" onclick="deleteStudentClass(<?php echo preg_replace('/"/', '\'', json_encode($student_class)); ?>)">Remove Registration</button>
 										<?php endif; ?>
 									</td>
-
+									
 								</tr>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
-						<a class="btn btn-secondary" href="classes/index.php">Browse classes</a>
-						<?php if($unpaid): ?>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+					<a class="btn btn-secondary" href="classes/index.php">Browse classes</a>
+					<?php if($unpaid): ?>
 						<br>
 						<a class="btn btn-primary" href="payment/checkout.php">Complete payment</a>
-						<?php endif ?>
-						<p>Please note that we do not consider a class completely registered until payment is confirmed</p>
-					</div>
+					<?php endif ?>
+					<p>Please note that we do not consider a class completely registered until payment is confirmed</p>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 
-		<?php include_once 'includes/footer.php'; ?>
+<?php include_once 'includes/footer.php'; ?>
 
-		<?php include_once 'includes/javascript.php'; ?>
-		<script type="text/javascript">
-			function deleteStudentClass(studentClass){
-				$.post('backend/delete-student-class.php', studentClass, function(result){
-					console.log('result');
-					window.location.reload();
-				});
-			}
-		</script>
-	</body>
+<?php include_once 'includes/javascript.php'; ?>
+<script type="text/javascript">
+	function deleteStudentClass(studentClass){
+		$.post('backend/delete-student-class.php', studentClass, function(result){
+			console.log('result');
+			window.location.reload();
+		});
+	}
+</script>
+</body>
 
 </html>
