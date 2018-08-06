@@ -93,19 +93,25 @@ $page = 'Register a New Student';
 			rules: {
 				fname: {
 					required: true,
-					alpha: true
+					alpha: true,
+					maxlength: 100
 				},
 				lname: {
 					required: true,
-					alpha: true
+					alpha: true,
+					maxlength: 100
 				},
 				birth: {
 					required: true,
-					date: true
+					date: true,
+					maxlength: 20
 				},
 				"school-district": {
-					required: true,
-					minlength: 2
+					minlength: 2,
+					maxlength: 100
+				},
+				medical: {
+					maxlength: 500
 				}
 			}
 		});
