@@ -132,17 +132,21 @@ $page = 'Sign In or Register';
 					rules: {
 						fname: {
 							required: true,
-							alpha: true
+							alpha: true,
+							maxlength: 100
 						},
 						lname: {
 							required: true,
-							alpha: true
+							alpha: true,
+							maxlength: 100
 						},
 						relationship: {
-							alpha: true
+							alpha: true,
+							maxlength: 100
 						},
 						address: {
-							minlength: 2
+							minlength: 2,
+							maxlength: 100
 						},
 						city: {
 							minlength: 2
@@ -152,17 +156,22 @@ $page = 'Sign In or Register';
 							maxlength: 2
 						},
 						zip: {
-							number: true
+							number: true,
+							maxlength: 11
 						},
 						"contact-phone": {
-							phone: true
+							phone: true,
+							maxlength: 45
+
 						},
 						"emergency-phone": {
-							phone: true
+							phone: true,
+							maxlength: 45
 						},
 						email: {
 							required: true,
-							email: true
+							email: true,
+							maxlength: 100
 						},
 						password: {
 							required: true,
