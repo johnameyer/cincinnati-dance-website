@@ -43,6 +43,7 @@ $page = "Your Registered Classes";
 								<th scope="col">First Name</th>
 								<th scope="col">Last Name</th>
 								<th scope="col">Paid for</th>
+								<th scope="col"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -59,6 +60,11 @@ $page = "Your Registered Classes";
 									</td>
 									<td>
 										<?php echo strcmp($student_class['has_paid'], '0')==0 ? 'No' : ($student_class['status'] != "Completed" ? 'Waiting for confirmation from Paypal' : 'Paid'); ?>
+									</td>
+									<td>
+										<?php if(strcmp($student_class['has_paid'], '0')==0): ?>
+											<button class="btn btn-danger" onclick="deleteStudentClass(<?php echo preg_replace('/"/', '\'', json_encode($student_class)); ?>)">Remove Registration</button>
+										<?php endif; ?>
 									</td>
 									
 								</tr>
@@ -80,6 +86,14 @@ $page = "Your Registered Classes";
 <?php include_once 'includes/footer.php'; ?>
 
 <?php include_once 'includes/javascript.php'; ?>
+<script type="text/javascript">
+	function deleteStudentClass(studentClass){
+		$.post('backend/delete-student-class.php', studentClass, function(result){
+			console.log('result');
+			window.location.reload();
+		});
+	}
+</script>
 </body>
 
 </html>
