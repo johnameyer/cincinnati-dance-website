@@ -1,4 +1,6 @@
 <?php
+set_include_path('../');
+
 require_once 'includes/login-check.php';
 
 $page = 'Checkout Cancelled';

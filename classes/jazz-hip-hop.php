@@ -16,8 +16,6 @@ $page = "Jazz and Hip-Hop Classes";
 	<body>
 		<?php include_once 'includes/menu.php'; ?>
 
-		<?php include_once 'includes/header-image.php'; ?>
-
 		<div class="drop-up">
 			<div class="container-fluid body-container">
 				<div class="body-inner">
@@ -28,7 +26,7 @@ $page = "Jazz and Hip-Hop Classes";
 						?>
 
 						<?php include_once 'includes/components/class-nav.php'; ?>
-						<script>document.getElementById("class-nav-jazz-hip-hop").className = "nav-link active"</script>
+						<script>setActiveClass("class-nav-jazz-hip-hop")</script>
 
 						<h2><?php echo $page; ?></h2>
 

@@ -3,7 +3,7 @@ include_once 'includes/db.php';
 $results = getClassByType($type);
 ?>
 <br>
-<table class="table table-responsive">
+<table class="table table-responsive d-none d-sm-block" id=table-large>
 	<thead>
 		<th scope="col">Class</th>
 		<th scope="col">Days</th>
@@ -36,6 +36,21 @@ $results = getClassByType($type);
 			</td>
 			<td>
 				<a class="btn btn-primary" role="button" href="classes/info.php?<?php echo http_build_query(array("type"=>$type, "class"=>$item["id"])); ?>">More Information</a>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+
+<table class="table table-responsive d-block d-sm-none" id=table-mobile>
+	<thead>
+		<th scope="col">Class</th>
+	</thead>
+	<tbody>
+		<?php foreach($results as $item): ?>
+		<tr>
+			<td style="width: 100%">
+				<a class="btn btn-primary" role="button" href="classes/info.php?<?php echo http_build_query(array("type"=>$type, "class"=>$item["id"])); ?>"><?php echo $item["name"]; ?></a>
 			</td>
 		</tr>
 		<?php endforeach; ?>
