@@ -43,7 +43,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Connection: Close'));
 // In wamp-like environments that do not come bundled with root authority certificates,
 // please download 'cacert.pem' from "https://curl.haxx.se/docs/caextract.html" and set
 // the directory path of the certificate as shown below:
-// curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
+curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
 if ( !($res = curl_exec($ch)) ) {
 	error_log("Got " . curl_error($ch) . " when processing IPN data");
 	curl_close($ch);
@@ -110,8 +110,10 @@ if (strcmp ($res, "VERIFIED") == 0) {
 
 	}
 
-	if($in_table['status'] != 'Completed' && $payment_status == 'Completed'){
-		$query = "UPDATE student_class SET payment=?, has_paid=1 WHERE student_class.id IN ( SELECT id FROM (SELECT student_class.id FROM `student_class` INNER JOIN `student` ON student_class.student=student.id WHERE student.contact=? ORDER BY id ASC LIMIT ? ) tmp );";
+	echo $conn->error;
+
+	if((!$in_table || $in_table['status'] != 'Completed') && $payment_status == 'Completed'){
+		$query = "UPDATE student_class SET payment=?, has_paid=1 WHERE student_class.id IN ( SELECT id FROM (SELECT student_class.id FROM `student_class` INNER JOIN `student` ON student_class.student=student.id WHERE student.contact=? AND student_class.payment IS NULL ORDER BY id ASC LIMIT ? ) tmp );";
 		$query = $conn->prepare($query);
 		$query->bind_param('iii', $payment_id, $contact_id, $number_paid_for);//TODO form validation
 		$query->execute();
