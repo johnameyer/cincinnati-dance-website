@@ -68,7 +68,7 @@ $page = 'Sign In or Register';
 			$('#forgot-msg').removeClass(['text-success', 'text-danger']).text('');
 			$.post('backend/forgot-password.php', {email: $("#email").val()}, function(response){
 				if(response == "success"){
-					$("forgot-msg").addClass('text-success').text('Email sent');
+					$("#forgot-msg").addClass('text-success').text('Email sent');
 				} else {
 					$('#forgot-password').removeAttr('disabled');
 					$("#forgot-msg").addClass('text-danger').text(response);
