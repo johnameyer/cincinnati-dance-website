@@ -15,10 +15,10 @@ $page = 'Sign In or Register';
 	<link rel="stylesheet" href="css/awards.css">
 	<link rel="stylesheet" href="css/actioncalls.css">
 	<style type="text/css">
-		.body-inner .btn-secondary {
-			margin: 0px 5px;
-		}
-	</style>
+	.body-inner .btn-secondary {
+		margin: 0px 5px;
+	}
+</style>
 </head>
 
 <body>
@@ -30,21 +30,21 @@ $page = 'Sign In or Register';
 		<div class="container-fluid body-container">
 			<div class="body-inner">
 				<div class="justify-content-md-center">
-					<a id="forgot-password" class="btn btn-secondary" style="color:white; float:right">Forgot your password?</a>
-					<a id="to-sign-up" class="btn btn-secondary" style="color:white; float:right">Need an account?</a>
 					<br>
-					<h2>Sign In</h2>
+					<h2>Reset Your Password</h2>
+					<p>Your password has been reset and now needs to be changed. Please enter your new password below:</p>
 					<form method="POST">
 						<div class="form-group row">
-							<label for="sign-in-email" class="col-4 col-form-label">Email Address</label> 
+							<label for="password" class="col-4 col-form-label">Password</label> 
 							<div class="col-8">
-								<input id="sign-in-email" name="sign-in-email" type="email" required="required" class="form-control here"> 
+								<input id="password" name="password" type="password" required="required" class="form-control here">
 							</div>
 						</div>
+
 						<div class="form-group row">
-							<label for="sign-in-password" class="col-4 col-form-label">Password</label> 
+							<label for="verify-password" class="col-4 col-form-label">Verify Password</label> 
 							<div class="col-8">
-								<input id="sign-in-password" name="sign-in-password" type="password" required="required" class="form-control here">
+								<input id="verify-password" name="verify-password" type="password" required="required" class="form-control here">
 							</div>
 						</div>
 
@@ -54,7 +54,7 @@ $page = 'Sign In or Register';
 							</div>
 						</div>
 
-						<div id="sign-in-msg" class="text-danger"></div>
+						<div id="reset-msg" class="text-danger"></div>
 					</form>
 				</div>
 
@@ -68,40 +68,31 @@ $page = 'Sign In or Register';
 <?php include_once 'includes/javascript.php'; ?>
 <script type="text/javascript">
 	$(function(){
-		$("#to-sign-up").click(function(){
-			window.location.replace("<?php echo $base; ?>account/sign-up.php");
-		});
-		$("#forgot-password").click(function(){
-			window.location.replace("<?php echo $base; ?>account/forgot-password.php");
-		});
 		$("form").validate({
 			submitHandler: submit,
 			rules: {
-				"sign-in-email": {
-					required: true,
-					email: true
-				},
 				"sign-in-password": {
 					required: true,
 					minlength: 8
+				},
+				"verify-password": {
+					required: true,
+					equalTo: "#password"
 				}
 			}
 		});
 		function submit(){
-			$('button[name=submit]').attr('disabled','true');
-			$.post("backend/sign-in.php", $("form").serialize(), function(response){
+			$('button[name=submit]').attr('disabled', 'disabled');
+			$.post("backend/reset-password.php", $("form").serialize(), function(response){
 				if(response == "success"){
 					window.history.back();
-				} else if(response == "reset") {
-					window.location.replace('<?php echo $base; ?>account/reset-password.php');
 				} else {
 					$('button[name=submit]').removeAttr('disabled');
-					$("#sign-in-msg").text(response);
+					$("#reset-msg").text(response);
 				}
 			});
-		};
+		}
 	});
 </script>
 </body>
-
 </html>

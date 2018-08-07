@@ -21,8 +21,7 @@ if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 			$id = $row['id'];
 			$email = $row['email'];
 			$fname = $row['fname'];
-
-			//if forgot password...
+			$needs_to_reset = $row['forgot_password'];
 		} else {
 			echo json_encode("That's not the right password for this account.");
 			$result->close();
@@ -38,6 +37,11 @@ if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 		$_SESSION['contact-id'] = $id;
 		$_SESSION['email'] = $email;
 		$_SESSION['fname'] = $fname;
+
+		if($needs_to_reset){
+			echo json_encode("reset");
+			exit();
+		}
 
 		echo json_encode("success");
 		exit();
