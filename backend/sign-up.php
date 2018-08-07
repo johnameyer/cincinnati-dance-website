@@ -46,8 +46,8 @@ if(isset($_REQUEST['email'])){ //new user just registered
 			$_SESSION['email'] = $_REQUEST['email']; //TODO support return field
 			$_SESSION['fname'] = $_REQUEST['fname'];
 
-			require_once('email.php');
-			mailTo($_REQUEST['email'], 'welcome.html');
+			require_once('email/email.php');
+			mailTo($_REQUEST['email'], 'Welcome to Cincinnati Dance!', 'email/welcome.html');
 			echo json_encode("success");
 			exit();
 		}

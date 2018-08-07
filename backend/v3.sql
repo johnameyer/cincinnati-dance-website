@@ -1,0 +1,6 @@
+ALTER TABLE `cinci_dance`.`student_class` 
+ADD COLUMN `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `payment`,
+ADD COLUMN `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER `create_time`;
+
+ALTER TABLE `cinci_dance`.`user` 
+ADD COLUMN `forgot_password` INT(1) NOT NULL DEFAULT 0 AFTER `password`;

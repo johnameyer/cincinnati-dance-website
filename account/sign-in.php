@@ -14,6 +14,11 @@ $page = 'Sign In or Register';
 	<link rel="stylesheet" href="css/carousel.css">
 	<link rel="stylesheet" href="css/awards.css">
 	<link rel="stylesheet" href="css/actioncalls.css">
+	<style type="text/css">
+		.body-inner .btn-secondary {
+			margin: 0px 5px;
+		}
+	</style>
 </head>
 
 <body>
@@ -25,7 +30,8 @@ $page = 'Sign In or Register';
 		<div class="container-fluid body-container">
 			<div class="body-inner">
 				<div class="justify-content-md-center">
-											<a id="to-sign-up" class="btn btn-secondary" style="color:white; float:right">Need an account?</a>
+					<a id="forgot-password" class="btn btn-secondary" style="color:white; float:right">Forgot your password?</a>
+					<a id="to-sign-up" class="btn btn-secondary" style="color:white; float:right">Need an account?</a>
 					<br>
 					<h2>Sign In</h2>
 					<form method="POST">
@@ -64,6 +70,9 @@ $page = 'Sign In or Register';
 	$(function(){
 		$("#to-sign-up").click(function(){
 			window.location.replace("account/sign-up.php");
+		});
+		$("#forgot-password").click(function(){
+			window.location.replace("account/forgot-password.php");
 		});
 		$("form").validate({
 			submitHandler: submit,
