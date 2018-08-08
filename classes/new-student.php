@@ -86,7 +86,7 @@ $page = 'Register a New Student';
 <script type="text/javascript">
 	$(function(){
 		$("#to-sign-in").click(function(){
-			window.location.replace("sign-in.php");
+			window.location.replace("./sign-in.php");
 		});
 		$("form").validate({
 			submitHandler: submit,

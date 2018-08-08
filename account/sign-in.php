@@ -63,7 +63,7 @@ $page = 'Sign In or Register';
 <script type="text/javascript">
 	$(function(){
 		$("#to-sign-up").click(function(){
-			window.location.replace("account/sign-up.php");
+			window.location.replace("./sign-up.php");
 		});
 		$("form").validate({
 			submitHandler: submit,
