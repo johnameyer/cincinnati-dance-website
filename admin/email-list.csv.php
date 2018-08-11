@@ -14,8 +14,8 @@ if(isset($_REQUEST['class'])){
 	$data = getEmails();
 }
 
-//header('Content-Type: text/csv');
-//header('Content-Disposition: filename="emails.csv"');
+header('Content-Type: text/csv');
+header('Content-Disposition: filename="emails.csv"');
 
 $fp = fopen('php://output', 'w');
 foreach ( $data as $line ) {
