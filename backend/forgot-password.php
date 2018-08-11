@@ -18,7 +18,7 @@ if(isset($_REQUEST['email'])){
 	$options = ['cost' => 12];
 	$password = password_hash($new_pass, PASSWORD_DEFAULT, $options);
 
-	$query = $conn->prepare("UPDATE `user` SET password=?, forgot_password=NULL WHERE email=?");
+	$query = $conn->prepare("UPDATE `user` SET forgot_password = ? WHERE email = ?");
 	$query->bind_param('ss', $password, $_REQUEST['email']);
 	$query->execute();
 	if(isset($error)){

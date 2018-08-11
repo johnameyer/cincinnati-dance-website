@@ -6,7 +6,7 @@ function mailTo($email, $subject, $template_file, $replacements = array()){
 	$headers .= 'From: <noreply@cincinnatidance.com>' . "\r\n";
 	$contents = file_get_contents($template_file);
 	foreach ($replacements as $key => $replacement) {
-		$contents = preg_replace('/$' . $key . '/', $replacement, $contents);
+		$contents = preg_replace('/\$' . $key . '/i', $replacement, $contents);
 	}
 	return @mail($email, $subject, $contents, $headers, '');
 }

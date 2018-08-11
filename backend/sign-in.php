@@ -17,6 +17,7 @@ if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 	$result = mysqli_query($conn, $query);
 	if ($result && mysqli_num_rows($result) > 0) {
 		$row = mysqli_fetch_assoc($result);
+		$needs_to_reset = false;
 		if(password_verify($_REQUEST['sign-in-password'], $row['password'])){
 			$id = $row['id'];
 			$email = $row['email'];
