@@ -12,7 +12,7 @@ sleep(1); //make wait so cannot spam
 if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 	//TODO
 	$email = $_REQUEST['sign-in-email'];
-	$query = "SELECT contact.id, user.password, user.email, contact.fname, user.forgot_password FROM (contact INNER JOIN user ON contact.user=user.id) WHERE user.email='$email'";
+	$query = "SELECT contact.id, user.password, user.email, contact.fname, user.forgot_password, user.admin FROM (contact INNER JOIN user ON contact.user=user.id) WHERE user.email='$email'";
 
 	$result = mysqli_query($conn, $query);
 	if ($result && mysqli_num_rows($result) > 0) {
@@ -22,10 +22,12 @@ if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 			$id = $row['id'];
 			$email = $row['email'];
 			$fname = $row['fname'];
+			$admin = $row['admin'];
 		} else if(password_verify($_REQUEST['sign-in-password'], $row['forgot_password'])) {
 			$id = $row['id'];
 			$email = $row['email'];
 			$fname = $row['fname'];
+			$admin = $row['admin'];
 			$needs_to_reset = true;
 		} else {
 			echo json_encode("That's not the right password for this account.");
@@ -42,6 +44,7 @@ if(isset($_REQUEST["sign-in-email"])){ //user just signed in
 		$_SESSION['contact-id'] = $id;
 		$_SESSION['email'] = $email;
 		$_SESSION['fname'] = $fname;
+		$_SESSION['admin'] = $admin;
 
 		if($needs_to_reset){
 			echo json_encode("reset");

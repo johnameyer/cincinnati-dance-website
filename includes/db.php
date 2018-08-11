@@ -25,7 +25,7 @@ function connect(){
 
 function getClassById($id) {
 	$conn = connect();
-	$query = "SELECT * FROM `class` WHERE id='$id';";
+	$query = "SELECT * FROM `class` WHERE id='$id' AND hidden=0;";
 	$sql_result = $conn->query($query);
 	$result = NULL;
 	if ($sql_result && $sql_result->num_rows > 0) {
@@ -39,7 +39,23 @@ function getClassById($id) {
 
 function getClassByType($type) {
 	$conn = connect();
-	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%' ORDER BY priority ASC, name ASC;";
+	$query = "SELECT * FROM `class` WHERE type LIKE'%$type%' AND hidden=0 ORDER BY priority ASC, name ASC;";
+	$sql_result = $conn->query($query);
+	$result = array();
+	if ($sql_result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
+			$row = array_merge($row,getClassContent($row["id"]));
+			array_push($result, $row);
+		}
+		$sql_result->close();
+	}
+	$conn->close();
+	return $result;
+}
+
+function getClasses() {
+	$conn = connect();
+	$query = "SELECT * FROM `class` WHERE hidden=0 ORDER BY priority ASC, name ASC;";
 	$sql_result = $conn->query($query);
 	$result = array();
 	if ($sql_result && $sql_result->num_rows > 0) {
@@ -86,6 +102,23 @@ function getUserByEmail($type) {
 	return $result;
 }
 
+function getData(){
+	$conn = connect();
+
+	$student_classes = array();
+	$query = "SELECT student.fname, student.lname, student.medical_info, student.birth_date, DATE_FORMAT(now(), '%Y') - DATE_FORMAT(birth_date, '%Y') - (DATE_FORMAT(now(), '00-%m-%d') < DATE_FORMAT(birth_date, '00-%m-%d')) as age, student.grade, student.school_district, contact.fname AS contact_fname, contact.lname AS contact_lname, contact.relationship, contact.contact_phone, contact.emergency_phone, contact.address, contact.city, contact.state, contact.zip, user.email, class.name, payment.status FROM (`student` INNER JOIN `contact` ON student.contact=contact.id INNER JOIN `user` ON contact.user=user.id INNER JOIN `student_class` ON student_class.student=student.id LEFT JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id)";
+
+	$sql_result = $conn->query($query);
+	if ($sql_result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
+			array_push($student_classes, $row);
+		}
+		$sql_result->close();
+	}
+	$conn->close();
+	return $student_classes;
+}
+
 function getStudentClassesByContact($contact_id){
 	$conn = connect();
 
@@ -101,6 +134,40 @@ function getStudentClassesByContact($contact_id){
 	}
 	$conn->close();
 	return $student_classes;
+}
+
+function getEmailsByClass($class_id){
+	$conn = connect();
+
+	$emails = array();
+	$query = "SELECT user.email FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id INNER JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id INNER JOIN `contact` ON student.contact=contact.id INNER JOIN `user` ON contact.user=user.id) WHERE student_class.class='$class_id' AND payment.status='Completed' GROUP BY user.email";
+
+	$sql_result = $conn->query($query);
+	if ($sql_result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
+			array_push($emails, $row['email']);
+		}
+		$sql_result->close();
+	}
+	$conn->close();
+	return $emails;
+}
+
+function getEmails(){
+	$conn = connect();
+
+	$emails = array();
+	$query = "SELECT user.email FROM (`student` INNER JOIN `student_class` ON student_class.student=student.id INNER JOIN `payment` ON student_class.payment=payment.id INNER JOIN `class` ON student_class.class=class.id INNER JOIN `contact` ON student.contact=contact.id INNER JOIN `user` ON contact.user=user.id) WHERE payment.status='Completed' GROUP BY user.email";
+
+	$sql_result = $conn->query($query);
+	if ($sql_result && $sql_result->num_rows > 0) {
+		while($row = $sql_result->fetch_assoc()) {
+			array_push($emails, $row['email']);
+		}
+		$sql_result->close();
+	}
+	$conn->close();
+	return $emails;
 }
 
 function getUnpaidClassesByContact($contact_id){
