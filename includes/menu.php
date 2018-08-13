@@ -23,7 +23,7 @@
 					About Us
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" style="display:none" href="about/story.php">Our Story</a>
+					<!--a class="dropdown-item" href="about/story.php">Our Story</a-->
 					<a class="dropdown-item" href="about/why.php">Why CDMC</a>
 					<a class="dropdown-item" href="about/crew.php">Our Faculty/Staff</a>
 					<a class="dropdown-item" href="about/studio.php">Our Facility</a>
@@ -58,6 +58,8 @@
 					<a class="dropdown-item" href="classes/contemporary-acro-dance.php">Contemporary &amp; Acro-Dance (10 to adult)</a>
 					<a class="dropdown-item" href="classes/performance-teams.php">Performance Teams (8 to adult)</a>
 					<a class="dropdown-item" href="classes/drop-in.php">Drop-In Classes (6 to adult)</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="aikido.php">Aikido Martial Arts</a>
 				</div>
 			</li>
 			<li class="nav-item dropdown">
@@ -68,7 +70,7 @@
 				</div>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="gallery">Gallery</a>
+				<a class="nav-link" href="gallery.php">Gallery</a>
 			</li>
 		</ul>
 		<ul class="nav justify-content-end">
