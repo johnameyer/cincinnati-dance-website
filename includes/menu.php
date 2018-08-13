@@ -24,9 +24,9 @@
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" style="display:none" href="about/story">Our Story</a>
-					<a class="dropdown-item" href="about/why">Why CDMC</a>
-					<a class="dropdown-item" href="about/crew">Our Faculty/Staff</a>
-					<a class="dropdown-item" href="about/studio">Our Facility</a>
+					<a class="dropdown-item" href="about/why.php">Why CDMC</a>
+					<a class="dropdown-item" href="about/crew.php">Our Faculty/Staff</a>
+					<a class="dropdown-item" href="about/studio.php">Our Facility</a>
 				</div>
 			</li>
 			<li class="nav-item">
@@ -51,13 +51,14 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="classes/">All</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="classes/preschool">Preschool (ages 2 to 6)</a>
-					<a class="dropdown-item" href="classes/ballet">Ballet & Pointe (6 to adult)</a>
-					<a class="dropdown-item" href="classes/tap">Tap (6 to adult)</a>
-					<a class="dropdown-item" href="classes/jazz-hip-hop">Jazz &amp; Hip-Hop (5 to adult)</a>
-					<a class="dropdown-item" href="classes/contemporary-acro-dance">Contemporary &amp; Acro-Dance (10 to adult)</a>
-					<a class="dropdown-item" href="classes/performance-teams">Performance Teams (8 to adult)</a>
-					<a class="dropdown-item" href="classes/drop-in">Drop-In Classes (6 to adult)</a>
+					<a class="dropdown-item" href="classes/preschool.php">Preschool (ages 2 to 6)</a>
+					<a class="dropdown-item" href="classes/ballet.php">Ballet & Pointe (6 to adult)</a>
+					<a class="dropdown-item" href="classes/tap.php">Tap (6 to adult)</a>
+					<a class="dropdown-item" href="classes/jazz-hip-hop.php">Jazz &amp; Hip-Hop (5 to adult)</a>
+					<a class="dropdown-item" href="classes/contemporary-acro-dance.php">Contemporary &amp; Acro-Dance (10 to adult)</a>
+					<a class="dropdown-item" href="classes/performance-teams.php">Performance Teams (8 to adult)</a>
+					<a class="dropdown-item" href="classes/drop-in.php">Drop-In Classes (6 to adult)</a>
+					<a class="dropdown-item" href="aikido.php">Aikido Martial Arts</a>
 				</div>
 			</li>
 			<li class="nav-item dropdown">
@@ -68,7 +69,7 @@
 				</div>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="gallery">Gallery</a>
+				<a class="nav-link" href="gallery.php">Gallery</a>
 			</li>
 		</ul>
 		<ul class="nav justify-content-end">

@@ -29,7 +29,7 @@ $page = "Calendar";
 
 							<h2>Upcoming Events</h2>
 
-							<div class="text-center">
+							<div class="text-center" style="overflow: scroll;">
 								<iframe src="https://calendar.google.com/calendar/embed?src=4cll8j34qjs5m7m0m81iq5t2sk%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 							</div>
 							<br>
