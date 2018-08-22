@@ -1,16 +1,18 @@
 [
 	{
-		"name": "2018-06-08 CDMC Dress Rehearsal",
+		"name": "Dress Rehearsal 2018-06-08",
 		"credit": "Photos by Ms. Tina",
 		"img": "img/gallery/dress18-06-08/0.jpg",
 		"source": "img/gallery/dress18-06-08/",
-		"link":""
+		"folder":"dress18-06-08",
+		"pattern":"1232132321"
 	},
 	{
-		"name": "2018-07-16 through 2018-07-20 Camp Cabriole",
+		"name": "Camp Cabriole 2018",
 		"credit": "Photos by Ms. Mary Anne",
 		"img": "img/gallery/caribole18-07-20/0.jpg",
 		"source": "img/gallery/caribole18-07-20/",
-		"link":""
+		"folder":"caribole18-07-20",
+		"pattern":"1232132321"
 	}
 ]
