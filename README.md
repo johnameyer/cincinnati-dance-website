@@ -16,8 +16,9 @@ relative paths work correctly.
 
 * [PHP](http://php.net/manual/en/index.php)
 * [Bootstrap 4](https://getbootstrap.com/docs/4.0/)
-* [JQuery](https://api.jquery.com/)
+* [jQuery](https://api.jquery.com/)
 * [PayPal](https://developer.paypal.com/)
+* [jQuery Validation Plugin](https://jqueryvalidation.org/documentation/)
 
 ## Authors
 
